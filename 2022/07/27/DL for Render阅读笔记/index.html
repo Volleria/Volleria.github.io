@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>《Deep Learning for Rendering》阅读笔记 | Volleria 个人博客</title>
+  
+    <link rel="icon" href="/assets/rubbish.png">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Volleria 个人博客" type="application/atom+xml">
+</head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(/assets/back222.png)">
+        <div class='av-pic' style="background-image: url(/assets/header.png)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Volleria 个人博客</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>Home</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>Archive</li>
+            </a>  
+          
+            <a href="/tags/" class="Btn">
+              <li>Tags</li>
+            </a>  
+          
+            <a href="/categories/" class="Btn">
+              <li>Categories</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>About</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+            
+                <a target="_blank" rel="noopener" href="https://github.com/Volleria">
+                    <img src="/assets/GitHub.svg" />
+                </a>
+            
+        
+            
+                <a href="mailto:EKKO0908@outlook.com">
+                    <img src="/assets/E-Mail.svg" />
+                </a>
+            
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>《Deep Learning for Rendering》阅读笔记</h1>
+    </header>
+
+    <section>
+      <p>中科大第九届《计算机图形学前沿》暑期课程</p>
+<p>主讲人：过洁</p>
+<p>原视频地址：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Kf4y157WW?p=17&amp;vd_source=e4b21da575ef85d87ce1b8e9f64ca190">https://www.bilibili.com/video/BV1Kf4y157WW?p=17&amp;vd_source=e4b21da575ef85d87ce1b8e9f64ca190</a></p>
+<span id="more"></span>
+<h3 id="一、渲染"><a href="#一、渲染" class="headerlink" title="一、渲染"></a>一、渲染</h3><p> 场景里的几何、材质、光照等通过一个渲染器，生成一张图片</p>
+<h4 id="几何"><a href="#几何" class="headerlink" title="几何"></a>几何</h4><p>三角网格(传统)、体素、点云</p>
+<img src="https://s2.loli.net/2022/07/26/siXuLP1tWjwrgET.png" alt="image-20220619150852443" style="zoom:67%;" />
+
+<p>三角网格在复杂场景中数据量巨大</p>
+<h4 id="材质"><a href="#材质" class="headerlink" title="材质"></a>材质</h4><p>材质 ≠ 纹理</p>
+<p>描述 光线打到物体上后经过反射、折射等各种交互，出来后的形态各种各样</p>
+<h4 id="光源"><a href="#光源" class="headerlink" title="光源"></a>光源</h4><p>次生光线、递归迭代</p>
+<p>渲染中的某些场景元素(信号)的特点</p>
+<ul>
+<li>高纬度（High dimensionality）</li>
+<li>奇点 （Singularity）</li>
+<li>多模态 （Multi-modality）–网格、体素、点云</li>
+<li>数据量巨大 （Huge data size）</li>
+</ul>
+<p>导致的问题：渲染很困难</p>
+<h3 id="二、深度学习中的渲染"><a href="#二、深度学习中的渲染" class="headerlink" title="二、深度学习中的渲染"></a>二、深度学习中的渲染</h3><h4 id="深度学习中的功能"><a href="#深度学习中的功能" class="headerlink" title="深度学习中的功能"></a>深度学习中的功能</h4><ul>
+<li>处理高纬度和多模态的数据（高纬度可以压缩、多模态可以多模态融合）</li>
+<li>神经网络比某些人手写的公式更好、更快、更鲁棒</li>
+<li>可以在很复杂的问题中探索 low-rank 特征</li>
+</ul>
+<h4 id="深度学习在渲染中的两个角色"><a href="#深度学习在渲染中的两个角色" class="headerlink" title="深度学习在渲染中的两个角色"></a>深度学习在渲染中的两个角色</h4><p>1、深度学习可以学习某种表征来对复杂场景元素进行编码</p>
+<ul>
+<li>对几何材质光源进行抽象</li>
+<li>可在 forward rendering 和 inverse rendering 中使用</li>
+</ul>
+<p>2、学习一个domain到其他domain 的映射函数</p>
+<ul>
+<li>图片到图片</li>
+<li>传统方法是从手工推出的函数</li>
+</ul>
+<h4 id="第一个角色"><a href="#第一个角色" class="headerlink" title="第一个角色"></a>第一个角色</h4><p>学习一个 表示（representation）</p>
+<p>可学习对象：几何、材质、光源、场景</p>
+<h5 id="（1）几何"><a href="#（1）几何" class="headerlink" title="（1）几何"></a>（1）几何</h5><p>用神经网络表示各种各样的几何体</p>
+<p>在场景中表示几何：</p>
+<ul>
+<li>多视角图片</li>
+<li>Signed distance function （SDF）三维重建</li>
+<li>稠密体素</li>
+<li>稀疏体素</li>
+<li>点云</li>
+<li>网格</li>
+<li>……</li>
+</ul>
+<img src="https://s2.loli.net/2022/07/26/ZPLiWTC6mK57Njk.png" alt="image-20220619153326564" style="zoom:80%;" />
+
+
+
+<img src="https://s2.loli.net/2022/07/26/nvHthz87Erx9fUD.png" alt="image-20220619153443878" style="zoom:80%;" />
+
+
+
+<p>用网络去处理 mesh 的很少</p>
+<img src="https://s2.loli.net/2022/07/26/9iJXat7hTjRKyYU.png" alt="image-20220619153520455" style="zoom:80%;" />
+
+
+
+<h5 id="（2）材质"><a href="#（2）材质" class="headerlink" title="（2）材质"></a>（2）材质</h5><p>用神经网络去表示材质</p>
+<p>材质可以抽象成一个函数，包含16个变量（入射、出射光方向、时间）</p>
+<img src="https://s2.loli.net/2022/07/26/ec4HV9loQOugvbp.png" alt="image-20220619153743048" style="zoom: 80%;" />
+
+<ul>
+<li>用经验模型简化材质</li>
+<li>直接采集：<ul>
+<li>密集采样，</li>
+<li>移动相机光源采样、</li>
+<li>将数据保存在一个table里面。</li>
+<li>耗内存、速度慢</li>
+</ul>
+</li>
+</ul>
+<p>措施：压缩、降维</p>
+<p>用深度学习去压缩材质</p>
+<p>DeepBRDF ： </p>
+<img src="https://s2.loli.net/2022/07/26/aAd5OT3LMYKQjeR.png" alt="image-20220619154412703" style="zoom: 80%;" />
+
+<p>latent space ：潜在空间、隐空间</p>
+<p>参考： <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/369946876">https://zhuanlan.zhihu.com/p/369946876</a></p>
+<ul>
+<li>潜在空间只是压缩数据的表示，其中相似的数据点在空间上更靠近在一起。</li>
+<li>潜在空间对于学习数据功能和查找更简单的数据表示形式以进行分析很有用。</li>
+<li>我们可以通过分析潜在空间中的数据（通过流形，聚类等）来了解数据点之间的模式或结构相似性。</li>
+<li>我们可以在潜在空间内插值数据，并使用模型的解码器来“生成”数据样本。</li>
+<li>我们可以使用t-SNE和LLE之类的算法来可视化潜在空间，该算法将我们的潜在空间表示形式转换为2D或3D。</li>
+</ul>
+<p>将 BRDF Slice作为输入</p>
+<img src="https://s2.loli.net/2022/07/26/ujit8nwPaBczkpy.png" alt="image-20220619154908240" style="zoom:80%;" />
+
+<p>BRDF 不考虑材质的表面变化，若考虑表面变化还有一些光照效果等，我们采用 BTF</p>
+<p>BTF： Bidirectional Texture Function</p>
+<img src="https://s2.loli.net/2022/07/26/AsGQZ5ESu2Kw4Vx.png" alt="image-20220619155652279" style="zoom:80%;" />
+
+<p>对 SVBRDF 进行压缩</p>
+<p><img src="https://s2.loli.net/2022/07/26/t5hyQjx6GVYLmBz.png" alt="image-20220619163330460"></p>
+<img src="https://s2.loli.net/2022/07/26/Edkq21cTwmauA6U.png" alt="image-20220619163830172" style="zoom:80%;" />
+
+<p>用神经网络去压缩材质空间，这个工作远没有结束</p>
+<p><strong>【三维体素型材质】</strong>：玉石、烟雾、半透明物体</p>
+<img src="https://s2.loli.net/2022/07/26/Ww7fTkAgjhUPlDL.png" alt="image-20220619163930515" style="zoom:80%;" />
+
+
+
+<p>借鉴风格迁移</p>
+<img src="https://s2.loli.net/2022/07/26/oVrcLBdASTzpWy9.png" alt="image-20220619164041610" style="zoom:80%;" />
+
+<p>只是风格相似，不一定是完全match</p>
+<img src="https://s2.loli.net/2022/07/26/JQPgB89dzIsfnWR.png" alt="image-20220619164444074" style="zoom:80%;" />
+
+<p>对于任何一张图片，可以抽取其风格，然后迁移到三维物体上</p>
+<h5 id="（3）用神经网络表示光源"><a href="#（3）用神经网络表示光源" class="headerlink" title="（3）用神经网络表示光源"></a>（3）用神经网络表示光源</h5><p><img src="https://s2.loli.net/2022/07/26/stSf6JbiqdkVARc.png" alt="image-20220619164521562"></p>
+<p>环境光也是一种高维信号，同样的思想，采用神经网络去压缩，压缩形成的latent space并不是用于渲染，而是用于光照估计。</p>
+<img src="https://s2.loli.net/2022/07/26/SNwBvZG1YWsFq48.png" alt="image-20220619164717253" style="zoom:80%;" />
+
+<p>先用神经网路抽取一个室外全景图的latent space，可以用于光照估计，输入一张图，去预测光照，先预测latent code，然后再用decode去恢复这张环境图。</p>
+<p>应用：把虚拟物体插入到真实环境下</p>
+<img src="https://s2.loli.net/2022/07/26/W3BxpHyi4NdASTm.png" alt="image-20220619164957649" style="zoom:80%;" />
+
+
+
+<p>这项工作在深度学习里有个非常重要的思想：disentanglement</p>
+<p>刚才讲到是室外光，那么室内光是否也可以用auto-encode、GAN等进行压缩？</p>
+<p>答案是不行，室内光过于复杂，难以压缩。</p>
+<img src="https://s2.loli.net/2022/07/26/A9wceK8X34Ms7EJ.png" alt="image-20220619165815866" style="zoom:80%;" />
+
+<p>该项工作把光源压缩到一个神经网络上</p>
+<h5 id="（4）场景"><a href="#（4）场景" class="headerlink" title="（4）场景"></a>（4）场景</h5><p>那么是否可以直接对整个场景，不分几何材质光照，进行压缩？</p>
+<p> <strong>Neural scene</strong></p>
+<p><img src="https://s2.loli.net/2022/07/26/pCl8LxNBkGfgwFj.png" alt="image-20220619170013686"></p>
+<p>限制：容易丢失细节</p>
+<h4 id="第二个角色：-Mapping-映射"><a href="#第二个角色：-Mapping-映射" class="headerlink" title="第二个角色： Mapping 映射"></a>第二个角色： Mapping 映射</h4><p>从一个 domain 到另一个 domain</p>
+<img src="https://s2.loli.net/2022/07/26/bnFoW63Sc5E8TYm.png" alt="image-20220619170931536" style="zoom:80%;" />
+
+<ul>
+<li>去噪</li>
+<li>超分</li>
+<li>直接光—间接光</li>
+<li>渲染图片—材质贴图</li>
+</ul>
+<h5 id="（1）去噪"><a href="#（1）去噪" class="headerlink" title="（1）去噪"></a>（1）去噪</h5><p><img src="https://s2.loli.net/2022/07/26/SprU5tKHXZAwLDx.png" alt="image-20220619171826353"></p>
+<ul>
+<li>漫反射-镜面反射的分解</li>
+<li>G-buffer</li>
+<li>无限的训练样本（理论上）</li>
+<li>解调 Demodulation （图象 &#x2F; albedo）</li>
+</ul>
+<p>在无监督去噪中，loss是关键</p>
+<img src="https://s2.loli.net/2022/07/26/LxShwJz81ZV523B.png" alt="image-20220619172234941" style="zoom:80%;" />
+
+
+
+<h5 id="（2）超分"><a href="#（2）超分" class="headerlink" title="（2）超分"></a>（2）超分</h5><p>典例：DLSS、Neual SS</p>
+<p><img src="https://s2.loli.net/2022/07/26/KzS6Nf3WbpeGrwk.png" alt="image-20220619172322173"></p>
+<p><img src="https://s2.loli.net/2022/07/26/sBYl1rdX8ZzP59Q.png" alt="image-20220619172333668"></p>
+<h5 id="（3）从直接光照预测间接光照"><a href="#（3）从直接光照预测间接光照" class="headerlink" title="（3）从直接光照预测间接光照"></a>（3）从直接光照预测间接光照</h5><img src="https://s2.loli.net/2022/07/26/CE6QdXzFxOZi2pr.png" alt="image-20220619172447406" style="zoom:80%;" />
+
+<p>该方向的研究较少</p>
+<p>直接光照很快，间接光照很慢</p>
+<h5 id="（4）从渲染图片出发，反推场景元素"><a href="#（4）从渲染图片出发，反推场景元素" class="headerlink" title="（4）从渲染图片出发，反推场景元素"></a>（4）从渲染图片出发，反推场景元素</h5><p><img src="https://s2.loli.net/2022/07/26/wedM7pWRiGBCVg8.png" alt="image-20220619172605439"></p>
+<p>从单张图片恢复 各种光照贴图，对于光泽效果的呈现尤为重要</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2022-07-27T09:47:18.087Z" itemprop="datePublished">
+              2022-07-27
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/CG/">CG</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2022 - EKKO </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>
