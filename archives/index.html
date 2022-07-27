@@ -1,22 +1,34 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Volleria 个人博客</title>
-  
-    <link rel="icon" href="/assets/rubbish.png">
-  
-  
-  
-  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
-  
-<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+    
+    <title>Archive - Volleria 个人博客</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
 
-  
-<link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Volleria 个人博客">
+<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:site_name" content="Volleria 个人博客">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="EKKO">
+<meta name="twitter:card" content="summary">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1658927302965">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1658927302965">
+    
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -24,332 +36,476 @@
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Volleria 个人博客" type="application/atom+xml">
 </head>
 
-<body>
-<div class="Shell">
-    <aside class='SideBar'>
-    <section class='avatar' style="background-image: url(/assets/back222.png)">
-        <div class='av-pic' style="background-image: url(/assets/header.png)">
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="EKKO" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="EKKO"></a>
+            </div>
         </div>
-    </section>
-    <section class='menu'>
-        <div>Volleria 个人博客</div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="EKKO">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="EKKO" alt="EKKO">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>7</div>
+        <div><span>Tags</span>7</div>
+        <div><span>Categories</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
-        <ul>
-          
-            <a href="/" class="Btn">
-              <li>Home</li>
-            </a>  
-          
-            <a href="/archives/" class="Btn">
-              <li>Archive</li>
-            </a>  
-          
-            <a href="/tags/" class="Btn">
-              <li>Tags</li>
-            </a>  
-          
-            <a href="/categories/" class="Btn">
-              <li>Categories</li>
-            </a>  
-          
-            <a href="/about/" class="Btn">
-              <li>About</li>
-            </a>  
-          
-        </ul>
-    </section>
-    <section class="media">
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
         
-            
-                <a target="_blank" rel="noopener" href="https://github.com/Volleria">
-                    <img src="/assets/GitHub.svg" />
-                </a>
-            
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
         
-            
-                <a href="mailto:EKKO0908@outlook.com">
-                    <img src="/assets/E-Mail.svg" />
-                </a>
-            
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
         
-    </section>
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=5CfKHun" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Categories</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/CG/">CG</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/CV/">CV</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Shader学习/">Shader学习</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Unity/">Unity</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/CG/" style="font-size: 10px;">CG</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Shader/" style="font-size: 10px;">Shader</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">笔记</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" style="font-size: 10px;">网络爬虫</a>
+    </div>
+    
+  </div>
+
+    
+    <!-- 一言 -->
+
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">
+      Hitokoto
+    </h3>
+    <div class="nexmoe-widget">
+      <ul class="hitokoto-box">
+        <li id="hitokoto_text_parent" class="hitokoto-text" hitokotoCategory="">
+          <a href="#" id="hitokoto_text">
+            
+          </a>
+          <a href="#" id="hitokoto_error_text" style="display: none;">
+            
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    let hitokotoText = document.getElementById('hitokoto_text')
+    let hitokotoErroText = document.getElementById('hitokoto_error_text')
+    let hitokotoCategory = document.getElementById('hitokoto_text_parent').getAttribute('hitokotoCategory')
+    window.onload = function () {
+      let url = 'https://v1.hitokoto.cn'
+      if (hitokotoCategory) {
+        url += '?c=' + hitokotoCategory
+      }
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          hitokotoText.innerText = "「 " + data.hitokoto + " 」 from " + data.from
+          hitokotoText.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+        })
+        .catch((reason) => {
+          console.error(11, reason)
+          hitokotoText.style.display = 'none'
+          hitokotoErroText.style.display = 'block'
+        })
+    }
+  </script>
+  
+    
 </aside>
-
-    <div class="container">
-        <div data-pager-shell>
-            <div class="Archives">
-  
-  
-  
+    <div class="nexmoe-copyright">
+        &copy; 2022 EKKO
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <section class="nexmoe-posts">
     
-    <section class="TimeSection">
-    <h1 class="time-section-year">
-        2022
-    </h1>
-    <ul class="time-section-list">
-      
-      
-        <li>
-            <a href="/2022/07/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/">
-                <h2>计算机网络爬虫</h2>
-            </a>
-            <div class='ListMeta'>
-  <time datetime="2022-07-27T09:47:18.113Z" itemprop="datePublished">
-    2022-07-27
-  </time>
-  
-  | 
-  <ul>
+    <div class="nexmoe-post">
+        <a href="/2022/07/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" alt="计算机网络爬虫" loading="lazy">
+                    <h1>计算机网络爬虫</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2022年07月27日</a>
+            
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/Unity/">Unity</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Unity/" rel="tag">Unity</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>
+            
+        </div>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     
-  <li class="meta-text">
-  { <a href="/tags/Unity/">Unity</a> }
-  </li>
-
-  <li class="meta-text">
-  { <a href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a> }
-  </li>
-
-
-  </ul>
-  
-  
-  / 
-  <ul>
+        <a><i class="nexmoefont icon-areachart"></i>约2.5k字</a>
+        <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要10分钟</a>
     
-  <li class="meta-text">
-  { <a href="/categories/Unity/">Unity</a> }
-  </li>
-
-
-  </ul>
-  
 </div>
 
-        </li>
-      
-        <li>
-            <a href="/2022/07/27/%E6%B0%B4%E5%A2%A8%E9%A3%8E%E6%A0%BCshader/">
-                <h2>简单水墨风格Shader</h2>
-            </a>
-            <div class='ListMeta'>
-  <time datetime="2022-07-27T09:47:18.100Z" itemprop="datePublished">
-    2022-07-27
-  </time>
-  
-  | 
-  <ul>
+        <article>
+            <h3 id="一、基本信息"><a href="#一、基本信息" class="headerlink" title="一、基本信息"></a>一、基本信息</h3><p>（略）</p>
+<h3 id="二、实验目的"><a href="#二、实验目的" class="headerlink" title="二、实验目的"></a>二、实验目的</h3><p>要求学生掌握Socket编程技术及令牌总线协议工作过程</p>
+<p>$$<br>&#x2F;<br>$$</p>
+        </article>
+    </div>
     
-  <li class="meta-text">
-  { <a href="/tags/Unity/">Unity</a> }
-  </li>
+    <div class="nexmoe-post">
+        <a href="/2022/07/27/%E6%B0%B4%E5%A2%A8%E9%A3%8E%E6%A0%BCshader/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" alt="简单水墨风格Shader" loading="lazy">
+                    <h1>简单水墨风格Shader</h1>
+                </div>
+            
+        </a>
 
-  <li class="meta-text">
-  { <a href="/tags/Shader/">Shader</a> }
-  </li>
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2022年07月27日</a>
+            
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/Shader%E5%AD%A6%E4%B9%A0/">Shader学习</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Shader/" rel="tag">Shader</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Unity/" rel="tag">Unity</a>
+            
+        </div>
 
-
-  </ul>
-  
-  
-  / 
-  <ul>
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     
-  <li class="meta-text">
-  { <a href="/categories/Shader%E5%AD%A6%E4%B9%A0/">Shader学习</a> }
-  </li>
-
-
-  </ul>
-  
+        <a><i class="nexmoefont icon-areachart"></i>约981字</a>
+        <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要4分钟</a>
+    
 </div>
 
-        </li>
-      
-        <li>
-            <a href="/2022/07/27/%E6%9A%97%E9%80%9A%E9%81%93%E5%8E%BB%E9%9B%BE%E5%8F%8A%E4%B8%A4%E7%A7%8D%E8%B6%85%E5%88%86%E7%AE%97%E6%B3%95%E7%9A%84%E7%AE%80%E5%8D%95%E5%AF%B9%E6%AF%94/">
-                <h2>暗通道去雾及两种超分算法的简单对比</h2>
-            </a>
-            <div class='ListMeta'>
-  <time datetime="2022-07-27T09:47:18.098Z" itemprop="datePublished">
-    2022-07-27
-  </time>
-  
-  | 
-  <ul>
+        <article>
+            <h5 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a><strong>效果图</strong></h5><p><img src="https://s2.loli.net/2022/07/25/cwRglNjD6TOJZVk.png" alt="image-20220414191627658.png"></p>
+        </article>
+    </div>
     
-  <li class="meta-text">
-  { <a href="/tags/CV/">CV</a> }
-  </li>
+    <div class="nexmoe-post">
+        <a href="/2022/07/27/%E6%9A%97%E9%80%9A%E9%81%93%E5%8E%BB%E9%9B%BE%E5%8F%8A%E4%B8%A4%E7%A7%8D%E8%B6%85%E5%88%86%E7%AE%97%E6%B3%95%E7%9A%84%E7%AE%80%E5%8D%95%E5%AF%B9%E6%AF%94/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" alt="暗通道去雾及两种超分算法的简单对比" loading="lazy">
+                    <h1>暗通道去雾及两种超分算法的简单对比</h1>
+                </div>
+            
+        </a>
 
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2022年07月27日</a>
+            
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/CV/">CV</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -none-link" href="/tags/CV/" rel="tag">CV</a>
+            
+        </div>
 
-  </ul>
-  
-  
-  / 
-  <ul>
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     
-  <li class="meta-text">
-  { <a href="/categories/CV/">CV</a> }
-  </li>
-
-
-  </ul>
-  
+        <a><i class="nexmoefont icon-areachart"></i>约4.8k字</a>
+        <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要19分钟</a>
+    
 </div>
 
-        </li>
-      
-        <li>
-            <a href="/2022/07/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/">
-                <h2>基于Unity和MySQL的数据库课设</h2>
-            </a>
-            <div class='ListMeta'>
-  <time datetime="2022-07-27T09:47:18.096Z" itemprop="datePublished">
-    2022-07-27
-  </time>
-  
-  | 
-  <ul>
+        <article>
+            <h2 id="Ⅰ、暗通道先验图像去雾霾"><a href="#Ⅰ、暗通道先验图像去雾霾" class="headerlink" title="Ⅰ、暗通道先验图像去雾霾"></a>Ⅰ、暗通道先验图像去雾霾</h2><p>参考论文：K. He, J. Sun and X. Tang, “Single Image Haze Removal Using Dark Channel Prior,” in IEEE  Transactions on Pattern Analysis and Machine Intelligence, vol. 33, no. 12, pp. 2341-2353,  Dec. 2011.</p>
+<p>阅读地址：<a target="_blank" rel="noopener" href="https://readpaper.com/pdf-annotate/note?noteId=696733953373192192&amp;pdfId=4531190175211610113">https://readpaper.com/pdf-annotate/note?noteId=696733953373192192&amp;pdfId=4531190175211610113</a></p>
+        </article>
+    </div>
     
-  <li class="meta-text">
-  { <a href="/tags/Unity/">Unity</a> }
-  </li>
+    <div class="nexmoe-post">
+        <a href="/2022/07/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" alt="基于Unity和MySQL的数据库课设" loading="lazy">
+                    <h1>基于Unity和MySQL的数据库课设</h1>
+                </div>
+            
+        </a>
 
-  <li class="meta-text">
-  { <a href="/tags/MySQL/">MySQL</a> }
-  </li>
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2022年07月27日</a>
+            
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/Unity/">Unity</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -none-link" href="/tags/MySQL/" rel="tag">MySQL</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Unity/" rel="tag">Unity</a>
+            
+        </div>
 
-
-  </ul>
-  
-  
-  / 
-  <ul>
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     
-  <li class="meta-text">
-  { <a href="/categories/Unity/">Unity</a> }
-  </li>
-
-
-  </ul>
-  
+        <a><i class="nexmoefont icon-areachart"></i>约7.7k字</a>
+        <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要40分钟</a>
+    
 </div>
 
-        </li>
-      
-        <li>
-            <a href="/2022/07/27/%E5%A5%87%E5%BC%82%E5%8D%9A%E5%A3%AB%E4%BC%A0%E9%80%81%E9%97%A8/">
-                <h2>传送门特效及实现</h2>
-            </a>
-            <div class='ListMeta'>
-  <time datetime="2022-07-27T09:47:18.094Z" itemprop="datePublished">
-    2022-07-27
-  </time>
-  
-  | 
-  <ul>
+        <article>
+            <p>(前排提示:为了凑字数导致内容较水)</p>
+<h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><p>本实验采用的数据库为MySQL数据库，其具有体积小、速度快等优点。本实验的GUI部分采用Unity3D引擎制作，通过编写C#脚本挂载到Unity引擎中，实现了Unity与MySQL之间的连接。在完成基础实验一至五的前提上，依照要求实现了一个小型书籍信息管理系统 ，具有增删改查等基本功能，同时还可以根据一定要求进行排序，并且创建了两个图表对数据信息进行汇总，便于后续分析。</p>
+<h4 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h4><p>MySQL、Unity、、C#、书籍信息管理</p>
+        </article>
+    </div>
     
-  <li class="meta-text">
-  { <a href="/tags/Unity/">Unity</a> }
-  </li>
+    <div class="nexmoe-post">
+        <a href="/2022/07/27/%E5%A5%87%E5%BC%82%E5%8D%9A%E5%A3%AB%E4%BC%A0%E9%80%81%E9%97%A8/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" alt="传送门特效及实现" loading="lazy">
+                    <h1>传送门特效及实现</h1>
+                </div>
+            
+        </a>
 
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2022年07月27日</a>
+            
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/Unity/">Unity</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Unity/" rel="tag">Unity</a>
+            
+        </div>
 
-  </ul>
-  
-  
-  / 
-  <ul>
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     
-  <li class="meta-text">
-  { <a href="/categories/Unity/">Unity</a> }
-  </li>
-
-
-  </ul>
-  
+        <a><i class="nexmoefont icon-areachart"></i>约1.1k字</a>
+        <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要4分钟</a>
+    
 </div>
 
-        </li>
-      
-        <li>
-            <a href="/2022/07/27/DL%20for%20Render%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
-                <h2>《Deep Learning for Rendering》阅读笔记</h2>
-            </a>
-            <div class='ListMeta'>
-  <time datetime="2022-07-27T09:47:18.087Z" itemprop="datePublished">
-    2022-07-27
-  </time>
-  
-  | 
-  <ul>
+        <article>
+            <h4 id="一、传送门特效"><a href="#一、传送门特效" class="headerlink" title="一、传送门特效"></a>一、传送门特效</h4><h5 id="1、使用组件"><a href="#1、使用组件" class="headerlink" title="1、使用组件"></a>1、使用组件</h5><p>采用Unity内置渲染管线中的Particle System制作</p>
+<h5 id="2、实现思路"><a href="#2、实现思路" class="headerlink" title="2、实现思路"></a>2、实现思路</h5><p>（1）首先创建四个圆球用于特效的定位，并且采用动画效果使其分散并旋转。</p>
+        </article>
+    </div>
     
-  <li class="meta-text">
-  { <a href="/tags/CG/">CG</a> }
-  </li>
+    <div class="nexmoe-post">
+        <a href="/2022/07/27/DL%20for%20Render%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" alt="《Deep Learning for Rendering》阅读笔记" loading="lazy">
+                    <h1>《Deep Learning for Rendering》阅读笔记</h1>
+                </div>
+            
+        </a>
 
-  <li class="meta-text">
-  { <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a> }
-  </li>
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2022年07月27日</a>
+            
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/CG/">CG</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -none-link" href="/tags/CG/" rel="tag">CG</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a>
+            
+        </div>
 
-
-  </ul>
-  
-  
-  / 
-  <ul>
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     
-  <li class="meta-text">
-  { <a href="/categories/CG/">CG</a> }
-  </li>
-
-
-  </ul>
-  
+        <a><i class="nexmoefont icon-areachart"></i>约1.3k字</a>
+        <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要4分钟</a>
+    
 </div>
 
-        </li>
-      
-        <li>
-            <a href="/2022/07/27/hello-world/">
-                <h2>Hello World</h2>
-            </a>
-            <div class='ListMeta'>
-  <time datetime="2022-07-27T09:40:11.532Z" itemprop="datePublished">
-    2022-07-27
-  </time>
-  
-  
+        <article>
+            <p>中科大第九届《计算机图形学前沿》暑期课程</p>
+<p>主讲人：过洁</p>
+<p>原视频地址：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Kf4y157WW?p=17&amp;vd_source=e4b21da575ef85d87ce1b8e9f64ca190">https://www.bilibili.com/video/BV1Kf4y157WW?p=17&amp;vd_source=e4b21da575ef85d87ce1b8e9f64ca190</a></p>
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2022/07/27/hello-world/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" alt="Hello World" loading="lazy">
+                    <h1>Hello World</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2022年07月27日</a>
+            
+            
+        </div>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    
+        <a><i class="nexmoefont icon-areachart"></i>约76字</a>
+        <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要1分钟</a>
+    
 </div>
 
-        </li>
-      
-    </ul>
+        <article>
+            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
+        </article>
+    </div>
+    
 </section>
 
-  
-</div>
-            <footer>
-    <div>© 2022 - EKKO </div>
-    <div>
-        <span>
-            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
-        </span>
-        ,
-        <span>
-            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
-        </span>
-    </div>
-</footer>
-
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
         </div>
     </div>
-</div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="Search" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
 
-<script src="/js/pager/dist/singlepager.js"></script>
+    
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
+
+
+ 
+
+<script async src="/js/app.js?v=1658927302966"></script>
+
+
 
 <script>
-var sp = new Pager('data-pager-shell')
-
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
 </script>
+
+
+    
+
+
+
+
+
 </body>
+
 </html>

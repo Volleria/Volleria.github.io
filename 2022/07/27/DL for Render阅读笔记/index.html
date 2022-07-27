@@ -1,22 +1,66 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>《Deep Learning for Rendering》阅读笔记 | Volleria 个人博客</title>
-  
-    <link rel="icon" href="/assets/rubbish.png">
-  
-  
-  
-  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
-  
-<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+    
+    <title>《Deep Learning for Rendering》阅读笔记 - Volleria 个人博客</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
 
-  
-<link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="中科大第九届《计算机图形学前沿》暑期课程 主讲人：过洁 原视频地址：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1Kf4y157WW?p&#x3D;17&amp;vd_source&#x3D;e4b21da575ef85d87ce1b8e9f64ca190">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Deep Learning for Rendering》阅读笔记">
+<meta property="og:url" content="http://example.com/2022/07/27/DL%20for%20Render%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Volleria 个人博客">
+<meta property="og:description" content="中科大第九届《计算机图形学前沿》暑期课程 主讲人：过洁 原视频地址：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1Kf4y157WW?p&#x3D;17&amp;vd_source&#x3D;e4b21da575ef85d87ce1b8e9f64ca190">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/siXuLP1tWjwrgET.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/ZPLiWTC6mK57Njk.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/nvHthz87Erx9fUD.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/9iJXat7hTjRKyYU.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/ec4HV9loQOugvbp.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/aAd5OT3LMYKQjeR.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/ujit8nwPaBczkpy.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/AsGQZ5ESu2Kw4Vx.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/t5hyQjx6GVYLmBz.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/Edkq21cTwmauA6U.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/Ww7fTkAgjhUPlDL.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/oVrcLBdASTzpWy9.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/JQPgB89dzIsfnWR.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/stSf6JbiqdkVARc.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/SNwBvZG1YWsFq48.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/W3BxpHyi4NdASTm.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/A9wceK8X34Ms7EJ.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/pCl8LxNBkGfgwFj.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/bnFoW63Sc5E8TYm.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/SprU5tKHXZAwLDx.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/LxShwJz81ZV523B.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/KzS6Nf3WbpeGrwk.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/sBYl1rdX8ZzP59Q.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/CE6QdXzFxOZi2pr.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/wedM7pWRiGBCVg8.png">
+<meta property="article:published_time" content="2022-07-27T09:47:18.087Z">
+<meta property="article:modified_time" content="2022-07-26T04:11:49.393Z">
+<meta property="article:author" content="EKKO">
+<meta property="article:tag" content="CG">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/07/26/siXuLP1tWjwrgET.png">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1658927302963">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1658927302963">
+    
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -24,73 +68,219 @@
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Volleria 个人博客" type="application/atom+xml">
 </head>
 
-<body>
-<div class="Shell">
-    <aside class='SideBar'>
-    <section class='avatar' style="background-image: url(/assets/back222.png)">
-        <div class='av-pic' style="background-image: url(/assets/header.png)">
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="EKKO" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="EKKO"></a>
+            </div>
         </div>
-    </section>
-    <section class='menu'>
-        <div>Volleria 个人博客</div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="EKKO">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="EKKO" alt="EKKO">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>7</div>
+        <div><span>Tags</span>7</div>
+        <div><span>Categories</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
-        <ul>
-          
-            <a href="/" class="Btn">
-              <li>Home</li>
-            </a>  
-          
-            <a href="/archives/" class="Btn">
-              <li>Archive</li>
-            </a>  
-          
-            <a href="/tags/" class="Btn">
-              <li>Tags</li>
-            </a>  
-          
-            <a href="/categories/" class="Btn">
-              <li>Categories</li>
-            </a>  
-          
-            <a href="/about/" class="Btn">
-              <li>About</li>
-            </a>  
-          
-        </ul>
-    </section>
-    <section class="media">
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
         
-            
-                <a target="_blank" rel="noopener" href="https://github.com/Volleria">
-                    <img src="/assets/GitHub.svg" />
-                </a>
-            
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
         
-            
-                <a href="mailto:EKKO0908@outlook.com">
-                    <img src="/assets/E-Mail.svg" />
-                </a>
-            
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
         
-    </section>
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=5CfKHun" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Categories</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/CG/">CG</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/CV/">CV</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Shader学习/">Shader学习</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Unity/">Unity</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/CG/" style="font-size: 10px;">CG</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Shader/" style="font-size: 10px;">Shader</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">笔记</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" style="font-size: 10px;">网络爬虫</a>
+    </div>
+    
+  </div>
+
+    
+    <!-- 一言 -->
+
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">
+      Hitokoto
+    </h3>
+    <div class="nexmoe-widget">
+      <ul class="hitokoto-box">
+        <li id="hitokoto_text_parent" class="hitokoto-text" hitokotoCategory="">
+          <a href="#" id="hitokoto_text">
+            
+          </a>
+          <a href="#" id="hitokoto_error_text" style="display: none;">
+            
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    let hitokotoText = document.getElementById('hitokoto_text')
+    let hitokotoErroText = document.getElementById('hitokoto_error_text')
+    let hitokotoCategory = document.getElementById('hitokoto_text_parent').getAttribute('hitokotoCategory')
+    window.onload = function () {
+      let url = 'https://v1.hitokoto.cn'
+      if (hitokotoCategory) {
+        url += '?c=' + hitokotoCategory
+      }
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          hitokotoText.innerText = "「 " + data.hitokoto + " 」 from " + data.from
+          hitokotoText.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+        })
+        .catch((reason) => {
+          console.error(11, reason)
+          hitokotoText.style.display = 'none'
+          hitokotoErroText.style.display = 'block'
+        })
+    }
+  </script>
+  
+    
 </aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 EKKO
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
 
-    <div class="container">
-        <div data-pager-shell>
-            <div>
-  <article class='ContentView'>
-    <header class='PageTitle'>
-        <h1>《Deep Learning for Rendering》阅读笔记</h1>
-    </header>
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+              <img data-fancybox="gallery" src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" alt="《Deep Learning for Rendering》阅读笔记" loading="lazy">
+              <h1>《Deep Learning for Rendering》阅读笔记</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年07月27日</a>
+</div>
 
-    <section>
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    
+        <a><i class="nexmoefont icon-areachart"></i>约1.3k字</a>
+        <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要4分钟</a>
+    
+</div>
+
       <p>中科大第九届《计算机图形学前沿》暑期课程</p>
 <p>主讲人：过洁</p>
 <p>原视频地址：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Kf4y157WW?p=17&amp;vd_source=e4b21da575ef85d87ce1b8e9f64ca190">https://www.bilibili.com/video/BV1Kf4y157WW?p=17&amp;vd_source=e4b21da575ef85d87ce1b8e9f64ca190</a></p>
 <span id="more"></span>
 <h3 id="一、渲染"><a href="#一、渲染" class="headerlink" title="一、渲染"></a>一、渲染</h3><p> 场景里的几何、材质、光照等通过一个渲染器，生成一张图片</p>
 <h4 id="几何"><a href="#几何" class="headerlink" title="几何"></a>几何</h4><p>三角网格(传统)、体素、点云</p>
-<img src="https://s2.loli.net/2022/07/26/siXuLP1tWjwrgET.png" alt="image-20220619150852443" style="zoom:67%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/siXuLP1tWjwrgET.png" alt="image-20220619150852443" data-caption="image-20220619150852443" loading="lazy">
 
 <p>三角网格在复杂场景中数据量巨大</p>
 <h4 id="材质"><a href="#材质" class="headerlink" title="材质"></a>材质</h4><p>材质 ≠ 纹理</p>
@@ -132,22 +322,22 @@
 <li>网格</li>
 <li>……</li>
 </ul>
-<img src="https://s2.loli.net/2022/07/26/ZPLiWTC6mK57Njk.png" alt="image-20220619153326564" style="zoom:80%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/ZPLiWTC6mK57Njk.png" alt="image-20220619153326564" data-caption="image-20220619153326564" loading="lazy">
 
 
 
-<img src="https://s2.loli.net/2022/07/26/nvHthz87Erx9fUD.png" alt="image-20220619153443878" style="zoom:80%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/nvHthz87Erx9fUD.png" alt="image-20220619153443878" data-caption="image-20220619153443878" loading="lazy">
 
 
 
 <p>用网络去处理 mesh 的很少</p>
-<img src="https://s2.loli.net/2022/07/26/9iJXat7hTjRKyYU.png" alt="image-20220619153520455" style="zoom:80%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/9iJXat7hTjRKyYU.png" alt="image-20220619153520455" data-caption="image-20220619153520455" loading="lazy">
 
 
 
 <h5 id="（2）材质"><a href="#（2）材质" class="headerlink" title="（2）材质"></a>（2）材质</h5><p>用神经网络去表示材质</p>
 <p>材质可以抽象成一个函数，包含16个变量（入射、出射光方向、时间）</p>
-<img src="https://s2.loli.net/2022/07/26/ec4HV9loQOugvbp.png" alt="image-20220619153743048" style="zoom: 80%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/ec4HV9loQOugvbp.png" alt="image-20220619153743048" data-caption="image-20220619153743048" loading="lazy">
 
 <ul>
 <li>用经验模型简化材质</li>
@@ -162,7 +352,7 @@
 <p>措施：压缩、降维</p>
 <p>用深度学习去压缩材质</p>
 <p>DeepBRDF ： </p>
-<img src="https://s2.loli.net/2022/07/26/aAd5OT3LMYKQjeR.png" alt="image-20220619154412703" style="zoom: 80%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/aAd5OT3LMYKQjeR.png" alt="image-20220619154412703" data-caption="image-20220619154412703" loading="lazy">
 
 <p>latent space ：潜在空间、隐空间</p>
 <p>参考： <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/369946876">https://zhuanlan.zhihu.com/p/369946876</a></p>
@@ -174,51 +364,51 @@
 <li>我们可以使用t-SNE和LLE之类的算法来可视化潜在空间，该算法将我们的潜在空间表示形式转换为2D或3D。</li>
 </ul>
 <p>将 BRDF Slice作为输入</p>
-<img src="https://s2.loli.net/2022/07/26/ujit8nwPaBczkpy.png" alt="image-20220619154908240" style="zoom:80%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/ujit8nwPaBczkpy.png" alt="image-20220619154908240" data-caption="image-20220619154908240" loading="lazy">
 
 <p>BRDF 不考虑材质的表面变化，若考虑表面变化还有一些光照效果等，我们采用 BTF</p>
 <p>BTF： Bidirectional Texture Function</p>
-<img src="https://s2.loli.net/2022/07/26/AsGQZ5ESu2Kw4Vx.png" alt="image-20220619155652279" style="zoom:80%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/AsGQZ5ESu2Kw4Vx.png" alt="image-20220619155652279" data-caption="image-20220619155652279" loading="lazy">
 
 <p>对 SVBRDF 进行压缩</p>
-<p><img src="https://s2.loli.net/2022/07/26/t5hyQjx6GVYLmBz.png" alt="image-20220619163330460"></p>
-<img src="https://s2.loli.net/2022/07/26/Edkq21cTwmauA6U.png" alt="image-20220619163830172" style="zoom:80%;" />
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/t5hyQjx6GVYLmBz.png" alt="image-20220619163330460" data-caption="image-20220619163330460" loading="lazy"></p>
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/Edkq21cTwmauA6U.png" alt="image-20220619163830172" data-caption="image-20220619163830172" loading="lazy">
 
 <p>用神经网络去压缩材质空间，这个工作远没有结束</p>
 <p><strong>【三维体素型材质】</strong>：玉石、烟雾、半透明物体</p>
-<img src="https://s2.loli.net/2022/07/26/Ww7fTkAgjhUPlDL.png" alt="image-20220619163930515" style="zoom:80%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/Ww7fTkAgjhUPlDL.png" alt="image-20220619163930515" data-caption="image-20220619163930515" loading="lazy">
 
 
 
 <p>借鉴风格迁移</p>
-<img src="https://s2.loli.net/2022/07/26/oVrcLBdASTzpWy9.png" alt="image-20220619164041610" style="zoom:80%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/oVrcLBdASTzpWy9.png" alt="image-20220619164041610" data-caption="image-20220619164041610" loading="lazy">
 
 <p>只是风格相似，不一定是完全match</p>
-<img src="https://s2.loli.net/2022/07/26/JQPgB89dzIsfnWR.png" alt="image-20220619164444074" style="zoom:80%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/JQPgB89dzIsfnWR.png" alt="image-20220619164444074" data-caption="image-20220619164444074" loading="lazy">
 
 <p>对于任何一张图片，可以抽取其风格，然后迁移到三维物体上</p>
-<h5 id="（3）用神经网络表示光源"><a href="#（3）用神经网络表示光源" class="headerlink" title="（3）用神经网络表示光源"></a>（3）用神经网络表示光源</h5><p><img src="https://s2.loli.net/2022/07/26/stSf6JbiqdkVARc.png" alt="image-20220619164521562"></p>
+<h5 id="（3）用神经网络表示光源"><a href="#（3）用神经网络表示光源" class="headerlink" title="（3）用神经网络表示光源"></a>（3）用神经网络表示光源</h5><p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/stSf6JbiqdkVARc.png" alt="image-20220619164521562" data-caption="image-20220619164521562" loading="lazy"></p>
 <p>环境光也是一种高维信号，同样的思想，采用神经网络去压缩，压缩形成的latent space并不是用于渲染，而是用于光照估计。</p>
-<img src="https://s2.loli.net/2022/07/26/SNwBvZG1YWsFq48.png" alt="image-20220619164717253" style="zoom:80%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/SNwBvZG1YWsFq48.png" alt="image-20220619164717253" data-caption="image-20220619164717253" loading="lazy">
 
 <p>先用神经网路抽取一个室外全景图的latent space，可以用于光照估计，输入一张图，去预测光照，先预测latent code，然后再用decode去恢复这张环境图。</p>
 <p>应用：把虚拟物体插入到真实环境下</p>
-<img src="https://s2.loli.net/2022/07/26/W3BxpHyi4NdASTm.png" alt="image-20220619164957649" style="zoom:80%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/W3BxpHyi4NdASTm.png" alt="image-20220619164957649" data-caption="image-20220619164957649" loading="lazy">
 
 
 
 <p>这项工作在深度学习里有个非常重要的思想：disentanglement</p>
 <p>刚才讲到是室外光，那么室内光是否也可以用auto-encode、GAN等进行压缩？</p>
 <p>答案是不行，室内光过于复杂，难以压缩。</p>
-<img src="https://s2.loli.net/2022/07/26/A9wceK8X34Ms7EJ.png" alt="image-20220619165815866" style="zoom:80%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/A9wceK8X34Ms7EJ.png" alt="image-20220619165815866" data-caption="image-20220619165815866" loading="lazy">
 
 <p>该项工作把光源压缩到一个神经网络上</p>
 <h5 id="（4）场景"><a href="#（4）场景" class="headerlink" title="（4）场景"></a>（4）场景</h5><p>那么是否可以直接对整个场景，不分几何材质光照，进行压缩？</p>
 <p> <strong>Neural scene</strong></p>
-<p><img src="https://s2.loli.net/2022/07/26/pCl8LxNBkGfgwFj.png" alt="image-20220619170013686"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/pCl8LxNBkGfgwFj.png" alt="image-20220619170013686" data-caption="image-20220619170013686" loading="lazy"></p>
 <p>限制：容易丢失细节</p>
 <h4 id="第二个角色：-Mapping-映射"><a href="#第二个角色：-Mapping-映射" class="headerlink" title="第二个角色： Mapping 映射"></a>第二个角色： Mapping 映射</h4><p>从一个 domain 到另一个 domain</p>
-<img src="https://s2.loli.net/2022/07/26/bnFoW63Sc5E8TYm.png" alt="image-20220619170931536" style="zoom:80%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/bnFoW63Sc5E8TYm.png" alt="image-20220619170931536" data-caption="image-20220619170931536" loading="lazy">
 
 <ul>
 <li>去噪</li>
@@ -226,7 +416,7 @@
 <li>直接光—间接光</li>
 <li>渲染图片—材质贴图</li>
 </ul>
-<h5 id="（1）去噪"><a href="#（1）去噪" class="headerlink" title="（1）去噪"></a>（1）去噪</h5><p><img src="https://s2.loli.net/2022/07/26/SprU5tKHXZAwLDx.png" alt="image-20220619171826353"></p>
+<h5 id="（1）去噪"><a href="#（1）去噪" class="headerlink" title="（1）去噪"></a>（1）去噪</h5><p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/SprU5tKHXZAwLDx.png" alt="image-20220619171826353" data-caption="image-20220619171826353" loading="lazy"></p>
 <ul>
 <li>漫反射-镜面反射的分解</li>
 <li>G-buffer</li>
@@ -234,76 +424,117 @@
 <li>解调 Demodulation （图象 &#x2F; albedo）</li>
 </ul>
 <p>在无监督去噪中，loss是关键</p>
-<img src="https://s2.loli.net/2022/07/26/LxShwJz81ZV523B.png" alt="image-20220619172234941" style="zoom:80%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/LxShwJz81ZV523B.png" alt="image-20220619172234941" data-caption="image-20220619172234941" loading="lazy">
 
 
 
 <h5 id="（2）超分"><a href="#（2）超分" class="headerlink" title="（2）超分"></a>（2）超分</h5><p>典例：DLSS、Neual SS</p>
-<p><img src="https://s2.loli.net/2022/07/26/KzS6Nf3WbpeGrwk.png" alt="image-20220619172322173"></p>
-<p><img src="https://s2.loli.net/2022/07/26/sBYl1rdX8ZzP59Q.png" alt="image-20220619172333668"></p>
-<h5 id="（3）从直接光照预测间接光照"><a href="#（3）从直接光照预测间接光照" class="headerlink" title="（3）从直接光照预测间接光照"></a>（3）从直接光照预测间接光照</h5><img src="https://s2.loli.net/2022/07/26/CE6QdXzFxOZi2pr.png" alt="image-20220619172447406" style="zoom:80%;" />
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/KzS6Nf3WbpeGrwk.png" alt="image-20220619172322173" data-caption="image-20220619172322173" loading="lazy"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/sBYl1rdX8ZzP59Q.png" alt="image-20220619172333668" data-caption="image-20220619172333668" loading="lazy"></p>
+<h5 id="（3）从直接光照预测间接光照"><a href="#（3）从直接光照预测间接光照" class="headerlink" title="（3）从直接光照预测间接光照"></a>（3）从直接光照预测间接光照</h5><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/CE6QdXzFxOZi2pr.png" alt="image-20220619172447406" data-caption="image-20220619172447406" loading="lazy">
 
 <p>该方向的研究较少</p>
 <p>直接光照很快，间接光照很慢</p>
-<h5 id="（4）从渲染图片出发，反推场景元素"><a href="#（4）从渲染图片出发，反推场景元素" class="headerlink" title="（4）从渲染图片出发，反推场景元素"></a>（4）从渲染图片出发，反推场景元素</h5><p><img src="https://s2.loli.net/2022/07/26/wedM7pWRiGBCVg8.png" alt="image-20220619172605439"></p>
+<h5 id="（4）从渲染图片出发，反推场景元素"><a href="#（4）从渲染图片出发，反推场景元素" class="headerlink" title="（4）从渲染图片出发，反推场景元素"></a>（4）从渲染图片出发，反推场景元素</h5><p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/wedM7pWRiGBCVg8.png" alt="image-20220619172605439" data-caption="image-20220619172605439" loading="lazy"></p>
 <p>从单张图片恢复 各种光照贴图，对于光泽效果的呈现尤为重要</p>
 
-
-      
-
-    </section>
-    
-      <section class='ArticleMeta'>
-          <div>
-            发布于&nbsp;
-            <time datetime="2022-07-27T09:47:18.087Z" itemprop="datePublished">
-              2022-07-27
-            </time>
-          </div>
-          
-            <div>
-              tags: 
-  <li class="meta-text">
-  { <a href="/tags/CG/">CG</a> }
-  </li>
-
-  <li class="meta-text">
-  { <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a> }
-  </li>
-
-
-            </div>
-          
-      </section>
-    
-    
-</article>
+  </article>
 
   
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>EKKO<br>
+        <strong>Link：</strong><a href="http://example.com/2022/07/27/DL%20for%20Render%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" title="http:&#x2F;&#x2F;example.com&#x2F;2022&#x2F;07&#x2F;27&#x2F;DL%20for%20Render%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;example.com&#x2F;2022&#x2F;07&#x2F;27&#x2F;DL%20for%20Render%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/CG/">CG</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/CG/" rel="tag">CG</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a>
+    
 </div>
 
-            <footer>
-    <div>© 2022 - EKKO </div>
-    <div>
-        <span>
-            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
-        </span>
-        ,
-        <span>
-            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
-        </span>
-    </div>
-</footer>
-
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
         </div>
     </div>
-</div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="Search" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
 
-<script src="/js/pager/dist/singlepager.js"></script>
+    
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
+
+
+ 
+
+<script async src="/js/app.js?v=1658927302963"></script>
+
+
 
 <script>
-var sp = new Pager('data-pager-shell')
-
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
 </script>
+
+
+    
+
+
+
+
+
 </body>
+
 </html>

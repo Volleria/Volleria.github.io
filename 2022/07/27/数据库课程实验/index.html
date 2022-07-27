@@ -1,22 +1,74 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>基于Unity和MySQL的数据库课设 | Volleria 个人博客</title>
-  
-    <link rel="icon" href="/assets/rubbish.png">
-  
-  
-  
-  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
-  
-<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+    
+    <title>基于Unity和MySQL的数据库课设 - Volleria 个人博客</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
 
-  
-<link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="(前排提示:为了凑字数导致内容较水) 摘要本实验采用的数据库为MySQL数据库，其具有体积小、速度快等优点。本实验的GUI部分采用Unity3D引擎制作，通过编写C#脚本挂载到Unity引擎中，实现了Unity与MySQL之间的连接。在完成基础实验一至五的前提上，依照要求实现了一个小型书籍信息管理系统 ，具有增删改查等基本功能，同时还可以根据一定要求进行排序，并且创建了两个图表对数据信息进行汇总，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Unity和MySQL的数据库课设">
+<meta property="og:url" content="http://example.com/2022/07/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/index.html">
+<meta property="og:site_name" content="Volleria 个人博客">
+<meta property="og:description" content="(前排提示:为了凑字数导致内容较水) 摘要本实验采用的数据库为MySQL数据库，其具有体积小、速度快等优点。本实验的GUI部分采用Unity3D引擎制作，通过编写C#脚本挂载到Unity引擎中，实现了Unity与MySQL之间的连接。在完成基础实验一至五的前提上，依照要求实现了一个小型书籍信息管理系统 ，具有增删改查等基本功能，同时还可以根据一定要求进行排序，并且创建了两个图表对数据信息进行汇总，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/nm5XEajiLsUZGFK.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/tCewRjis3lNJYcT.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/UIAQMxNSLcoOuYi.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/SxlD234weuskIJT.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/GN9cS2QsjagKzZH.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/t39EHslpx4yQm1Z.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/v32aFtNdSg7wZxf.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/FwWlIqbLJcP9Hte.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/iu8BYPfjsFJwSlr.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/Be3Tst1KX5rLmER.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/NhPbcVzuov37nQB.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/PXiT9d4qwNDhtRA.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/TmGUED6y4pdlXa9.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/Agt9WSxaBYCMKU4.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/C5tlpr87dA9k1Zg.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/p4EaV8k2nXm1oQy.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/7aE3XNgDLSvyVP1.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/WzFGOuXkn6Lsih4.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/jmQFwqgiu4NtbU3.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/glwCxHP9SfQuZqr.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/XrmahHi8VN21bDz.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/IQ7rthGkeaWYU2o.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/A3fboNILyPs25lS.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/3R4NMxCesDkpvIP.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/vAiekpjGJZ35WlX.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/zwWLVxNUorJm7Al.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/njx3WSUELH7Vy8M.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/IyBV9qJm7c68iRn.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/JbTUvKhPm1VwduO.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/gZfeSkWuIo1YdTO.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/WRg3ZJlUpyqYmKr.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/LfVbdzgcnQihvAt.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/fH4PnC9MN2XVTFc.png">
+<meta property="article:published_time" content="2022-07-27T09:47:18.096Z">
+<meta property="article:modified_time" content="2022-07-26T03:54:54.285Z">
+<meta property="article:author" content="EKKO">
+<meta property="article:tag" content="Unity">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/07/26/nm5XEajiLsUZGFK.png">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1658927302959">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1658927302959">
+    
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -24,66 +76,212 @@
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Volleria 个人博客" type="application/atom+xml">
 </head>
 
-<body>
-<div class="Shell">
-    <aside class='SideBar'>
-    <section class='avatar' style="background-image: url(/assets/back222.png)">
-        <div class='av-pic' style="background-image: url(/assets/header.png)">
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="EKKO" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="EKKO"></a>
+            </div>
         </div>
-    </section>
-    <section class='menu'>
-        <div>Volleria 个人博客</div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="EKKO">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="EKKO" alt="EKKO">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>7</div>
+        <div><span>Tags</span>7</div>
+        <div><span>Categories</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
-        <ul>
-          
-            <a href="/" class="Btn">
-              <li>Home</li>
-            </a>  
-          
-            <a href="/archives/" class="Btn">
-              <li>Archive</li>
-            </a>  
-          
-            <a href="/tags/" class="Btn">
-              <li>Tags</li>
-            </a>  
-          
-            <a href="/categories/" class="Btn">
-              <li>Categories</li>
-            </a>  
-          
-            <a href="/about/" class="Btn">
-              <li>About</li>
-            </a>  
-          
-        </ul>
-    </section>
-    <section class="media">
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
         
-            
-                <a target="_blank" rel="noopener" href="https://github.com/Volleria">
-                    <img src="/assets/GitHub.svg" />
-                </a>
-            
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
         
-            
-                <a href="mailto:EKKO0908@outlook.com">
-                    <img src="/assets/E-Mail.svg" />
-                </a>
-            
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
         
-    </section>
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=5CfKHun" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Categories</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/CG/">CG</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/CV/">CV</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Shader学习/">Shader学习</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Unity/">Unity</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/CG/" style="font-size: 10px;">CG</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Shader/" style="font-size: 10px;">Shader</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">笔记</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" style="font-size: 10px;">网络爬虫</a>
+    </div>
+    
+  </div>
+
+    
+    <!-- 一言 -->
+
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">
+      Hitokoto
+    </h3>
+    <div class="nexmoe-widget">
+      <ul class="hitokoto-box">
+        <li id="hitokoto_text_parent" class="hitokoto-text" hitokotoCategory="">
+          <a href="#" id="hitokoto_text">
+            
+          </a>
+          <a href="#" id="hitokoto_error_text" style="display: none;">
+            
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    let hitokotoText = document.getElementById('hitokoto_text')
+    let hitokotoErroText = document.getElementById('hitokoto_error_text')
+    let hitokotoCategory = document.getElementById('hitokoto_text_parent').getAttribute('hitokotoCategory')
+    window.onload = function () {
+      let url = 'https://v1.hitokoto.cn'
+      if (hitokotoCategory) {
+        url += '?c=' + hitokotoCategory
+      }
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          hitokotoText.innerText = "「 " + data.hitokoto + " 」 from " + data.from
+          hitokotoText.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+        })
+        .catch((reason) => {
+          console.error(11, reason)
+          hitokotoText.style.display = 'none'
+          hitokotoErroText.style.display = 'block'
+        })
+    }
+  </script>
+  
+    
 </aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 EKKO
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
 
-    <div class="container">
-        <div data-pager-shell>
-            <div>
-  <article class='ContentView'>
-    <header class='PageTitle'>
-        <h1>基于Unity和MySQL的数据库课设</h1>
-    </header>
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+              <img data-fancybox="gallery" src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" alt="基于Unity和MySQL的数据库课设" loading="lazy">
+              <h1>基于Unity和MySQL的数据库课设</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年07月27日</a>
+</div>
 
-    <section>
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    
+        <a><i class="nexmoefont icon-areachart"></i>约7.7k字</a>
+        <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要40分钟</a>
+    
+</div>
+
       <p>(前排提示:为了凑字数导致内容较水)</p>
 <h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><p>本实验采用的数据库为MySQL数据库，其具有体积小、速度快等优点。本实验的GUI部分采用Unity3D引擎制作，通过编写C#脚本挂载到Unity引擎中，实现了Unity与MySQL之间的连接。在完成基础实验一至五的前提上，依照要求实现了一个小型书籍信息管理系统 ，具有增删改查等基本功能，同时还可以根据一定要求进行排序，并且创建了两个图表对数据信息进行汇总，便于后续分析。</p>
 <h4 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h4><p>MySQL、Unity、、C#、书籍信息管理</p>
@@ -112,7 +310,7 @@
 <h4 id="Ⅱ、MySQL版本"><a href="#Ⅱ、MySQL版本" class="headerlink" title="Ⅱ、MySQL版本"></a>Ⅱ、MySQL版本</h4><p>本实验采用 MySQL 8.0版本</p>
 <p>安装地址：<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/installer/">https://dev.mysql.com/downloads/installer/</a></p>
 <p>安装包：</p>
-<p><img src="https://s2.loli.net/2022/07/26/nm5XEajiLsUZGFK.png" alt="image-20220628001737326"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/nm5XEajiLsUZGFK.png" alt="image-20220628001737326" data-caption="image-20220628001737326" loading="lazy"></p>
 <h3 id="2、Unity"><a href="#2、Unity" class="headerlink" title="2、Unity"></a>2、Unity</h3><p>Unity 是实时3D互动内容创作和运营平台  。包括游戏开发、美术、建筑、汽车设计、影视在内的所有创作者，借助Unity将创意变成现实。Unity平台提供一整套完善的软件解决方案，可用于创作、运营和变现任何实时互动的2D和3D内容，支持平台包括手机、平板电脑、PC、游戏主机、增强现实和虚拟现实设备。</p>
 <p>本实验采用Unity制作GUI界面 ，全部代码均在Unity中通过C#编写，</p>
 <p>所用Unity编辑器的版本为  2021.2.7f1c1，渲染管线为 Built-in 渲染管线，新建项目类型为普通3D项目，所以代码编辑器为 Visual Studio 2019。</p>
@@ -146,12 +344,12 @@
 <p><strong>【一些问题】</strong></p>
 <p>豆瓣对书籍及作者信息有时收集的并不完全，导致爬取到的数据很少有能用的。</p>
 <p>下图是一个完整的书籍信息，书籍编号为 35635639</p>
-<img src="https://s2.loli.net/2022/07/26/tCewRjis3lNJYcT.png" alt="image-20220628003009895" style="zoom: 67%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/tCewRjis3lNJYcT.png" alt="image-20220628003009895" data-caption="image-20220628003009895" loading="lazy">
 
 
 
 <p>下图书籍缺少豆瓣评分信息，书籍编号为 35635619</p>
-<img src="https://s2.loli.net/2022/07/26/UIAQMxNSLcoOuYi.png" alt="image-20220628003116521" style="zoom:67%;" />
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/UIAQMxNSLcoOuYi.png" alt="image-20220628003116521" data-caption="image-20220628003116521" loading="lazy">
 
 <p><strong>【解决方法】</strong></p>
 <p>在大批量爬取数据后，手动删除无用信息，留下具有完整信息的书籍，将其写入到数据库中。</p>
@@ -171,7 +369,7 @@
 
 
 <p>在MySQL中存储如下 （仅部分数据）</p>
-<p><img src="https://s2.loli.net/2022/07/26/SxlD234weuskIJT.png" alt="image-20220628003930333"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/SxlD234weuskIJT.png" alt="image-20220628003930333" data-caption="image-20220628003930333" loading="lazy"></p>
 <h5 id="（2）作者信息"><a href="#（2）作者信息" class="headerlink" title="（2）作者信息"></a>（2）作者信息</h5><p>作者信息表 authors ，具有如下 5个属性</p>
 <ul>
 <li>作者姓名</li>
@@ -186,7 +384,7 @@
 
 
 <p>在MySQL中存储如下 （仅部分数据）</p>
-<p><img src="https://s2.loli.net/2022/07/26/GN9cS2QsjagKzZH.png" alt="image-20220628004555717"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/GN9cS2QsjagKzZH.png" alt="image-20220628004555717" data-caption="image-20220628004555717" loading="lazy"></p>
 <h5 id="（3）学生信息"><a href="#（3）学生信息" class="headerlink" title="（3）学生信息"></a>（3）学生信息</h5><p>学生信息表 students ，具有如下 5个属性</p>
 <ul>
 <li>学生姓名</li>
@@ -201,14 +399,14 @@
 
 
 <p>在MySQL中存储如下 （仅部分数据）</p>
-<p><img src="https://s2.loli.net/2022/07/26/t39EHslpx4yQm1Z.png" alt="image-20220628004942659"></p>
-<h4 id="3、数据-E-R-图"><a href="#3、数据-E-R-图" class="headerlink" title="3、数据 E-R 图"></a>3、数据 E-R 图</h4><p><img src="https://s2.loli.net/2022/07/26/v32aFtNdSg7wZxf.png" alt="image-20220628010920001"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/t39EHslpx4yQm1Z.png" alt="image-20220628004942659" data-caption="image-20220628004942659" loading="lazy"></p>
+<h4 id="3、数据-E-R-图"><a href="#3、数据-E-R-图" class="headerlink" title="3、数据 E-R 图"></a>3、数据 E-R 图</h4><p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/v32aFtNdSg7wZxf.png" alt="image-20220628010920001" data-caption="image-20220628010920001" loading="lazy"></p>
 <h2 id="四、具体实验流程"><a href="#四、具体实验流程" class="headerlink" title="四、具体实验流程"></a><strong>四、具体实验流程</strong></h2><h3 id="1、建立-Unity-与-MySQL-之间的连接"><a href="#1、建立-Unity-与-MySQL-之间的连接" class="headerlink" title="1、建立 Unity 与 MySQL 之间的连接"></a>1、建立 Unity 与 MySQL 之间的连接</h3><p>创建 C# 脚本 SqlAccess.cs ，完整代码如下，具体结束见注释</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Data;</span><br><span class="line"><span class="keyword">using</span> MySql.Data.MySqlClient;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SqlAccess</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> MySqlConnection dbConnection;</span><br><span class="line">    <span class="comment">//如果只是在本地的话，写localhost就可以。</span></span><br><span class="line">    <span class="comment">// static string host = &quot;localhost&quot;;  </span></span><br><span class="line">    <span class="comment">//如果是局域网，那么写上本机的局域网IP</span></span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">string</span> host = <span class="string">&quot;localhost&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">string</span> port = <span class="string">&quot;3306&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">string</span> username = <span class="string">&quot;root&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">string</span> pwd = <span class="string">&quot;HUNXIGUILAI2019&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">string</span> database = <span class="string">&quot;ekkodb&quot;</span>;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SqlAccess</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        OpenSql();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> 连接数据库</span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">OpenSql</span>()</span></span><br><span class="line">	&#123;</span><br><span class="line">	    <span class="keyword">try</span></span><br><span class="line">	    &#123;</span><br><span class="line">	        <span class="built_in">string</span> connectionString = <span class="built_in">string</span>.Format(<span class="string">&quot;server = &#123;0&#125;;port=&#123;1&#125;;database = &#123;2&#125;;user = &#123;3&#125;;password = &#123;4&#125;;charset=utf8&quot;</span>, host, port, database, username, pwd);</span><br><span class="line">	        Debug.Log(<span class="string">&quot;connectionString:&quot;</span>+ connectionString);</span><br><span class="line">	        dbConnection = <span class="keyword">new</span> MySqlConnection(connectionString);</span><br><span class="line">	        dbConnection.Open();</span><br><span class="line">	        Debug.Log(<span class="string">&quot;建立连接&quot;</span>);</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">catch</span> (Exception e)</span><br><span class="line">	    &#123;</span><br><span class="line">	        <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;服务器连接失败,请重新检查是否打开MySql服务。&quot;</span> + e.Message.ToString());</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> 关闭数据库连接</span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Close</span>()</span></span><br><span class="line">	&#123;</span><br><span class="line">	    <span class="keyword">if</span> (dbConnection != <span class="literal">null</span>)</span><br><span class="line">	    &#123;</span><br><span class="line">	        dbConnection.Close();</span><br><span class="line">	        dbConnection.Dispose();</span><br><span class="line">	        dbConnection = <span class="literal">null</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 增加操作</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> DataSet <span class="title">Additem</span>(<span class="params"><span class="built_in">string</span> tablename,<span class="built_in">string</span>[] datavalues</span>)</span></span><br><span class="line">	&#123;</span><br><span class="line">		StringBuilder query = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">		query.Append(<span class="string">&quot;INSERT into &quot;</span>);</span><br><span class="line">		query.Append(tablename);</span><br><span class="line">		query.Append(<span class="string">&quot; VALUES (&quot;</span>);</span><br><span class="line">		query.Append(<span class="string">&quot;&#x27;&quot;</span>);</span><br><span class="line">		query.Append(datavalues[<span class="number">0</span>]);</span><br><span class="line">		query.Append(<span class="string">&quot;&#x27;&quot;</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">1</span>;i &lt;datavalues.Length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">// 判断类型</span></span><br><span class="line">			query.Append(<span class="string">&quot;,&#x27;&quot;</span>);</span><br><span class="line">			query.Append(datavalues[i]);</span><br><span class="line">			query.Append(<span class="string">&quot;&#x27;&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		query.Append(<span class="string">&quot;);&quot;</span>);</span><br><span class="line">		Debug.Log(<span class="string">&quot;添加数据:&quot;</span> + query.ToString());</span><br><span class="line">	    <span class="keyword">return</span> ExecuteQuery(query.ToString());</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 查询操作</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> DataSet <span class="title">SelectWhere</span>(<span class="params"><span class="built_in">string</span> tableName, <span class="built_in">string</span>[] items, <span class="built_in">string</span> bookname</span>)</span></span><br><span class="line">	&#123;</span><br><span class="line">	    StringBuilder query = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">	    query.Append(<span class="string">&quot;SELECT &quot;</span>);</span><br><span class="line">	    query.Append(items[<span class="number">0</span>]);</span><br><span class="line">	</span><br><span class="line">	    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>; i &lt; items.Length; ++i)</span><br><span class="line">	    &#123;</span><br><span class="line">	        query.Append(<span class="string">&quot;, &quot;</span>);</span><br><span class="line">	        query.Append(items[i]);</span><br><span class="line">	    &#125;</span><br><span class="line">	</span><br><span class="line">	    query.Append(<span class="string">&quot; FROM &quot;</span>);</span><br><span class="line">	    query.Append(tableName);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>( bookname != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">			query.Append(<span class="string">&quot; WHERE &quot;</span>);</span><br><span class="line">			query.Append(<span class="string">&quot;bookname = &quot;</span>);</span><br><span class="line">			query.Append(<span class="string">&quot;&#x27;&quot;</span>);</span><br><span class="line">			query.Append(bookname);</span><br><span class="line">			query.Append(<span class="string">&quot;&#x27;&quot;</span>);</span><br><span class="line">			query.Append(<span class="string">&quot;;&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	    Debug.Log(<span class="string">&quot;查询数据:&quot;</span> + query.ToString());</span><br><span class="line">	    <span class="keyword">return</span> ExecuteQuery(query.ToString());</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 删除操作</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> DataSet <span class="title">Delete</span>(<span class="params"><span class="built_in">string</span> tablename,<span class="built_in">string</span> bookname</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">		<span class="comment">// delete from books where bookname = &quot;浮木&quot;;</span></span><br><span class="line">		StringBuilder query = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">		query.Append(<span class="string">&quot;DELETE FROM &quot;</span>);</span><br><span class="line">		query.Append(tablename);</span><br><span class="line">		query.Append(<span class="string">&quot; WHERE bookname = &quot;</span>);</span><br><span class="line">		query.Append(<span class="string">&quot;&#x27;&quot;</span>);</span><br><span class="line">		query.Append(bookname);</span><br><span class="line">		query.Append(<span class="string">&quot;&#x27;&quot;</span>);</span><br><span class="line">		query.Append(<span class="string">&quot;;&quot;</span>);</span><br><span class="line">		Debug.Log(<span class="string">&quot;删除数据:&quot;</span> + query.ToString());</span><br><span class="line">		<span class="keyword">return</span> ExecuteQuery(query.ToString());</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 执行 Sql 语句</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DataSet <span class="title">ExecuteQuery</span>(<span class="params"><span class="built_in">string</span> sqlString</span>)</span></span><br><span class="line">	&#123;</span><br><span class="line">	    <span class="keyword">if</span> (dbConnection.State == ConnectionState.Open)</span><br><span class="line">	    &#123;</span><br><span class="line">	        DataSet ds = <span class="keyword">new</span> DataSet();</span><br><span class="line">	        <span class="keyword">try</span></span><br><span class="line">	        &#123;</span><br><span class="line">	            MySqlDataAdapter da = <span class="keyword">new</span> MySqlDataAdapter(sqlString, dbConnection);</span><br><span class="line">	            da.Fill(ds);</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="keyword">catch</span> (Exception ee)</span><br><span class="line">	        &#123;</span><br><span class="line">	            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;SQL:&quot;</span> + sqlString + <span class="string">&quot;/n&quot;</span> + ee.Message.ToString());</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="keyword">finally</span></span><br><span class="line">	        &#123;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="keyword">return</span> ds;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="【踩坑记录】"><a href="#【踩坑记录】" class="headerlink" title="【踩坑记录】"></a>【踩坑记录】</h4><h5 id="1、连接问题"><a href="#1、连接问题" class="headerlink" title="1、连接问题"></a>1、连接问题</h5><p><img src="https://s2.loli.net/2022/07/26/FwWlIqbLJcP9Hte.png" alt="image-20220606171815558"></p>
+<h4 id="【踩坑记录】"><a href="#【踩坑记录】" class="headerlink" title="【踩坑记录】"></a>【踩坑记录】</h4><h5 id="1、连接问题"><a href="#1、连接问题" class="headerlink" title="1、连接问题"></a>1、连接问题</h5><p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/FwWlIqbLJcP9Hte.png" alt="image-20220606171815558" data-caption="image-20220606171815558" loading="lazy"></p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception: 服务器连接失败，请重新检查是否打开MySql服务。The given key <span class="string">&#x27;utf8mb4&#x27;</span> was <span class="keyword">not</span> present <span class="keyword">in</span> the dictionary.</span><br></pre></td></tr></table></figure>
 
 <p>解决办法：</p>
@@ -218,34 +416,34 @@
 
 <h5 id="2、查询问题"><a href="#2、查询问题" class="headerlink" title="2、查询问题"></a>2、查询问题</h5><h5 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h5><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception: SQL:<span class="keyword">select</span> cno, cname, cpno, ccredit <span class="keyword">from</span> c/nThe given key <span class="string">&#x27;utf8mb4&#x27;</span> was <span class="keyword">not</span> present <span class="keyword">in</span> the dictionary.</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://s2.loli.net/2022/07/26/iu8BYPfjsFJwSlr.png" alt="image-20220606171952042"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/iu8BYPfjsFJwSlr.png" alt="image-20220606171952042" data-caption="image-20220606171952042" loading="lazy"></p>
 <p><strong>主要原因：</strong></p>
 <p>MySql.Data 的版本过低（此版本为5.2.7）</p>
 <h5 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h5><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception: 服务器连接失败，请重新检查是否打开MySql服务。Authentication failed, see inner exception.</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://s2.loli.net/2022/07/26/Be3Tst1KX5rLmER.png" alt="image-20220606172208966"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/Be3Tst1KX5rLmER.png" alt="image-20220606172208966" data-caption="image-20220606172208966" loading="lazy"></p>
 <p><strong>主要原因：</strong></p>
 <p>MySql.Data 的版本过高（此版本为6.9.9）</p>
 <h5 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h5><p>以上问题都是由于 MySql.Data.dll  的版本问题导致的</p>
 <p>我所用的Unity版本为 2021.2.7f1c1</p>
 <p>不同的 MySql.Data.dll 的下载地址： <a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/c-net/">https://downloads.mysql.com/archives/c-net/</a></p>
 <p>经过多次实验</p>
-<p><img src="https://s2.loli.net/2022/07/26/NhPbcVzuov37nQB.png" alt="image-20220606172506541"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/NhPbcVzuov37nQB.png" alt="image-20220606172506541" data-caption="image-20220606172506541" loading="lazy"></p>
 <p>找到的合适的 MySql.Data.dll  的版本为 6.1.6</p>
 <p>成功建立连接并实现查询</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Cno, Cname, Cpno, Ccredit <span class="keyword">FROM</span> C</span><br></pre></td></tr></table></figure>
 
 
 
-<p><img src="https://s2.loli.net/2022/07/26/PXiT9d4qwNDhtRA.png" alt="image-20220606172751991"></p>
-<img src="https://s2.loli.net/2022/07/26/TmGUED6y4pdlXa9.png" alt="image-20220606172726928" style="zoom:80%;" />
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/PXiT9d4qwNDhtRA.png" alt="image-20220606172751991" data-caption="image-20220606172751991" loading="lazy"></p>
+<img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/TmGUED6y4pdlXa9.png" alt="image-20220606172726928" data-caption="image-20220606172726928" loading="lazy">
 
 
 
-<h3 id="2、登陆界面"><a href="#2、登陆界面" class="headerlink" title="2、登陆界面"></a>2、登陆界面</h3><h4 id="Ⅰ、界面绘制及功能介绍"><a href="#Ⅰ、界面绘制及功能介绍" class="headerlink" title="Ⅰ、界面绘制及功能介绍"></a>Ⅰ、界面绘制及功能介绍</h4><p><img src="https://s2.loli.net/2022/07/26/Agt9WSxaBYCMKU4.png" alt="image-20220628011720929"></p>
+<h3 id="2、登陆界面"><a href="#2、登陆界面" class="headerlink" title="2、登陆界面"></a>2、登陆界面</h3><h4 id="Ⅰ、界面绘制及功能介绍"><a href="#Ⅰ、界面绘制及功能介绍" class="headerlink" title="Ⅰ、界面绘制及功能介绍"></a>Ⅰ、界面绘制及功能介绍</h4><p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/Agt9WSxaBYCMKU4.png" alt="image-20220628011720929" data-caption="image-20220628011720929" loading="lazy"></p>
 <p><em>用户名</em> 与 <em>密码</em>  为两个 Input Field 组件，可以获取用户输入</p>
 <p>用户输入 正确的用户名和密码后可登入数据库，若用户名或密码错误，会出现警告</p>
-<p><img src="https://s2.loli.net/2022/07/26/C5tlpr87dA9k1Zg.png" alt="image-20220628011958371"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/C5tlpr87dA9k1Zg.png" alt="image-20220628011958371" data-caption="image-20220628011958371" loading="lazy"></p>
 <h4 id="Ⅱ、功能实现"><a href="#Ⅱ、功能实现" class="headerlink" title="Ⅱ、功能实现"></a>Ⅱ、功能实现</h4><h5 id="（1）引入所需命名空间"><a href="#（1）引入所需命名空间" class="headerlink" title="（1）引入所需命名空间"></a>（1）引入所需命名空间</h5><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UI;</span><br></pre></td></tr></table></figure>
 
 <h5 id="（2）声明所需的各个变量"><a href="#（2）声明所需的各个变量" class="headerlink" title="（2）声明所需的各个变量"></a>（2）声明所需的各个变量</h5><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> GameObject cuowu;</span><br><span class="line"><span class="keyword">public</span> InputField zhanghao;</span><br><span class="line"><span class="keyword">public</span> InputField mima;</span><br><span class="line"><span class="keyword">public</span> Button queding_btn;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> GameObject maincanvas;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> zhanghaostr ;</span><br><span class="line"><span class="built_in">string</span> mimastr ;</span><br></pre></td></tr></table></figure>
@@ -256,7 +454,7 @@
 
 
 
-<h3 id="3、主界面"><a href="#3、主界面" class="headerlink" title="3、主界面"></a>3、主界面</h3><h4 id="Ⅰ、界面绘制及功能介绍-1"><a href="#Ⅰ、界面绘制及功能介绍-1" class="headerlink" title="Ⅰ、界面绘制及功能介绍"></a>Ⅰ、界面绘制及功能介绍</h4><p><img src="https://s2.loli.net/2022/07/26/p4EaV8k2nXm1oQy.png" alt="image-20220628012514967"></p>
+<h3 id="3、主界面"><a href="#3、主界面" class="headerlink" title="3、主界面"></a>3、主界面</h3><h4 id="Ⅰ、界面绘制及功能介绍-1"><a href="#Ⅰ、界面绘制及功能介绍-1" class="headerlink" title="Ⅰ、界面绘制及功能介绍"></a>Ⅰ、界面绘制及功能介绍</h4><p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/p4EaV8k2nXm1oQy.png" alt="image-20220628012514967" data-caption="image-20220628012514967" loading="lazy"></p>
 <p>主界面一共有四个按钮事件，通过点击各个按钮显示对应的界面，左上角 <strong>×</strong> 为关闭整个应用程序，在程序打包后生效。</p>
 <h4 id="Ⅱ、功能实现-1"><a href="#Ⅱ、功能实现-1" class="headerlink" title="Ⅱ、功能实现"></a>Ⅱ、功能实现</h4><h5 id="（1）引入命名空间"><a href="#（1）引入命名空间" class="headerlink" title="（1）引入命名空间"></a>（1）引入命名空间</h5><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UI;</span><br><span class="line"><span class="keyword">using</span> XCharts.Runtime;</span><br><span class="line"><span class="keyword">using</span> System.Data;</span><br></pre></td></tr></table></figure>
 
@@ -275,20 +473,20 @@
 
 
 
-<h3 id="4、选择查看界面"><a href="#4、选择查看界面" class="headerlink" title="4、选择查看界面"></a>4、选择查看界面</h3><h4 id="Ⅰ、界面绘制及功能介绍-2"><a href="#Ⅰ、界面绘制及功能介绍-2" class="headerlink" title="Ⅰ、界面绘制及功能介绍"></a>Ⅰ、界面绘制及功能介绍</h4><p><img src="https://s2.loli.net/2022/07/26/7aE3XNgDLSvyVP1.png" alt="image-20220628013418735"></p>
+<h3 id="4、选择查看界面"><a href="#4、选择查看界面" class="headerlink" title="4、选择查看界面"></a>4、选择查看界面</h3><h4 id="Ⅰ、界面绘制及功能介绍-2"><a href="#Ⅰ、界面绘制及功能介绍-2" class="headerlink" title="Ⅰ、界面绘制及功能介绍"></a>Ⅰ、界面绘制及功能介绍</h4><p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/7aE3XNgDLSvyVP1.png" alt="image-20220628013418735" data-caption="image-20220628013418735" loading="lazy"></p>
 <p>此处程序尚未执行，表中全部为空</p>
 <p><strong>【运行程序】</strong></p>
 <p>点击 “书籍信息表”</p>
-<p><img src="https://s2.loli.net/2022/07/26/WzFGOuXkn6Lsih4.png" alt="image-20220628013524407"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/WzFGOuXkn6Lsih4.png" alt="image-20220628013524407" data-caption="image-20220628013524407" loading="lazy"></p>
 <p>点击 “作者信息表”</p>
-<p><img src="https://s2.loli.net/2022/07/26/jmQFwqgiu4NtbU3.png" alt="image-20220628013558654"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/jmQFwqgiu4NtbU3.png" alt="image-20220628013558654" data-caption="image-20220628013558654" loading="lazy"></p>
 <p>点击 “学生信息表”</p>
-<p><img src="https://s2.loli.net/2022/07/26/glwCxHP9SfQuZqr.png" alt="image-20220628013619545"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/glwCxHP9SfQuZqr.png" alt="image-20220628013619545" data-caption="image-20220628013619545" loading="lazy"></p>
 <p>此外，表中增加了排序功能</p>
 <p>点击 “豆瓣评分” 表头，可以根据豆瓣评分高低进行升序排序</p>
-<p><img src="https://s2.loli.net/2022/07/26/XrmahHi8VN21bDz.png" alt="image-20220628013745939"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/XrmahHi8VN21bDz.png" alt="image-20220628013745939" data-caption="image-20220628013745939" loading="lazy"></p>
 <p>点击 “豆瓣评分” 表头，可以根据豆瓣评分高低进行升序排序</p>
-<p><img src="https://s2.loli.net/2022/07/26/IQ7rthGkeaWYU2o.png" alt="image-20220628013823061"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/IQ7rthGkeaWYU2o.png" alt="image-20220628013823061" data-caption="image-20220628013823061" loading="lazy"></p>
 <h4 id="Ⅱ、功能实现-2"><a href="#Ⅱ、功能实现-2" class="headerlink" title="Ⅱ、功能实现"></a>Ⅱ、功能实现</h4><h5 id="创建-Select-cs-脚本"><a href="#创建-Select-cs-脚本" class="headerlink" title="创建 Select.cs 脚本"></a>创建 Select.cs 脚本</h5><h6 id="（1）引入命名空间-1"><a href="#（1）引入命名空间-1" class="headerlink" title="（1）引入命名空间"></a>（1）引入命名空间</h6><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UI;</span><br></pre></td></tr></table></figure>
 
 <h6 id="（2）初始化变量及组件"><a href="#（2）初始化变量及组件" class="headerlink" title="（2）初始化变量及组件"></a>（2）初始化变量及组件</h6><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Button shubtn;</span><br><span class="line"><span class="keyword">public</span> Button autherbtn;</span><br><span class="line"><span class="keyword">public</span> Button studentbtn;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> GameObject shutable;</span><br><span class="line"><span class="keyword">public</span> GameObject authertable;</span><br><span class="line"><span class="keyword">public</span> GameObject studenttable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> GameObject tablecanvas;</span><br><span class="line"><span class="keyword">public</span> GameObject tablecanvas1;</span><br><span class="line"><span class="keyword">public</span> GameObject table_prefab;</span><br><span class="line"><span class="keyword">public</span> GameObject table_prefab1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> GameObject mytable;</span><br><span class="line"><span class="keyword">private</span> GameObject mytable1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> GameObject tishi;</span><br></pre></td></tr></table></figure>
@@ -326,14 +524,14 @@
 
 
 
-<h3 id="5、添加界面"><a href="#5、添加界面" class="headerlink" title="5、添加界面"></a>5、添加界面</h3><h4 id="Ⅰ、界面绘制及功能介绍-3"><a href="#Ⅰ、界面绘制及功能介绍-3" class="headerlink" title="Ⅰ、界面绘制及功能介绍"></a>Ⅰ、界面绘制及功能介绍</h4><p><img src="https://s2.loli.net/2022/07/26/A3fboNILyPs25lS.png" alt="image-20220628015334405"></p>
+<h3 id="5、添加界面"><a href="#5、添加界面" class="headerlink" title="5、添加界面"></a>5、添加界面</h3><h4 id="Ⅰ、界面绘制及功能介绍-3"><a href="#Ⅰ、界面绘制及功能介绍-3" class="headerlink" title="Ⅰ、界面绘制及功能介绍"></a>Ⅰ、界面绘制及功能介绍</h4><p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/A3fboNILyPs25lS.png" alt="image-20220628015334405" data-caption="image-20220628015334405" loading="lazy"></p>
 <p>该界面由 <strong>11个输入框组件</strong> 和 <strong>2个按钮组件</strong> 构成</p>
 <p>用户通过在本界面输入相应的书籍或者作者信息，可以实现在数据库中添加记录的功能</p>
 <p><strong>【例】</strong></p>
-<p><img src="https://s2.loli.net/2022/07/26/3R4NMxCesDkpvIP.png" alt="image-20220628015724530"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/3R4NMxCesDkpvIP.png" alt="image-20220628015724530" data-caption="image-20220628015724530" loading="lazy"></p>
 <p>注：书籍信息为个人编纂，仅测试用</p>
 <p>若输入已有书籍，则会产生报错</p>
-<p><img src="https://s2.loli.net/2022/07/26/vAiekpjGJZ35WlX.png" alt="image-20220628015833643"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/vAiekpjGJZ35WlX.png" alt="image-20220628015833643" data-caption="image-20220628015833643" loading="lazy"></p>
 <h4 id="Ⅱ、功能实现-3"><a href="#Ⅱ、功能实现-3" class="headerlink" title="Ⅱ、功能实现"></a>Ⅱ、功能实现</h4><h5 id="（1）引入命名空间-3"><a href="#（1）引入命名空间-3" class="headerlink" title="（1）引入命名空间"></a>（1）引入命名空间</h5><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UI;</span><br><span class="line"><span class="keyword">using</span> System.Data;</span><br></pre></td></tr></table></figure>
 
 <h5 id="（2）对变量及组件进行初始化赋值"><a href="#（2）对变量及组件进行初始化赋值" class="headerlink" title="（2）对变量及组件进行初始化赋值"></a>（2）对变量及组件进行初始化赋值</h5><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> InputField nameinput;</span><br><span class="line"><span class="keyword">public</span> InputField autherinput;</span><br><span class="line"><span class="keyword">public</span> InputField producerinput;</span><br><span class="line"><span class="keyword">public</span> InputField ageinput;</span><br><span class="line"><span class="keyword">public</span> InputField tanslaterinput;</span><br><span class="line"><span class="keyword">public</span> InputField starinput;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> InputField authernameinput;</span><br><span class="line"><span class="keyword">public</span> InputField authersexinput;</span><br><span class="line"><span class="keyword">public</span> InputField birthinput;</span><br><span class="line"><span class="keyword">public</span> InputField areainput;</span><br><span class="line"><span class="keyword">public</span> InputField countryinput;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> Button addbtn;</span><br><span class="line"><span class="keyword">public</span> Button addbtn1;</span><br><span class="line"><span class="keyword">public</span> GameObject shibai;</span><br><span class="line"><span class="keyword">public</span> GameObject chenggong;</span><br><span class="line">DataSet ds;</span><br></pre></td></tr></table></figure>
@@ -352,14 +550,14 @@
 
 
 
-<h3 id="6、修改界面"><a href="#6、修改界面" class="headerlink" title="6、修改界面"></a>6、修改界面</h3><h4 id="Ⅰ、界面绘制及功能介绍-4"><a href="#Ⅰ、界面绘制及功能介绍-4" class="headerlink" title="Ⅰ、界面绘制及功能介绍"></a>Ⅰ、界面绘制及功能介绍</h4><p><img src="https://s2.loli.net/2022/07/26/zwWLVxNUorJm7Al.png" alt="image-20220628020246461"></p>
+<h3 id="6、修改界面"><a href="#6、修改界面" class="headerlink" title="6、修改界面"></a>6、修改界面</h3><h4 id="Ⅰ、界面绘制及功能介绍-4"><a href="#Ⅰ、界面绘制及功能介绍-4" class="headerlink" title="Ⅰ、界面绘制及功能介绍"></a>Ⅰ、界面绘制及功能介绍</h4><p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/zwWLVxNUorJm7Al.png" alt="image-20220628020246461" data-caption="image-20220628020246461" loading="lazy"></p>
 <p>用户通过输入书籍名称对要修改的书籍进行查找</p>
-<p><img src="https://s2.loli.net/2022/07/26/njx3WSUELH7Vy8M.png" alt="image-20220628020338245"></p>
-<p><img src="https://s2.loli.net/2022/07/26/IyBV9qJm7c68iRn.png" alt="image-20220628020355296"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/njx3WSUELH7Vy8M.png" alt="image-20220628020338245" data-caption="image-20220628020338245" loading="lazy"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/IyBV9qJm7c68iRn.png" alt="image-20220628020355296" data-caption="image-20220628020355296" loading="lazy"></p>
 <p>查找完成后可以对书籍信息进行修改，修改完成后点击 <strong>修改</strong> 按钮</p>
-<p><img src="https://s2.loli.net/2022/07/26/JbTUvKhPm1VwduO.png" alt="image-20220628020450178"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/JbTUvKhPm1VwduO.png" alt="image-20220628020450178" data-caption="image-20220628020450178" loading="lazy"></p>
 <p>再点击确认，即可修改成功</p>
-<p><img src="https://s2.loli.net/2022/07/26/gZfeSkWuIo1YdTO.png" alt="image-20220628020540363"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/gZfeSkWuIo1YdTO.png" alt="image-20220628020540363" data-caption="image-20220628020540363" loading="lazy"></p>
 <h4 id="Ⅱ、功能实现-4"><a href="#Ⅱ、功能实现-4" class="headerlink" title="Ⅱ、功能实现"></a>Ⅱ、功能实现</h4><p>创建 AlterCanvas.cs 脚本</p>
 <h5 id="（1）引入命名空间-4"><a href="#（1）引入命名空间-4" class="headerlink" title="（1）引入命名空间"></a>（1）引入命名空间</h5><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UI;</span><br><span class="line"><span class="keyword">using</span> System.Data;</span><br><span class="line"><span class="keyword">using</span> System.Timers;</span><br></pre></td></tr></table></figure>
 
@@ -371,15 +569,15 @@
 
 
 
-<h3 id="7、图表界面"><a href="#7、图表界面" class="headerlink" title="7、图表界面"></a>7、图表界面</h3><h4 id="Ⅰ、界面绘制及功能介绍-5"><a href="#Ⅰ、界面绘制及功能介绍-5" class="headerlink" title="Ⅰ、界面绘制及功能介绍"></a>Ⅰ、界面绘制及功能介绍</h4><p><img src="https://s2.loli.net/2022/07/26/WRg3ZJlUpyqYmKr.png" alt="image-20220628021037129"></p>
+<h3 id="7、图表界面"><a href="#7、图表界面" class="headerlink" title="7、图表界面"></a>7、图表界面</h3><h4 id="Ⅰ、界面绘制及功能介绍-5"><a href="#Ⅰ、界面绘制及功能介绍-5" class="headerlink" title="Ⅰ、界面绘制及功能介绍"></a>Ⅰ、界面绘制及功能介绍</h4><p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/WRg3ZJlUpyqYmKr.png" alt="image-20220628021037129" data-caption="image-20220628021037129" loading="lazy"></p>
 <p>该界面有一个饼状图和一个柱状图</p>
 <p>上图为初始化状态</p>
 <p>程序运行后</p>
-<p><img src="https://s2.loli.net/2022/07/26/LfVbdzgcnQihvAt.png" alt="image-20220628021210340"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/LfVbdzgcnQihvAt.png" alt="image-20220628021210340" data-caption="image-20220628021210340" loading="lazy"></p>
 <p>这两个图表会显示全部书籍的豆瓣评分分布状态</p>
 <p>将鼠标移到饼状图的各个分布上，还会实现突出显示功能</p>
 <p>点击饼状图的副标题，可选择是否隐藏该分部</p>
-<p><img src="https://s2.loli.net/2022/07/26/fH4PnC9MN2XVTFc.png" alt="image-20220628021413705"></p>
+<p><img data-fancybox="gallery" src="https://s2.loli.net/2022/07/26/fH4PnC9MN2XVTFc.png" alt="image-20220628021413705" data-caption="image-20220628021413705" loading="lazy"></p>
 <p>【注】底部柱状图x轴的乱码属于编译编码问题，在程序打包后即可解决</p>
 <h4 id="Ⅱ、功能实现-5"><a href="#Ⅱ、功能实现-5" class="headerlink" title="Ⅱ、功能实现"></a>Ⅱ、功能实现</h4><p>图表绘制调用了Unity内置的动画状态机实现</p>
 <p>图表数据的更新赋值调用如下函数实现，该函数在 MainCanva.cs 中被调用。</p>
@@ -389,62 +587,103 @@
 
 <h2 id="五、实验总结及心得"><a href="#五、实验总结及心得" class="headerlink" title="五、实验总结及心得"></a><strong>五、实验总结及心得</strong></h2><p>（略）</p>
 
-
-      
-
-    </section>
-    
-      <section class='ArticleMeta'>
-          <div>
-            发布于&nbsp;
-            <time datetime="2022-07-27T09:47:18.096Z" itemprop="datePublished">
-              2022-07-27
-            </time>
-          </div>
-          
-            <div>
-              tags: 
-  <li class="meta-text">
-  { <a href="/tags/Unity/">Unity</a> }
-  </li>
-
-  <li class="meta-text">
-  { <a href="/tags/MySQL/">MySQL</a> }
-  </li>
-
-
-            </div>
-          
-      </section>
-    
-    
-</article>
+  </article>
 
   
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>EKKO<br>
+        <strong>Link：</strong><a href="http://example.com/2022/07/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" title="http:&#x2F;&#x2F;example.com&#x2F;2022&#x2F;07&#x2F;27&#x2F;%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;example.com&#x2F;2022&#x2F;07&#x2F;27&#x2F;%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/Unity/">Unity</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/MySQL/" rel="tag">MySQL</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Unity/" rel="tag">Unity</a>
+    
 </div>
 
-            <footer>
-    <div>© 2022 - EKKO </div>
-    <div>
-        <span>
-            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
-        </span>
-        ,
-        <span>
-            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
-        </span>
-    </div>
-</footer>
-
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
         </div>
     </div>
-</div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="Search" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
 
-<script src="/js/pager/dist/singlepager.js"></script>
+    
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
+
+
+ 
+
+<script async src="/js/app.js?v=1658927302960"></script>
+
+
 
 <script>
-var sp = new Pager('data-pager-shell')
-
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
 </script>
+
+
+    
+
+
+
+
+
 </body>
+
 </html>
