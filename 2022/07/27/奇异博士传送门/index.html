@@ -17,11 +17,119 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<meta name="generator" content="Hexo 6.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Volleria 个人博客" type="application/atom+xml">
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="Volleria 个人博客" type="application/atom+xml">
 </head>
 
 <body>
@@ -85,30 +193,28 @@
 
     <section>
       <h4 id="一、传送门特效"><a href="#一、传送门特效" class="headerlink" title="一、传送门特效"></a>一、传送门特效</h4><h5 id="1、使用组件"><a href="#1、使用组件" class="headerlink" title="1、使用组件"></a>1、使用组件</h5><p>采用Unity内置渲染管线中的Particle System制作</p>
-<h5 id="2、实现思路"><a href="#2、实现思路" class="headerlink" title="2、实现思路"></a>2、实现思路</h5><p>（1）首先创建四个圆球用于特效的定位，并且采用动画效果使其分散并旋转。</p>
-<span id="more"></span>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/0c8e40d99e10be4b.png"></p>
+<h5 id="2、实现思路"><a href="#2、实现思路" class="headerlink" title="2、实现思路"></a>2、实现思路</h5><p>（1）首先创建四个圆球用于特效的定位，并且采用动画效果使其分散并旋转。<br><span id="more"></span><br><img src="https://s3.bmp.ovh/imgs/2022/04/19/0c8e40d99e10be4b.png" alt=""></p>
 <p>（2）新建一个Particle System，将其作为上述小球的子物体，将shape改为box，并修改颜色，添加自定义材质。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/2b276d77ae52b808.png"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/2b276d77ae52b808.png" alt=""></p>
 <p>（3）再新建一个Particle System，将其作为上述小球的子物体，修改同上，并且设置Start Delay、Start Speed等，增加粒子量与Emission，使其呈现出喷散效果。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/6d6a8b76460555c7.png"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/6d6a8b76460555c7.png" alt=""></p>
 <p>（4）将 (2) (3) 组合，并复制一份到另一个小球上。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/3428e2c420bd454b.png"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/3428e2c420bd454b.png" alt=""></p>
 <p>（5）再次新建Particle System，将shape改为Circle，适当减少粒子量</p>
 <p>，同时调整Start Delay、Start Lifetime、Start Speed与Velocity over LifeTime，添加碰撞效果，增加半径，并改为从边缘发射，得到如下效果。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/3aabfd25bb4ec3dd.png"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/3aabfd25bb4ec3dd.png" alt=""></p>
 <p>（6）添加底部倒影。将Emission的粒子量减小到5，Start Speed设为0，进行旋转缩放，使其贴近地面</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/bdc12186e59e727c.png"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/bdc12186e59e727c.png" alt=""></p>
 <p>（7）制作两侧溅射效果。将（5）处效果复制一份，对圆进行扇形裁减，扩大其 Velocity of LifeTime，使其溅射距离加大，同时添加与地面的碰撞效果。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/e3e461e0841c9e32.png"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/e3e461e0841c9e32.png" alt=""></p>
 <p>（8）将（7）处效果复制一份，旋转180置于另一侧，将上述效果组合起来，开启后处理（Bloom效果）。同时将一开始创建的四个小球利用起来，为其添加HDR颜色，伪装成高光闪烁部分。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/b87263501c6b29a9.png"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/b87263501c6b29a9.png" alt=""></p>
 <h5 id="3、分析"><a href="#3、分析" class="headerlink" title="3、分析"></a>3、分析</h5><p>共计使用了8个Particle System，总粒子数在10000左右。材质贴图为自定义制作。</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/f773ed0159d8543d.png" alt="image-20220419173927582"></p>
 <p>可以通过不同的材质贴图对粒子数进行修改，若将图中白色部分拉长，可适当减少粒子数量。</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/b64566f4efc838a2.png" alt="image-20220419174033159"></p>
 <p>经过测试，粒子将会显得十分细长，且颜色不好控制，即使将bloom效果开的很低，也难以分辨。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/ea4777b3378991e9.png"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/ea4777b3378991e9.png" alt=""></p>
 <h4 id="二、具体传送效果"><a href="#二、具体传送效果" class="headerlink" title="二、具体传送效果"></a>二、具体传送效果</h4><h5 id="1、组件使用情况"><a href="#1、组件使用情况" class="headerlink" title="1、组件使用情况"></a>1、组件使用情况</h5><p>玩家：一个人物和摄像机移动的控制脚本</p>
 <p>传送门：一个总控制脚本，两个传送脚本</p>
 <p>Shader：使用屏幕空间的坐标，材质附加在传送门上</p>
@@ -117,30 +223,19 @@
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/8cdbac208214e128.png" alt="image-20220419175956871"></p>
 <p>配合上述Shader中的裁剪效果</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vert</span></span><br><span class="line">o.vertex = UnityObjectToClipPos(v.vertex);</span><br><span class="line">o.screenPos = ComputeScreenPos(o.vertex);</span><br><span class="line">..........................</span><br><span class="line"><span class="comment">//frag    </span></span><br><span class="line">float2 uv = i.screenPos.xy / i.screenPos.w;</span><br><span class="line">fixed4 portalCol = tex2D(_MainTex, uv);</span><br></pre></td></tr></table></figure>
-
 <p>传送门B中显示的便是PortalCamA摄像机所观察到的画面。</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/051b58db13d21f8d.png" alt="image-20220419175906347"></p>
 <p>对另一个传送门采用同样的设置。</p>
 <p>根据向量加减的原理，可以同玩家相对于传送门A的位置 和 传送门B的位置求出PortalCamB的位置，此时PortalCamB的观察图像就相当于玩家在另一个场景的观察图像。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/0f074cea5e3f6b33.png"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/0f074cea5e3f6b33.png" alt=""></p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Yangle = player.transform.eulerAngles.y;</span><br><span class="line">Xangle = playerCam.transform.eulerAngles.x;</span><br><span class="line"></span><br><span class="line">portalCamB.transform.position = DoorB.position + player.position - DoorA.position;</span><br><span class="line">portalCamB.transform.localRotation = Quaternion.Euler(Xangle,Yangle,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">portalCamA.transform.position = DoorA.position + player.position - DoorB.position;</span><br><span class="line">portalCamA.transform.localRotation = Quaternion.Euler(Xangle,Yangle,<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-
 <p>为传送门添加一个碰撞体，当玩家进入到传送门A时，触发传送效果，将此时 PortalCamB 的位置和旋转角度赋值给玩家及摄像头，即可实现玩家位置的传送效果。</p>
 <p>此处添加了一个判断，用于对摄像机进行渲染层级的裁剪，避免视角重叠情况。</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// camera.cullingMask &amp;= ~(1 &lt;&lt; x); // 关闭层x</span></span><br><span class="line">playerCam.cullingMask &amp;= ~(<span class="number">1</span> &lt;&lt; PortalLayer);</span><br><span class="line">...............................</span><br><span class="line">...............................</span><br><span class="line">MyPortal01.transflag = MyPortal01.transflag + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(MyPortal01.transflag == <span class="number">3</span>)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">// camera.cullingMask |= (1 &lt;&lt; x); // 打开层x</span></span><br><span class="line">   playerCam.cullingMask |= (<span class="number">1</span> &lt;&lt; PortalLayer);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// camera.cullingMask &amp;= ~(1 &lt;&lt; x); // 关闭层x</span></span><br><span class="line">playerCam.cullingMask &amp;= ~(<span class="number">1</span> &lt;&lt; PortalLayer);</span><br><span class="line">...............................</span><br><span class="line">...............................</span><br><span class="line">MyPortal01.transflag = MyPortal01.transflag + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(MyPortal01.transflag == <span class="number">3</span>)</span><br><span class="line">{</span><br><span class="line">   <span class="comment">// camera.cullingMask |= (1 &lt;&lt; x); // 打开层x</span></span><br><span class="line">   playerCam.cullingMask |= (<span class="number">1</span> &lt;&lt; PortalLayer);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <h6 id="踩坑点："><a href="#踩坑点：" class="headerlink" title="踩坑点："></a>踩坑点：</h6><p>1、玩家控制脚本使用了Character Controller组件导致 </p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">other.transform.position = transPos;</span><br></pre></td></tr></table></figure>
-
 <p>赋值后不起作用，需要在cc. move() 前面添加如下代码</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Physics.autoSyncTransforms = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
-
 <p>2、在使用碰撞体触发传送时，进入第一个传送门触发一次OnTriggerEnter()，然后传送到第二个传送门，触发一次来自第一个传送门的OnTriggerExit() 和来自第二个传送门的OnTriggerEnter()。</p>
 <hr>
 

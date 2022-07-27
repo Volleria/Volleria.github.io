@@ -17,11 +17,119 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<meta name="generator" content="Hexo 6.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Volleria 个人博客" type="application/atom+xml">
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="Volleria 个人博客" type="application/atom+xml">
 </head>
 
 <body>
@@ -90,8 +198,7 @@
 <span id="more"></span>
 <h3 id="一、渲染"><a href="#一、渲染" class="headerlink" title="一、渲染"></a>一、渲染</h3><p> 场景里的几何、材质、光照等通过一个渲染器，生成一张图片</p>
 <h4 id="几何"><a href="#几何" class="headerlink" title="几何"></a>几何</h4><p>三角网格(传统)、体素、点云</p>
-<img src="https://s2.loli.net/2022/07/26/siXuLP1tWjwrgET.png" alt="image-20220619150852443" style="zoom:67%;" />
-
+<p><img src="https://s2.loli.net/2022/07/26/siXuLP1tWjwrgET.png" alt="image-20220619150852443" style="zoom:67%;"></p>
 <p>三角网格在复杂场景中数据量巨大</p>
 <h4 id="材质"><a href="#材质" class="headerlink" title="材质"></a>材质</h4><p>材质 ≠ 纹理</p>
 <p>描述 光线打到物体上后经过反射、折射等各种交互，出来后的形态各种各样</p>
@@ -100,7 +207,7 @@
 <ul>
 <li>高纬度（High dimensionality）</li>
 <li>奇点 （Singularity）</li>
-<li>多模态 （Multi-modality）–网格、体素、点云</li>
+<li>多模态 （Multi-modality）—网格、体素、点云</li>
 <li>数据量巨大 （Huge data size）</li>
 </ul>
 <p>导致的问题：渲染很困难</p>
@@ -132,23 +239,13 @@
 <li>网格</li>
 <li>……</li>
 </ul>
-<img src="https://s2.loli.net/2022/07/26/ZPLiWTC6mK57Njk.png" alt="image-20220619153326564" style="zoom:80%;" />
-
-
-
-<img src="https://s2.loli.net/2022/07/26/nvHthz87Erx9fUD.png" alt="image-20220619153443878" style="zoom:80%;" />
-
-
-
+<p><img src="https://s2.loli.net/2022/07/26/ZPLiWTC6mK57Njk.png" alt="image-20220619153326564" style="zoom:80%;"></p>
+<p><img src="https://s2.loli.net/2022/07/26/nvHthz87Erx9fUD.png" alt="image-20220619153443878" style="zoom:80%;"></p>
 <p>用网络去处理 mesh 的很少</p>
-<img src="https://s2.loli.net/2022/07/26/9iJXat7hTjRKyYU.png" alt="image-20220619153520455" style="zoom:80%;" />
-
-
-
+<p><img src="https://s2.loli.net/2022/07/26/9iJXat7hTjRKyYU.png" alt="image-20220619153520455" style="zoom:80%;"></p>
 <h5 id="（2）材质"><a href="#（2）材质" class="headerlink" title="（2）材质"></a>（2）材质</h5><p>用神经网络去表示材质</p>
 <p>材质可以抽象成一个函数，包含16个变量（入射、出射光方向、时间）</p>
-<img src="https://s2.loli.net/2022/07/26/ec4HV9loQOugvbp.png" alt="image-20220619153743048" style="zoom: 80%;" />
-
+<p><img src="https://s2.loli.net/2022/07/26/ec4HV9loQOugvbp.png" alt="image-20220619153743048" style="zoom: 80%;"></p>
 <ul>
 <li>用经验模型简化材质</li>
 <li>直接采集：<ul>
@@ -162,8 +259,7 @@
 <p>措施：压缩、降维</p>
 <p>用深度学习去压缩材质</p>
 <p>DeepBRDF ： </p>
-<img src="https://s2.loli.net/2022/07/26/aAd5OT3LMYKQjeR.png" alt="image-20220619154412703" style="zoom: 80%;" />
-
+<p><img src="https://s2.loli.net/2022/07/26/aAd5OT3LMYKQjeR.png" alt="image-20220619154412703" style="zoom: 80%;"></p>
 <p>latent space ：潜在空间、隐空间</p>
 <p>参考： <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/369946876">https://zhuanlan.zhihu.com/p/369946876</a></p>
 <ul>
@@ -174,52 +270,38 @@
 <li>我们可以使用t-SNE和LLE之类的算法来可视化潜在空间，该算法将我们的潜在空间表示形式转换为2D或3D。</li>
 </ul>
 <p>将 BRDF Slice作为输入</p>
-<img src="https://s2.loli.net/2022/07/26/ujit8nwPaBczkpy.png" alt="image-20220619154908240" style="zoom:80%;" />
-
+<p><img src="https://s2.loli.net/2022/07/26/ujit8nwPaBczkpy.png" alt="image-20220619154908240" style="zoom:80%;"></p>
 <p>BRDF 不考虑材质的表面变化，若考虑表面变化还有一些光照效果等，我们采用 BTF</p>
 <p>BTF： Bidirectional Texture Function</p>
-<img src="https://s2.loli.net/2022/07/26/AsGQZ5ESu2Kw4Vx.png" alt="image-20220619155652279" style="zoom:80%;" />
-
+<p><img src="https://s2.loli.net/2022/07/26/AsGQZ5ESu2Kw4Vx.png" alt="image-20220619155652279" style="zoom:80%;"></p>
 <p>对 SVBRDF 进行压缩</p>
 <p><img src="https://s2.loli.net/2022/07/26/t5hyQjx6GVYLmBz.png" alt="image-20220619163330460"></p>
-<img src="https://s2.loli.net/2022/07/26/Edkq21cTwmauA6U.png" alt="image-20220619163830172" style="zoom:80%;" />
-
+<p><img src="https://s2.loli.net/2022/07/26/Edkq21cTwmauA6U.png" alt="image-20220619163830172" style="zoom:80%;"></p>
 <p>用神经网络去压缩材质空间，这个工作远没有结束</p>
 <p><strong>【三维体素型材质】</strong>：玉石、烟雾、半透明物体</p>
-<img src="https://s2.loli.net/2022/07/26/Ww7fTkAgjhUPlDL.png" alt="image-20220619163930515" style="zoom:80%;" />
-
-
-
+<p><img src="https://s2.loli.net/2022/07/26/Ww7fTkAgjhUPlDL.png" alt="image-20220619163930515" style="zoom:80%;"></p>
 <p>借鉴风格迁移</p>
-<img src="https://s2.loli.net/2022/07/26/oVrcLBdASTzpWy9.png" alt="image-20220619164041610" style="zoom:80%;" />
-
+<p><img src="https://s2.loli.net/2022/07/26/oVrcLBdASTzpWy9.png" alt="image-20220619164041610" style="zoom:80%;"></p>
 <p>只是风格相似，不一定是完全match</p>
-<img src="https://s2.loli.net/2022/07/26/JQPgB89dzIsfnWR.png" alt="image-20220619164444074" style="zoom:80%;" />
-
+<p><img src="https://s2.loli.net/2022/07/26/JQPgB89dzIsfnWR.png" alt="image-20220619164444074" style="zoom:80%;"></p>
 <p>对于任何一张图片，可以抽取其风格，然后迁移到三维物体上</p>
 <h5 id="（3）用神经网络表示光源"><a href="#（3）用神经网络表示光源" class="headerlink" title="（3）用神经网络表示光源"></a>（3）用神经网络表示光源</h5><p><img src="https://s2.loli.net/2022/07/26/stSf6JbiqdkVARc.png" alt="image-20220619164521562"></p>
 <p>环境光也是一种高维信号，同样的思想，采用神经网络去压缩，压缩形成的latent space并不是用于渲染，而是用于光照估计。</p>
-<img src="https://s2.loli.net/2022/07/26/SNwBvZG1YWsFq48.png" alt="image-20220619164717253" style="zoom:80%;" />
-
+<p><img src="https://s2.loli.net/2022/07/26/SNwBvZG1YWsFq48.png" alt="image-20220619164717253" style="zoom:80%;"></p>
 <p>先用神经网路抽取一个室外全景图的latent space，可以用于光照估计，输入一张图，去预测光照，先预测latent code，然后再用decode去恢复这张环境图。</p>
 <p>应用：把虚拟物体插入到真实环境下</p>
-<img src="https://s2.loli.net/2022/07/26/W3BxpHyi4NdASTm.png" alt="image-20220619164957649" style="zoom:80%;" />
-
-
-
+<p><img src="https://s2.loli.net/2022/07/26/W3BxpHyi4NdASTm.png" alt="image-20220619164957649" style="zoom:80%;"></p>
 <p>这项工作在深度学习里有个非常重要的思想：disentanglement</p>
 <p>刚才讲到是室外光，那么室内光是否也可以用auto-encode、GAN等进行压缩？</p>
 <p>答案是不行，室内光过于复杂，难以压缩。</p>
-<img src="https://s2.loli.net/2022/07/26/A9wceK8X34Ms7EJ.png" alt="image-20220619165815866" style="zoom:80%;" />
-
+<p><img src="https://s2.loli.net/2022/07/26/A9wceK8X34Ms7EJ.png" alt="image-20220619165815866" style="zoom:80%;"></p>
 <p>该项工作把光源压缩到一个神经网络上</p>
 <h5 id="（4）场景"><a href="#（4）场景" class="headerlink" title="（4）场景"></a>（4）场景</h5><p>那么是否可以直接对整个场景，不分几何材质光照，进行压缩？</p>
 <p> <strong>Neural scene</strong></p>
 <p><img src="https://s2.loli.net/2022/07/26/pCl8LxNBkGfgwFj.png" alt="image-20220619170013686"></p>
 <p>限制：容易丢失细节</p>
 <h4 id="第二个角色：-Mapping-映射"><a href="#第二个角色：-Mapping-映射" class="headerlink" title="第二个角色： Mapping 映射"></a>第二个角色： Mapping 映射</h4><p>从一个 domain 到另一个 domain</p>
-<img src="https://s2.loli.net/2022/07/26/bnFoW63Sc5E8TYm.png" alt="image-20220619170931536" style="zoom:80%;" />
-
+<p><img src="https://s2.loli.net/2022/07/26/bnFoW63Sc5E8TYm.png" alt="image-20220619170931536" style="zoom:80%;"></p>
 <ul>
 <li>去噪</li>
 <li>超分</li>
@@ -231,18 +313,14 @@
 <li>漫反射-镜面反射的分解</li>
 <li>G-buffer</li>
 <li>无限的训练样本（理论上）</li>
-<li>解调 Demodulation （图象 &#x2F; albedo）</li>
+<li>解调 Demodulation （图象 / albedo）</li>
 </ul>
 <p>在无监督去噪中，loss是关键</p>
-<img src="https://s2.loli.net/2022/07/26/LxShwJz81ZV523B.png" alt="image-20220619172234941" style="zoom:80%;" />
-
-
-
+<p><img src="https://s2.loli.net/2022/07/26/LxShwJz81ZV523B.png" alt="image-20220619172234941" style="zoom:80%;"></p>
 <h5 id="（2）超分"><a href="#（2）超分" class="headerlink" title="（2）超分"></a>（2）超分</h5><p>典例：DLSS、Neual SS</p>
 <p><img src="https://s2.loli.net/2022/07/26/KzS6Nf3WbpeGrwk.png" alt="image-20220619172322173"></p>
 <p><img src="https://s2.loli.net/2022/07/26/sBYl1rdX8ZzP59Q.png" alt="image-20220619172333668"></p>
-<h5 id="（3）从直接光照预测间接光照"><a href="#（3）从直接光照预测间接光照" class="headerlink" title="（3）从直接光照预测间接光照"></a>（3）从直接光照预测间接光照</h5><img src="https://s2.loli.net/2022/07/26/CE6QdXzFxOZi2pr.png" alt="image-20220619172447406" style="zoom:80%;" />
-
+<h5 id="（3）从直接光照预测间接光照"><a href="#（3）从直接光照预测间接光照" class="headerlink" title="（3）从直接光照预测间接光照"></a>（3）从直接光照预测间接光照</h5><p><img src="https://s2.loli.net/2022/07/26/CE6QdXzFxOZi2pr.png" alt="image-20220619172447406" style="zoom:80%;"></p>
 <p>该方向的研究较少</p>
 <p>直接光照很快，间接光照很慢</p>
 <h5 id="（4）从渲染图片出发，反推场景元素"><a href="#（4）从渲染图片出发，反推场景元素" class="headerlink" title="（4）从渲染图片出发，反推场景元素"></a>（4）从渲染图片出发，反推场景元素</h5><p><img src="https://s2.loli.net/2022/07/26/wedM7pWRiGBCVg8.png" alt="image-20220619172605439"></p>

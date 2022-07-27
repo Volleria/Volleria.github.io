@@ -2,7 +2,7 @@
 <p>For use with Hexo, Jekyll, etc.</p>
 <p>Released in ES2015 without any transformation or polyfill such as Babel.</p>
 <h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="Initialize"><a href="#Initialize" class="headerlink" title="Initialize"></a>Initialize</h3><p>Include and initialize it.</p>
-<pre><code class="html">...
+<pre><code class="lang-html">...
 &lt;div data-pager-shell&gt;
   ...
 &lt;/div&gt;
@@ -14,7 +14,7 @@
 &lt;/script&gt;
 </code></pre>
 <p>The parameter of construct could be an attribute name string, or a configure object.</p>
-<pre><code class="typescript">interface PagerConfig {
+<pre><code class="lang-typescript">interface PagerConfig {
   shellMark?: string,     // The mark attribute to replace content
   disableMark?: string,   // Attribute mark links not be load
   ignoreScript?: string,  // Ignore this `&lt;script&gt;` tag
@@ -34,7 +34,7 @@ const defaultConfig = &lt;PagerConfig&gt;{
 </code></pre>
 <h3 id="lt-script-gt-Hook-Tag"><a href="#lt-script-gt-Hook-Tag" class="headerlink" title="&lt;script&gt; Hook Tag"></a><code>&lt;script&gt;</code> Hook Tag</h3><p>While <code>&lt;script&gt;</code> tags in container will default run after the page switching, it can be specified to run before or after the page switching.</p>
 <p>Remember that <code>&lt;script&gt;</code> with <code>data-run-before</code> (or other name setted in config) would run before the content changes, so do not make references to the target page elements.</p>
-<pre><code class="html">&lt;div data-pager-shell&gt;
+<pre><code class="lang-html">&lt;div data-pager-shell&gt;
   ...
   &lt;div id=&quot;tag&quot;&gt;&lt;/div&gt;
   &lt;script&gt;
