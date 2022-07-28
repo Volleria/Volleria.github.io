@@ -925,7 +925,7 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .main-inner {
-    width: 800px;
+    width: 1000px;
   }
 }
 @media (min-width: 1600px) {
@@ -947,7 +947,7 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .header-inner {
-    width: 800px;
+    width: 1000px;
   }
 }
 @media (min-width: 1600px) {
@@ -1144,7 +1144,7 @@ pre .javascript .function {
 }
 .site-author-name {
   color: var(--text-color);
-  font-weight: 600;
+  font-weight: 650;
   margin: 0;
   text-align: center;
 }
@@ -1168,7 +1168,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #8c9d34;
+  background: #ff6f75;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1386,7 +1386,7 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .footer-inner {
-    width: 800px;
+    width: 1000px;
   }
 }
 @media (min-width: 1600px) {
@@ -2265,7 +2265,7 @@ mjx-container + br {
 }
 @media (min-width: 1200px) {
   .header {
-    width: 800px;
+    width: 1000px;
   }
 }
 @media (min-width: 1600px) {
@@ -2286,11 +2286,11 @@ mjx-container + br {
   padding: 0;
   position: absolute;
   top: 0;
-  width: 250px;
+  width: 240px;
 }
 @media (min-width: 1200px) {
   .header-inner {
-    width: 250px;
+    width: 240px;
   }
 }
 @media (max-width: 991px) {
@@ -2317,7 +2317,7 @@ mjx-container + br {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   box-sizing: border-box;
   padding: 40px;
-  width: calc(100% - 262px);
+  width: calc(100% - 252px);
 }
 @media (max-width: 991px) {
   .content-wrap {
@@ -2459,7 +2459,7 @@ mjx-container + br {
   box-shadow: none;
   margin-top: 100%;
   position: static;
-  width: 250px;
+  width: 240px;
 }
 @media (max-width: 991px) {
   .sidebar {
@@ -2475,7 +2475,7 @@ mjx-container + br {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   box-sizing: border-box;
   color: var(--text-color);
-  width: 250px;
+  width: 240px;
   opacity: 0;
 }
 .sidebar-inner.affix {
