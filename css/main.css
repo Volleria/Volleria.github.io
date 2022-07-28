@@ -925,7 +925,7 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .main-inner {
-    width: 1160px;
+    width: 800px;
   }
 }
 @media (min-width: 1600px) {
@@ -947,7 +947,7 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .header-inner {
-    width: 1160px;
+    width: 800px;
   }
 }
 @media (min-width: 1600px) {
@@ -1168,7 +1168,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #5bd167;
+  background: #82cd0f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1386,7 +1386,7 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .footer-inner {
-    width: 1160px;
+    width: 800px;
   }
 }
 @media (min-width: 1600px) {
@@ -1411,7 +1411,7 @@ pre .javascript .function {
   width: 100%;
 }
 .with-love {
-  color: #ffffff;
+  color: #000000;
   display: inline-block;
   margin: 0 5px;
 }
@@ -2265,7 +2265,7 @@ mjx-container + br {
 }
 @media (min-width: 1200px) {
   .header {
-    width: 1160px;
+    width: 800px;
   }
 }
 @media (min-width: 1600px) {
@@ -2690,4 +2690,25 @@ body {
   -o-background-size: cover;
   -moz-background-size: cover;
   -ms-background-size: cover;
+}
+.content-wrap {
+  opacity: 0.75;
+}
+.main-inner {
+  background-color: rgba(255,255,255,0);
+}
+.post-block {
+  opacity: 0.75;
+}
+.sidebar {
+  opacity: 0.75;
+}
+.header-inner {
+  background: rgba(255,255,255,0.75);
+}
+.pagination {
+  opacity: 0.75;
+}
+.popup {
+  opacity: 0.75;
 }
