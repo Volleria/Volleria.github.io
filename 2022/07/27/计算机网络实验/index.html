@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/rubbish.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/rubbish.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":250,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="一、基本信息（略） 二、实验目的要求学生掌握Socket编程技术及令牌总线协议工作过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络爬虫">
+<meta property="og:url" content="http://example.com/2022/07/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/index.html">
+<meta property="og:site_name" content="Volleria 个人博客">
+<meta property="og:description" content="一、基本信息（略） 二、实验目的要求学生掌握Socket编程技术及令牌总线协议工作过程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/lIFAdX1gBsMZjVw.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/Swt5TgJpsduilEn.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/8MCBeayGq62RVzj.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/gVl5RE8uwCtqTfM.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/1wGeMWDXuI27TSl.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/YKhqtJekOu3IUV7.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/HgNysLPCYbJ7Awa.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/tdFr4m3YbPiUoAL.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/D8pZfVWqHM67LNu.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/78cWoRNs1kzgBpZ.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/iALYlmPfGcBs1I2.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/QMTEzFGlNgv2xLY.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/4tcVLn1Huael2k5.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/mH5pUMjov8Kdg9b.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/D2TMdGf8sIoKmqO.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/26/fi17MO3lLc2pzSd.png">
+<meta property="article:published_time" content="2022-07-27T09:47:18.113Z">
+<meta property="article:modified_time" content="2022-07-27T14:53:46.246Z">
+<meta property="article:author" content="易安亦难安">
+<meta property="article:tag" content="Unity">
+<meta property="article:tag" content="网络爬虫">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/07/26/lIFAdX1gBsMZjVw.png">
+
+<link rel="canonical" href="http://example.com/2022/07/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>计算机网络爬虫 | Volleria 个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="Volleria 个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Volleria 个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.png">
+      <meta itemprop="name" content="易安亦难安">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Volleria 个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机网络爬虫
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-27 17:47:18 / 修改时间：22:53:46" itemprop="dateCreated datePublished" datetime="2022-07-27T17:47:18+08:00">2022-07-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="一、基本信息"><a href="#一、基本信息" class="headerlink" title="一、基本信息"></a>一、基本信息</h3><p>（略）</p>
+<h3 id="二、实验目的"><a href="#二、实验目的" class="headerlink" title="二、实验目的"></a>二、实验目的</h3><p>要求学生掌握Socket编程技术及令牌总线协议工作过程</p>
+<script type="math/tex; mode=display">
+</script><span id="more"></span>
+<h3 id="三、基础实验内容"><a href="#三、基础实验内容" class="headerlink" title="三、基础实验内容"></a>三、基础实验内容</h3><h4 id="Ⅰ、traceroute"><a href="#Ⅰ、traceroute" class="headerlink" title="Ⅰ、traceroute"></a>Ⅰ、traceroute</h4><p><strong>1、实验目的：</strong>熟悉traceroute的使用</p>
+<p><strong>2、实验内容：</strong> 用traceroute测量到163网站（www.163.com）和到微软公司（www.microsoft.com）网站的路径。分析测量结果。</p>
+<p><strong>3、实验流程及结果</strong></p>
+<p>在Ubuntu上下载安装traceroute</p>
+<p><img src="https://s2.loli.net/2022/07/26/lIFAdX1gBsMZjVw.png" alt=""></p>
+<p>用traceroute测量到163网站（www.163.com）的路径</p>
+<p><img src="https://s2.loli.net/2022/07/26/Swt5TgJpsduilEn.png" alt="ICMP 163"></p>
+<p>用traceroute测量到微软网站（www.microsoft.com）的路径</p>
+<p><img src="https://s2.loli.net/2022/07/26/8MCBeayGq62RVzj.png" alt="ICMP microsoft"></p>
+<p>上述输出信息显示了跟踪到的路由地址信息。记录从序号 1 开始，每个记录就是一跳，而每一跳表示经过的一个网关。记录给出了每个网关对应的IP地址。其中，为 <em>*</em> 的记录表示可能被防火墙拦截的 ICMP 的返回信息。</p>
+<p>在linux上使用traceroute，默认使用udp协议，除了第一跳，剩下的都是<em> </em> *。是因为虚拟机 nat 路由器，默认丢弃port&gt;32767的包。在命令中加入 -l 强制使用ICMP得到上图结果。</p>
+<h4 id="Ⅱ、wireshark"><a href="#Ⅱ、wireshark" class="headerlink" title="Ⅱ、wireshark"></a>Ⅱ、wireshark</h4><p><strong>1、实验目的：</strong>熟悉wireshark的使用</p>
+<p><strong>2、实验内容：</strong>下载安装wireshark软件，设置捕获条件，用wireshark捕获数据包，对以太网帧和IP数据包进行分析。</p>
+<p><strong>3、实验流程及结果</strong></p>
+<p>Wireshark 是一个免费开源的网络数据包分析软件。它的功能是截取网络数据包，并尽可能显示出最为详细的网络数据包数据。</p>
+<p>下载安装Wireshark并启动</p>
+<p><img src="https://s2.loli.net/2022/07/26/gVl5RE8uwCtqTfM.png" alt=""></p>
+<p>查询网卡</p>
+<p><img src="https://s2.loli.net/2022/07/26/1wGeMWDXuI27TSl.png" alt=""></p>
+<p>打开火绒浏览器开始发包测试</p>
+<p><img src="https://s2.loli.net/2022/07/26/YKhqtJekOu3IUV7.png" alt=""></p>
+<p>TCP找目的地址，捕获数据包，对以太网帧和IP数据包进行分析。</p>
+<p><img src="https://s2.loli.net/2022/07/26/HgNysLPCYbJ7Awa.png" alt=""></p>
+<p>将 <em>TCP 80 端口</em> 作为过滤条件进行筛选分析</p>
+<p><img src="https://s2.loli.net/2022/07/26/tdFr4m3YbPiUoAL.png" alt=""></p>
+<h3 id="四、工程性实验内容"><a href="#四、工程性实验内容" class="headerlink" title="四、工程性实验内容"></a>四、工程性实验内容</h3><h4 id="Ⅰ、Robots协议"><a href="#Ⅰ、Robots协议" class="headerlink" title="Ⅰ、Robots协议"></a>Ⅰ、Robots协议</h4><p><strong>具体内容：</strong>查看淘宝网的Robots协议，了解抓取网站数据需要遵循的规则</p>
+<p>Robots协议的全称是“网络爬虫排除标准”(Robots Exclusion Protocol)，网站通过Robots协议告诉搜索引擎哪些页面可以爬取，哪些页面不可以爬取。这个协议是互联网中的道德规范，虽没写入法律，但应遵守。在网站末尾加<code>/robots.txt</code>可以进行查看。</p>
+<p><img src="https://s2.loli.net/2022/07/26/D8pZfVWqHM67LNu.png" alt="image-20220427171824767"></p>
+<p>Robots协议的语法：#注释，*代表所有，/代表根目录。</p>
+<p>无robots协议的网站，信息可以爬取。</p>
+<p>自动或人工识别robots.txt，再进行内容爬取，Robots协议是建议但非约束性，网络爬虫可以不遵守，但存在法律风险。访问量很小的可以遵循，访问量大的建议遵循。非商业的建议遵循，涉及商业利益的必须遵循，爬取全网信息必须要遵循。如果是类似人类行为的爬取信息，可不遵循。</p>
+<h4 id="Ⅱ、-搜索关键词查询确定其关键词的查询接口"><a href="#Ⅱ、-搜索关键词查询确定其关键词的查询接口" class="headerlink" title="Ⅱ、 搜索关键词查询确定其关键词的查询接口"></a>Ⅱ、 搜索关键词查询确定其关键词的查询接口</h4><p>以豆瓣图书为例，进入豆瓣读书网站</p>
+<p><img src="https://s2.loli.net/2022/07/26/78cWoRNs1kzgBpZ.png" style="zoom:67%;"></p>
+<p>随便点击一本书，观察其网址</p>
+<p><img src="https://s2.loli.net/2022/07/26/iALYlmPfGcBs1I2.png" style="zoom:67%;"></p>
+<p>观察到红框部分即为该书在豆瓣数据库中的代号</p>
+<p>进入短评部分</p>
+<p><img src="https://s2.loli.net/2022/07/26/QMTEzFGlNgv2xLY.png" style="zoom:67%;"></p>
+<p>观察到前一个红框部分为该书的代码，后一个红框部分为这一页短评的起始标号，豆瓣书籍网页版一页共有20条短评，所以 start = num （num从0开始并且为20的整倍数）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">"https://book.douban.com/subject/{}/comments/?start={}&amp;limit=20&amp;status=P&amp;sort=new_score"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># booknum和index分别为书籍代码和start起始下标</span></span><br><span class="line">u = url.<span class="built_in">format</span>(<span class="built_in">str</span>(booknum),<span class="built_in">str</span>(index))</span><br></pre></td></tr></table></figure>
+<p>所以之后对豆瓣图书评论的查询靠替换关键字完成</p>
+<h4 id="Ⅲ、爬取豆瓣图书评论"><a href="#Ⅲ、爬取豆瓣图书评论" class="headerlink" title="Ⅲ、爬取豆瓣图书评论"></a>Ⅲ、爬取豆瓣图书评论</h4><h5 id="具体内容"><a href="#具体内容" class="headerlink" title="具体内容"></a>具体内容</h5><p>抓取豆瓣读书中对某本书的前50条短评内容并计算星级评定分数的平均值（保留两位小数）</p>
+<h5 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h5><p>TCP协议：传输控制协议（Transmission Control Protocol，缩写为TCP）是一种面向连接的、可靠的、基于字节流的传输层通信协议，它能提供高可靠性通信(即数据无误、数据无丢失、数据无失序、数据无重复到达的通信)。</p>
+<p>主要适用的场景：</p>
+<p>适合于对传输质量要求较高，以及传输大量数据的通信。</p>
+<p>在需要可靠数据传输的场合，通常使用TCP协议。</p>
+<p>HTTP/HTTPS等即网络服务都采用TCP协议。</p>
+<p>TCP通信需要经过创建连接、数据传送、终止连接三个步骤。</p>
+<ul>
+<li><p>初始化 url ，并通过 get() 函数逐网页爬取网页源代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">"https://book.douban.com/subject/{}/comments/?start={}&amp;limit=20&amp;status=P&amp;sort=new_score"</span></span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">60</span>, <span class="number">20</span>):</span><br><span class="line">    <span class="comment"># booknum 为豆瓣书籍编号，本实验选用的是35593780</span></span><br><span class="line">    u = url.<span class="built_in">format</span>(<span class="built_in">str</span>(booknum),<span class="built_in">str</span>(index))</span><br><span class="line">    r = get(u)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建 socket 实例，处理 https 的库</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">url</span>):</span><br><span class="line">    host = <span class="string">'book.douban.com'</span></span><br><span class="line">    path = url[<span class="number">23</span>:]</span><br><span class="line">	s = ssl.wrap_socket(socket.socket())</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化端口，与主机建立起连接</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">port = <span class="number">443</span>  <span class="comment"># 端口 https 默认端口443</span></span><br><span class="line">s.connect((host, port))  <span class="comment"># 建立起连接，连接主机</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置报文格式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 报文格式： GET+空格+com后面的部分+空格+HTTP/1.1(或1.0)+\r\n+Host:+域名+\r\n\r\n</span></span><br><span class="line">request = <span class="string">'GET {} HTTP/1.1\r\nHost: {}\r\n\r\n'</span>.<span class="built_in">format</span>(path, host)  <span class="comment"># 构建请求</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发送请求并接受数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">s.send(request.encode(<span class="string">'utf-8'</span>))  <span class="comment"># 发送请求  转码，将str 转成bytes类型</span></span><br><span class="line">response = <span class="string">b''</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="comment"># 接受数据</span></span><br><span class="line">    r = s.recv(<span class="number">1024</span>)</span><br><span class="line">    response += r</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(r) &lt; <span class="number">1024</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">response = response.decode(<span class="string">'utf-8'</span>) <span class="comment"># 解码</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对数据进行查找分析</p>
+<p>此处主要使用 str 类型所带的 find() 函数</p>
+<p>Python find() 方法检测<strong>字符串</strong>中是否包含<strong>子字符串</strong> str</p>
+<p>如果指定 beg（开始） 和 end（结束） 范围，则检查是否包含在指定范围内，如果包含子字符串返回开始的索引值，否则返回-1。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># html 为字符串</span></span><br><span class="line"><span class="comment"># userstart 为每个用户所在源代码的开始位置</span></span><br><span class="line"><span class="comment"># userend 每个用户所在源代码的结束位置</span></span><br><span class="line"><span class="comment"># start_str为所查询字符串的前部分</span></span><br><span class="line"><span class="comment"># end_str为所查询字符串的后部分</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getdata</span>(<span class="params">html, userstart, userend, start_str, end_str</span>):</span><br><span class="line">    start = html.find(start_str, userstart, userend)</span><br><span class="line">    end = html.find(end_str, start)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> start == -<span class="number">1</span> <span class="keyword">else</span> html[start + <span class="built_in">len</span>(start_str):end]</span><br></pre></td></tr></table></figure>
+<p>对于星级的平均分计算，考虑到有些用户没有打分，计算平均分时需将其删除。对于上面的数据查询函数 getdata() ，如果未能查询到该用户所打的分数，则在star[] 数组中写入0，若查询到所打的分数，则写入该分数。</p>
+</li>
+<li><p>将结果进行整理输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># douban.txt 文件和当前py文件位于同一目录之下</span></span><br><span class="line">output = <span class="built_in">open</span>(<span class="string">"douban.txt"</span>,<span class="string">'w'</span>,encoding=<span class="string">'UTF—8'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将50条评论逐行输入至 douban.txt 文件中，在第51行输入平均分数，第52行输入书名。</p>
+<h5 id="可视化界面"><a href="#可视化界面" class="headerlink" title="可视化界面"></a>可视化界面</h5><p>该可视化界面采用 Unity3D 制作，版本为 2021.2.7f1c1，所用语言为 C#</p>
+<p><strong>【展示】</strong></p>
+<p><img src="https://s2.loli.net/2022/07/26/4tcVLn1Huael2k5.png" alt="image-20220427223747102"></p>
+<p>[1] 处按钮为显示前页评论</p>
+<p>[2] 处按钮为显示后页评论</p>
+<p>[3] 处为书名显示区域</p>
+<p>[4] 处为所求得的平均分数（保留两位小数）</p>
+<p>[5] [6] [7] [8] 处为评论内容显示区域，可上下拖拽查看全部内容</p>
+<p>【<strong>代码及主要制作思路</strong>】</p>
+<p>创建一个string类型的数组，用以存储评论、书名、分数等数据</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>[] txt</span><br></pre></td></tr></table></figure>
+<p>使用<strong>绝对路径</strong>读取上述 douban.txt 文件</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.IO;</span><br><span class="line">txt = File.ReadAllLines(<span class="string">"C:\\Users\\EKKO\\Desktop\\ComputerNetwork\\CNLab\\douban.txt"</span>);</span><br></pre></td></tr></table></figure>
+<p>此时 txt 数组共有52个元素，存储50条评论、一个书名、一个平均分数</p>
+<p>新建 TEXT 类型数组 comments 并与UI上的组件进行绑定，将书名和分数直接显示。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">comments[<span class="number">0</span>] = transform.GetChild(<span class="number">7</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">0</span>].text = <span class="string">"平均分数:"</span>+txt[<span class="number">50</span>];</span><br><span class="line">comments[<span class="number">1</span>] = transform.GetChild(<span class="number">1</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">2</span>] = transform.GetChild(<span class="number">2</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">3</span>] = transform.GetChild(<span class="number">3</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">4</span>] = transform.GetChild(<span class="number">4</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">bookname = transform.GetChild(<span class="number">9</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">bookname.text = <span class="string">"《"</span>+txt[<span class="number">51</span>] +<span class="string">"》"</span>; </span><br></pre></td></tr></table></figure>
+<p>调用按钮点击相应事件，为 ‘前页’ ‘后页’ 按钮绑定相关操作</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">upbtn.onClick.AddListener(setindexup);</span><br><span class="line">downbtn.onClick.AddListener(setindexdown);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setindexup</span>()</span></span><br><span class="line">{</span><br><span class="line">   <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>;i &lt;<span class="number">5</span>;i++)</span><br><span class="line">        <span class="keyword">if</span>(index[i] &lt; <span class="number">49</span>)</span><br><span class="line">			index[i] += <span class="number">4</span>;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setindexdown</span>()</span></span><br><span class="line">{</span><br><span class="line">   <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>;i &lt;<span class="number">5</span>;i++)</span><br><span class="line">		<span class="keyword">if</span>(index[i] &gt; <span class="number">4</span>)</span><br><span class="line">			index[i] -= <span class="number">4</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>最后在 Update() 函数中逐帧进行赋值操作，达到动态刷新的效果</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">{</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">1</span>;i &lt; <span class="number">5</span> ;i++)</span><br><span class="line">		<span class="keyword">if</span>( index[i]<span class="number">-1</span> &gt; <span class="number">49</span> )</span><br><span class="line">			comments[i].text = <span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		comments[i].text = txt[index[i] - <span class="number">1</span>];</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h4 id="Ⅳ、抓取道指成分股数据"><a href="#Ⅳ、抓取道指成分股数据" class="headerlink" title="Ⅳ、抓取道指成分股数据"></a>Ⅳ、抓取道指成分股数据</h4><h5 id="具体内容-1"><a href="#具体内容-1" class="headerlink" title="具体内容"></a>具体内容</h5><p>在<a target="_blank" rel="noopener" href="https://money.cnn.com/data/dow30/">https://money.cnn.com/data/dow30/</a> 上抓取道指成分股数据并解析其中30家公司的代码、名称和最近一次成交价，将结果放到一个列表中输出。</p>
+<h5 id="实验步骤-1"><a href="#实验步骤-1" class="headerlink" title="实验步骤"></a>实验步骤</h5><p>采用 request 和 re 两个包来解决</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
+<p>确定查询网址路径</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">'https://money.cnn.com/data/dow30/'</span></span><br></pre></td></tr></table></figure>
+<p>由于网址发生变化，所以实际进入的网址为</p>
+<p><img src="https://s2.loli.net/2022/07/26/mH5pUMjov8Kdg9b.png" style="zoom:67%;"></p>
+<p>通过r=request.get（url）构造一个向服务器请求资源的url对象。</p>
+<p>这个对象是Request库内部生成的。</p>
+<p>这时候的r返回的是一个包含服务器资源的Response对象。包含从服务器返回的所有的相关资源。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r = requests.get(url)</span><br></pre></td></tr></table></figure>
+<p>根据网页源代码，构建查匹配对应数据所需的正则表达式</p>
+<p><img src="https://s2.loli.net/2022/07/26/D2TMdGf8sIoKmqO.png" alt="image-20220428173724771"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pattern = re.<span class="built_in">compile</span>(</span><br><span class="line">    <span class="string">'wsod_symbol"&gt;(.*?)&lt;/a&gt; &lt;span title="(.*?)"&gt;(.*?)&lt;/span&gt;&lt;/td&gt;&lt;td class="wsod_aRight"&gt;&lt;span stream="last_(.*?)&lt;'</span>)</span><br></pre></td></tr></table></figure>
+<p>进行匹配查询</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># data 为一个含有4个元素的元组，包含所需数据</span></span><br><span class="line">data = re.findall(pattern, r.text)</span><br></pre></td></tr></table></figure>
+<p> 数据处理：对数据进行筛选比对，选取所需要的 【公司的代码】、【名称】、【最近一次成交价】</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">    <span class="comment"># print("i:",i)</span></span><br><span class="line">    m = (i[<span class="number">0</span>], i[<span class="number">1</span>], i[<span class="number">3</span>][-<span class="number">6</span>:])</span><br><span class="line">    <span class="comment"># 将其添加到列表中</span></span><br><span class="line">    dowdata.append(m)</span><br></pre></td></tr></table></figure>
+<p>输出示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> dowdata:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/07/26/fi17MO3lLc2pzSd.png" alt="image-20220428174108983"></p>
+<p>该结果对应时间：2022.4.28 -17:41</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Unity/" rel="tag"># Unity</a>
+              <a href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag"># 网络爬虫</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/27/%E6%B0%B4%E5%A2%A8%E9%A3%8E%E6%A0%BCshader/" rel="prev" title="简单水墨风格Shader">
+      <i class="fa fa-chevron-left"></i> 简单水墨风格Shader
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="nav-text">一、基本信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-text">二、实验目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%9F%BA%E7%A1%80%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="nav-text">三、基础实验内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0%E3%80%81traceroute"><span class="nav-text">Ⅰ、traceroute</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1%E3%80%81wireshark"><span class="nav-text">Ⅱ、wireshark</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%B7%A5%E7%A8%8B%E6%80%A7%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="nav-text">四、工程性实验内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0%E3%80%81Robots%E5%8D%8F%E8%AE%AE"><span class="nav-text">Ⅰ、Robots协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1%E3%80%81-%E6%90%9C%E7%B4%A2%E5%85%B3%E9%94%AE%E8%AF%8D%E6%9F%A5%E8%AF%A2%E7%A1%AE%E5%AE%9A%E5%85%B6%E5%85%B3%E9%94%AE%E8%AF%8D%E7%9A%84%E6%9F%A5%E8%AF%A2%E6%8E%A5%E5%8F%A3"><span class="nav-text">Ⅱ、 搜索关键词查询确定其关键词的查询接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A2%E3%80%81%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3%E5%9B%BE%E4%B9%A6%E8%AF%84%E8%AE%BA"><span class="nav-text">Ⅲ、爬取豆瓣图书评论</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E5%86%85%E5%AE%B9"><span class="nav-text">具体内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="nav-text">实验步骤</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E7%95%8C%E9%9D%A2"><span class="nav-text">可视化界面</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A3%E3%80%81%E6%8A%93%E5%8F%96%E9%81%93%E6%8C%87%E6%88%90%E5%88%86%E8%82%A1%E6%95%B0%E6%8D%AE"><span class="nav-text">Ⅳ、抓取道指成分股数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E5%86%85%E5%AE%B9-1"><span class="nav-text">具体内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4-1"><span class="nav-text">实验步骤</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="易安亦难安"
+      src="/images/header.png">
+  <p class="site-author-name" itemprop="name">易安亦难安</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Volleria" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Volleria" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:EKKO0908@outlook.com" title="E-Mail → mailto:EKKO0908@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-feather"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">易安亦难安</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
