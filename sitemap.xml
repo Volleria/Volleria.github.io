@@ -122,7 +122,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/Shader/</loc>
+    <loc>http://example.com/tags/CV/</loc>
     <lastmod>2022-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -136,7 +136,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/CV/</loc>
+    <loc>http://example.com/tags/Shader/</loc>
     <lastmod>2022-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -166,14 +166,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/Shader%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>http://example.com/categories/CV/</loc>
     <lastmod>2022-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/CV/</loc>
+    <loc>http://example.com/categories/Shader%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
