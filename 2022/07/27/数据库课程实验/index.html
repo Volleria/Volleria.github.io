@@ -1,118 +1,23 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-cmn-Hans">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/rubbish.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/rubbish.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":240,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="(前排提示:为了凑字数导致内容较水) 摘要本实验采用的数据库为MySQL数据库，其具有体积小、速度快等优点。本实验的GUI部分采用Unity3D引擎制作，通过编写C#脚本挂载到Unity引擎中，实现了Unity与MySQL之间的连接。在完成基础实验一至五的前提上，依照要求实现了一个小型书籍信息管理系统 ，具有增删改查等基本功能，同时还可以根据一定要求进行排序，并且创建了两个图表对数据信息进行汇总，">
-<meta property="og:type" content="article">
-<meta property="og:title" content="基于Unity和MySQL的数据库课设">
-<meta property="og:url" content="http://example.com/2022/07/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/index.html">
-<meta property="og:site_name" content="Volleria 个人博客">
-<meta property="og:description" content="(前排提示:为了凑字数导致内容较水) 摘要本实验采用的数据库为MySQL数据库，其具有体积小、速度快等优点。本实验的GUI部分采用Unity3D引擎制作，通过编写C#脚本挂载到Unity引擎中，实现了Unity与MySQL之间的连接。在完成基础实验一至五的前提上，依照要求实现了一个小型书籍信息管理系统 ，具有增删改查等基本功能，同时还可以根据一定要求进行排序，并且创建了两个图表对数据信息进行汇总，">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/nm5XEajiLsUZGFK.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/tCewRjis3lNJYcT.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/UIAQMxNSLcoOuYi.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/SxlD234weuskIJT.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/GN9cS2QsjagKzZH.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/t39EHslpx4yQm1Z.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/v32aFtNdSg7wZxf.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/FwWlIqbLJcP9Hte.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/iu8BYPfjsFJwSlr.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/Be3Tst1KX5rLmER.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/NhPbcVzuov37nQB.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/PXiT9d4qwNDhtRA.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/TmGUED6y4pdlXa9.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/Agt9WSxaBYCMKU4.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/C5tlpr87dA9k1Zg.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/p4EaV8k2nXm1oQy.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/7aE3XNgDLSvyVP1.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/WzFGOuXkn6Lsih4.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/jmQFwqgiu4NtbU3.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/glwCxHP9SfQuZqr.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/XrmahHi8VN21bDz.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/IQ7rthGkeaWYU2o.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/A3fboNILyPs25lS.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/3R4NMxCesDkpvIP.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/vAiekpjGJZ35WlX.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/zwWLVxNUorJm7Al.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/njx3WSUELH7Vy8M.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/IyBV9qJm7c68iRn.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/JbTUvKhPm1VwduO.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/gZfeSkWuIo1YdTO.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/WRg3ZJlUpyqYmKr.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/LfVbdzgcnQihvAt.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/26/fH4PnC9MN2XVTFc.png">
-<meta property="article:published_time" content="2022-07-27T09:47:18.096Z">
-<meta property="article:modified_time" content="2022-07-26T03:54:54.285Z">
-<meta property="article:author" content="易安亦难安">
-<meta property="article:tag" content="Unity">
-<meta property="article:tag" content="MySQL">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/07/26/nm5XEajiLsUZGFK.png">
-
-<link rel="canonical" href="http://example.com/2022/07/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>基于Unity和MySQL的数据库课设 | Volleria 个人博客</title>
   
+    <link rel="icon" href="/assets/rubbish.png">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
 
+  
+<link rel="stylesheet" href="/css/style.css">
 
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<style>mjx-container[jax="SVG"] {
+<meta name="generator" content="Hexo 6.2.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
 
@@ -227,175 +132,67 @@ mjx-container[display="true"] + br {
 </style><link rel="alternate" href="/atom.xml" title="Volleria 个人博客" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(/assets/back222.jpg)">
+        <div class='av-pic' style="background-image: url(/assets/header.png)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Volleria 个人博客</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>Home</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>Archive</li>
+            </a>  
+          
+            <a href="/tags/" class="Btn">
+              <li>Tags</li>
+            </a>  
+          
+            <a href="/categories/" class="Btn">
+              <li>Categories</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>About</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+            
+                <a target="_blank" rel="noopener" href="https://github.com/Volleria || back333.jpg">
+                    <img src="/assets/GitHub.svg" />
+                </a>
+            
+        
+            
+                <a href="mailto:EKKO0908@outlook.com">
+                    <img src="/assets/E-Mail.svg" />
+                </a>
+            
+        
+    </section>
+</aside>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Volleria 个人博客</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>基于Unity和MySQL的数据库课设</h1>
     </header>
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.png">
-      <meta itemprop="name" content="易安亦难安">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Volleria 个人博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          基于Unity和MySQL的数据库课设
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-07-27 17:47:18" itemprop="dateCreated datePublished" datetime="2022-07-27T17:47:18+08:00">2022-07-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-26 11:54:54" itemprop="dateModified" datetime="2022-07-26T11:54:54+08:00">2022-07-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p>(前排提示:为了凑字数导致内容较水)</p>
+    <section>
+      <p>(前排提示:为了凑字数导致内容较水)</p>
 <h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><p>本实验采用的数据库为MySQL数据库，其具有体积小、速度快等优点。本实验的GUI部分采用Unity3D引擎制作，通过编写C#脚本挂载到Unity引擎中，实现了Unity与MySQL之间的连接。在完成基础实验一至五的前提上，依照要求实现了一个小型书籍信息管理系统 ，具有增删改查等基本功能，同时还可以根据一定要求进行排序，并且创建了两个图表对数据信息进行汇总，便于后续分析。</p>
 <h4 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h4><p>MySQL、Unity、、C#、书籍信息管理</p>
 <span id="more"></span>
@@ -609,267 +406,62 @@ mjx-container[display="true"] + br {
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">xiugai</span>()</span></span><br><span class="line">{</span><br><span class="line">    <span class="built_in">int</span> a = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">int</span> b = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">int</span> c = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    selcanva.gameObject.SetActive(<span class="literal">false</span>);</span><br><span class="line">    addcanva.gameObject.SetActive(<span class="literal">false</span>);</span><br><span class="line">    altercanva.gameObject.SetActive(<span class="literal">false</span>);</span><br><span class="line">    showchartcanva.gameObject.SetActive(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    SqlAccess sql = <span class="keyword">new</span> SqlAccess();</span><br><span class="line">    <span class="built_in">string</span>[] items = { <span class="string">"star"</span> };</span><br><span class="line">    <span class="built_in">string</span> tablename = <span class="string">"books"</span>;</span><br><span class="line">    <span class="built_in">string</span> bookname = <span class="literal">null</span>;</span><br><span class="line">    DataSet ds = sql.SelectWhere(tablename, items, bookname);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ds != <span class="literal">null</span>)</span><br><span class="line">    {</span><br><span class="line">        DataTable table = ds.Tables[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">foreach</span> (DataRow row <span class="keyword">in</span> table.Rows)</span><br><span class="line">        {</span><br><span class="line">            <span class="built_in">string</span> str = <span class="string">""</span>;</span><br><span class="line">            <span class="keyword">foreach</span> (DataColumn column <span class="keyword">in</span> table.Columns)</span><br><span class="line">            {</span><br><span class="line">                str += row[column];</span><br><span class="line">                <span class="built_in">float</span> num = <span class="built_in">float</span>.Parse(str);</span><br><span class="line">                <span class="keyword">if</span> (num &gt;= <span class="number">9.0f</span>)</span><br><span class="line">                    a++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (num &lt;= <span class="number">8.0f</span>)</span><br><span class="line">                    c++;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    b++;</span><br><span class="line">                <span class="comment">//stars.Add(float.Parse(str));</span></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    chart.UpdateData(<span class="number">0</span>, <span class="number">0</span>, a);</span><br><span class="line">    chart.UpdateData(<span class="number">0</span>, <span class="number">1</span>, b);</span><br><span class="line">    chart.UpdateData(<span class="number">0</span>, <span class="number">2</span>, c);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> yAxis = barchart.GetChartComponent&lt;YAxis&gt;();</span><br><span class="line">    yAxis.minMaxType = Axis.AxisMinMaxType.Default;</span><br><span class="line"></span><br><span class="line">    barchart.RemoveData();</span><br><span class="line">    serie = barchart.AddSerie&lt;Bar&gt;(<span class="string">"Star"</span>);</span><br><span class="line"></span><br><span class="line">    barchart.AddXAxisData(<span class="string">"小于8.0"</span>);</span><br><span class="line">    barchart.AddData(<span class="number">0</span>, c);</span><br><span class="line">    barchart.AddXAxisData(<span class="string">"8.0-9.0"</span>);</span><br><span class="line">    barchart.AddData(<span class="number">0</span>, b);</span><br><span class="line">    barchart.AddXAxisData(<span class="string">"大于9.0"</span> );</span><br><span class="line">    barchart.AddData(<span class="number">0</span>, a);</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <h2 id="五、实验总结及心得"><a href="#五、实验总结及心得" class="headerlink" title="五、实验总结及心得"></a><strong>五、实验总结及心得</strong></h2><p>（略）</p>
 
-    </div>
 
-    
-    
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Unity/" rel="tag"># Unity</a>
-              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/07/27/%E5%A5%87%E5%BC%82%E5%8D%9A%E5%A3%AB%E4%BC%A0%E9%80%81%E9%97%A8/" rel="prev" title="传送门特效及实现">
-      <i class="fa fa-chevron-left"></i> 传送门特效及实现
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/07/27/%E6%9A%97%E9%80%9A%E9%81%93%E5%8E%BB%E9%9B%BE%E5%8F%8A%E4%B8%A4%E7%A7%8D%E8%B6%85%E5%88%86%E7%AE%97%E6%B3%95%E7%9A%84%E7%AE%80%E5%8D%95%E5%AF%B9%E6%AF%94/" rel="next" title="暗通道去雾及两种超分算法的简单对比">
-      暗通道去雾及两种超分算法的简单对比 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="nav-text">关键词</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%9E%E9%AA%8C%E8%A6%81%E6%B1%82"><span class="nav-text">一、实验要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%9E%E9%AA%8C%E4%BE%9D%E8%B5%96"><span class="nav-text">二、实验依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81MySQL"><span class="nav-text">1、MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0%E3%80%81MySQL-%E7%89%B9%E7%82%B9"><span class="nav-text">Ⅰ、MySQL 特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1%E3%80%81MySQL%E7%89%88%E6%9C%AC"><span class="nav-text">Ⅱ、MySQL版本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81Unity"><span class="nav-text">2、Unity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E7%9B%B8%E5%85%B3%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">3、相关参考资料</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E9%83%A8%E5%88%86"><span class="nav-text">三、数据部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90"><span class="nav-text">1、数据来源</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E8%AE%BE%E7%BD%AEurl"><span class="nav-text">（1）设置url</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%BB%BA%E7%AB%8B%E8%AF%B7%E6%B1%82%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-text">（2）建立请求，获取源代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E6%A0%B9%E6%8D%AE%E7%BD%91%E9%A1%B5%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%9E%84%E5%BB%BA%E6%9F%A5%E5%8C%B9%E9%85%8D%E5%AF%B9%E5%BA%94%E6%95%B0%E6%8D%AE%E6%89%80%E9%9C%80%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">（3）根据网页源代码，构建查匹配对应数据所需的正则表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E8%BF%9B%E8%A1%8C%E5%8C%B9%E9%85%8D%E6%9F%A5%E8%AF%A2"><span class="nav-text">（4）进行匹配查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%9E%E6%8E%A5"><span class="nav-text">（5）字符串连接</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E8%AF%A6%E7%BB%86%E6%95%B0%E6%8D%AE"><span class="nav-text">2、详细数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E4%B9%A6%E7%B1%8D%E4%BF%A1%E6%81%AF"><span class="nav-text">（1）书籍信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E4%BD%9C%E8%80%85%E4%BF%A1%E6%81%AF"><span class="nav-text">（2）作者信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-text">（3）学生信息</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81%E6%95%B0%E6%8D%AE-E-R-%E5%9B%BE"><span class="nav-text">3、数据 E-R 图</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%85%B7%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%B5%81%E7%A8%8B"><span class="nav-text">四、具体实验流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%BB%BA%E7%AB%8B-Unity-%E4%B8%8E-MySQL-%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="nav-text">1、建立 Unity 与 MySQL 之间的连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%80%90%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%E3%80%91"><span class="nav-text">【踩坑记录】</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E3%80%81%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98"><span class="nav-text">1、连接问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E3%80%81%E6%9F%A5%E8%AF%A2%E9%97%AE%E9%A2%98"><span class="nav-text">2、查询问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%E9%A2%981"><span class="nav-text">问题1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%E9%A2%982"><span class="nav-text">问题2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-text">解决方法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E7%99%BB%E9%99%86%E7%95%8C%E9%9D%A2"><span class="nav-text">2、登陆界面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0%E3%80%81%E7%95%8C%E9%9D%A2%E7%BB%98%E5%88%B6%E5%8F%8A%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D"><span class="nav-text">Ⅰ、界面绘制及功能介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1%E3%80%81%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="nav-text">Ⅱ、功能实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%BC%95%E5%85%A5%E6%89%80%E9%9C%80%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-text">（1）引入所需命名空间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%A3%B0%E6%98%8E%E6%89%80%E9%9C%80%E7%9A%84%E5%90%84%E4%B8%AA%E5%8F%98%E9%87%8F"><span class="nav-text">（2）声明所需的各个变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E5%9C%A8%E5%90%AF%E5%8A%A8%E6%97%B6%E8%BF%9B%E8%A1%8C%E7%BB%91%E5%AE%9A%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AE%BE%E7%BD%AE"><span class="nav-text">（3）在启动时进行绑定与初始化设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E6%8C%89%E9%92%AE%E8%A7%A6%E5%8F%91%E7%9A%84%E7%99%BB%E9%99%86%E6%93%8D%E4%BD%9C"><span class="nav-text">（4）按钮触发的登陆操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E4%B8%BB%E7%95%8C%E9%9D%A2"><span class="nav-text">3、主界面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0%E3%80%81%E7%95%8C%E9%9D%A2%E7%BB%98%E5%88%B6%E5%8F%8A%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D-1"><span class="nav-text">Ⅰ、界面绘制及功能介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1%E3%80%81%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0-1"><span class="nav-text">Ⅱ、功能实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%BC%95%E5%85%A5%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-text">（1）引入命名空间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%88%9D%E5%A7%8B%E5%8C%96%E6%89%80%E9%9C%80%E7%9A%84%E5%90%84%E4%B8%AA%E5%8F%98%E9%87%8F%E5%8F%8A%E7%BB%84%E4%BB%B6"><span class="nav-text">（2）初始化所需的各个变量及组件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E5%AF%B9%E6%8C%89%E9%92%AE%E3%80%81Canvas%E7%AD%89%E7%BB%84%E4%BB%B6%E8%BF%9B%E8%A1%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8A%E7%BB%91%E5%AE%9A%E6%93%8D%E4%BD%9C"><span class="nav-text">（3）对按钮、Canvas等组件进行初始化及绑定操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E5%85%B3%E9%97%AD-%E6%98%BE%E7%A4%BA-%E5%8A%9F%E8%83%BD"><span class="nav-text">（4）关闭&#x2F;显示 功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E9%80%80%E5%87%BA%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="nav-text">（5）退出应用程序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%886%EF%BC%89%E5%AF%B9%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86%E7%9A%84chart%E5%9B%BE%E8%A1%A8%E8%BF%9B%E8%A1%8C%E6%9B%B4%E6%96%B0%E4%BF%AE%E6%94%B9"><span class="nav-text">（6）对第四部分的chart图表进行更新修改</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%887%EF%BC%89%E9%80%9A%E8%BF%87%E9%A2%84%E5%88%B6%E4%BD%93%E7%9A%84%E4%B8%8D%E6%96%AD%E5%88%A0%E9%99%A4%E5%AE%9E%E4%BE%8B%E5%8C%96%E6%9D%A5%E6%9B%B4%E6%96%B0"><span class="nav-text">（7）通过预制体的不断删除实例化来更新</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E9%80%89%E6%8B%A9%E6%9F%A5%E7%9C%8B%E7%95%8C%E9%9D%A2"><span class="nav-text">4、选择查看界面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0%E3%80%81%E7%95%8C%E9%9D%A2%E7%BB%98%E5%88%B6%E5%8F%8A%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D-2"><span class="nav-text">Ⅰ、界面绘制及功能介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1%E3%80%81%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0-2"><span class="nav-text">Ⅱ、功能实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-Select-cs-%E8%84%9A%E6%9C%AC"><span class="nav-text">创建 Select.cs 脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%BC%95%E5%85%A5%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4-1"><span class="nav-text">（1）引入命名空间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%98%E9%87%8F%E5%8F%8A%E7%BB%84%E4%BB%B6"><span class="nav-text">（2）初始化变量及组件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8A%E6%8C%89%E9%92%AE%E7%BB%91%E5%AE%9A"><span class="nav-text">（3）变量初始化及按钮绑定</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E4%B8%BA%E5%90%84%E4%B8%AA%E6%8C%89%E9%92%AE%E5%88%86%E9%85%8D%E5%8A%9F%E8%83%BD"><span class="nav-text">（4）为各个按钮分配功能</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%BA%E4%B9%A6%E7%B1%8D%E4%BF%A1%E6%81%AF%E8%A1%A8%E5%88%9B%E5%BB%BA-example-cs-%E8%84%9A%E6%9C%AC"><span class="nav-text">为书籍信息表创建 example.cs 脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%BC%95%E5%85%A5%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4-2"><span class="nav-text">（1）引入命名空间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%98%E9%87%8F%E5%8F%8A%E7%BB%84%E4%BB%B6-1"><span class="nav-text">（2）初始化变量及组件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E5%AF%B9%E8%A1%A8%E6%A0%BC%E8%BF%9B%E8%A1%8C%E8%B5%8B%E5%80%BC%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">（3）对表格进行赋值初始化</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E5%AE%9E%E7%8E%B0%E8%A1%A8%E5%A4%B4%E6%8E%92%E5%BA%8F%E5%8A%9F%E8%83%BD%E7%9A%84%E5%BC%95%E5%85%A5%E3%80%81%E5%AE%9E%E7%8E%B0%E8%A1%A8%E5%A4%B4%E7%95%8C%E9%9D%A2%E9%A2%9C%E8%89%B2%E7%9A%84%E6%9B%B4%E6%94%B9"><span class="nav-text">（4）实现表头排序功能的引入、实现表头界面颜色的更改</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E4%B8%BA%E8%A1%A8%E9%A1%B9%E5%86%85%E5%AE%B9%E8%B5%8B%E5%80%BC"><span class="nav-text">（5）为表项内容赋值</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E6%B7%BB%E5%8A%A0%E7%95%8C%E9%9D%A2"><span class="nav-text">5、添加界面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0%E3%80%81%E7%95%8C%E9%9D%A2%E7%BB%98%E5%88%B6%E5%8F%8A%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D-3"><span class="nav-text">Ⅰ、界面绘制及功能介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1%E3%80%81%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0-3"><span class="nav-text">Ⅱ、功能实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%BC%95%E5%85%A5%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4-3"><span class="nav-text">（1）引入命名空间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%AF%B9%E5%8F%98%E9%87%8F%E5%8F%8A%E7%BB%84%E4%BB%B6%E8%BF%9B%E8%A1%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E8%B5%8B%E5%80%BC"><span class="nav-text">（2）对变量及组件进行初始化赋值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E5%AF%B9%E6%8C%89%E9%92%AE%E4%BA%8B%E4%BB%B6%E8%BF%9B%E8%A1%8C%E7%BB%91%E5%AE%9A"><span class="nav-text">（3）对按钮事件进行绑定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E5%AE%9E%E7%8E%B0%E6%B7%BB%E5%8A%A0%E4%B9%A6%E7%B1%8D%E4%BF%A1%E6%81%AF%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-text">（4）实现添加书籍信息的功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E5%AE%9E%E7%8E%B0%E6%B7%BB%E5%8A%A0%E4%BD%9C%E8%80%85%E4%BF%A1%E6%81%AF%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-text">（5）实现添加作者信息的功能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E4%BF%AE%E6%94%B9%E7%95%8C%E9%9D%A2"><span class="nav-text">6、修改界面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0%E3%80%81%E7%95%8C%E9%9D%A2%E7%BB%98%E5%88%B6%E5%8F%8A%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D-4"><span class="nav-text">Ⅰ、界面绘制及功能介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1%E3%80%81%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0-4"><span class="nav-text">Ⅱ、功能实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%BC%95%E5%85%A5%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4-4"><span class="nav-text">（1）引入命名空间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%8F%98%E9%87%8F%E5%8F%8A%E7%BB%84%E4%BB%B6%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">（2）变量及组件的初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E7%BB%84%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%8F%8A%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">（3）组件绑定及变量初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E4%BE%9D%E6%AC%A1%E5%AE%9E%E7%8E%B0%E5%90%84%E4%B8%AA%E6%8C%89%E9%92%AE%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-text">（4）依次实现各个按钮的功能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E5%9B%BE%E8%A1%A8%E7%95%8C%E9%9D%A2"><span class="nav-text">7、图表界面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0%E3%80%81%E7%95%8C%E9%9D%A2%E7%BB%98%E5%88%B6%E5%8F%8A%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D-5"><span class="nav-text">Ⅰ、界面绘制及功能介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1%E3%80%81%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0-5"><span class="nav-text">Ⅱ、功能实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93%E5%8F%8A%E5%BF%83%E5%BE%97"><span class="nav-text">五、实验总结及心得</span></a></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="易安亦难安"
-      src="/images/header.png">
-  <p class="site-author-name" itemprop="name">易安亦难安</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">7</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">分类</span>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">标签</span>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/Volleria" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Volleria" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:EKKO0908@outlook.com" title="E-Mail → mailto:EKKO0908@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-  </div>
-
-
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-feather"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">易安亦难安</span>
-</div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
       
 
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
+    </section>
     
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2022-07-27T09:47:18.096Z" itemprop="datePublished">
+              2022-07-27
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/Unity/">Unity</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/MySQL/">MySQL</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
 
   
+</div>
 
+            <footer>
+    <div>© 2022 - 易安亦难安 </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
 </body>
 </html>
