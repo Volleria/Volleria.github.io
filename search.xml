@@ -218,7 +218,7 @@
       </tags>
   </entry>
   <entry>
-    <title>图片资源导入配置工具</title>
+    <title>Unity编辑器开发练习——图片资源导入配置工具</title>
     <url>/2022/08/10/%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E5%AF%BC%E5%85%A5%E9%85%8D%E7%BD%AE%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<h2 id="一、什么是-AssertPostprocessor"><a href="#一、什么是-AssertPostprocessor" class="headerlink" title="一、什么是 AssertPostprocessor"></a>一、什么是 AssertPostprocessor</h2><p>官方解释: AssetPostprocessor 允许您挂接到导入管线并在导入资源前后运行脚本。</p>
 <p>详情见官方 API 介绍: <a href="https://docs.unity.cn/cn/current/ScriptReference/AssetPostprocessor.html">AssetPostprocessor</a></p>
@@ -751,6 +751,140 @@ k(i,j) = \frac{\omega_c}{2\pi \sqrt {i^2 + j^2}}J _1(\omega_c \sqrt{i^2 + j^2})<
       </tags>
   </entry>
   <entry>
+    <title>计算机网络爬虫</title>
+    <url>/2022/07/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/</url>
+    <content><![CDATA[<h3 id="一、基本信息"><a href="#一、基本信息" class="headerlink" title="一、基本信息"></a>一、基本信息</h3><p>（略）</p>
+<h3 id="二、实验目的"><a href="#二、实验目的" class="headerlink" title="二、实验目的"></a>二、实验目的</h3><p>要求学生掌握Socket编程技术及令牌总线协议工作过程</p>
+<script type="math/tex; mode=display">
+</script><span id="more"></span>
+<h3 id="三、基础实验内容"><a href="#三、基础实验内容" class="headerlink" title="三、基础实验内容"></a>三、基础实验内容</h3><h4 id="Ⅰ、traceroute"><a href="#Ⅰ、traceroute" class="headerlink" title="Ⅰ、traceroute"></a>Ⅰ、traceroute</h4><p><strong>1、实验目的：</strong>熟悉traceroute的使用</p>
+<p><strong>2、实验内容：</strong> 用traceroute测量到163网站（www.163.com）和到微软公司（www.microsoft.com）网站的路径。分析测量结果。</p>
+<p><strong>3、实验流程及结果</strong></p>
+<p>在Ubuntu上下载安装traceroute</p>
+<p><img src="https://s2.loli.net/2022/07/26/lIFAdX1gBsMZjVw.png" alt=""></p>
+<p>用traceroute测量到163网站（www.163.com）的路径</p>
+<p><img src="https://s2.loli.net/2022/07/26/Swt5TgJpsduilEn.png" alt="ICMP 163"></p>
+<p>用traceroute测量到微软网站（www.microsoft.com）的路径</p>
+<p><img src="https://s2.loli.net/2022/07/26/8MCBeayGq62RVzj.png" alt="ICMP microsoft"></p>
+<p>上述输出信息显示了跟踪到的路由地址信息。记录从序号 1 开始，每个记录就是一跳，而每一跳表示经过的一个网关。记录给出了每个网关对应的IP地址。其中，为 <em>*</em> 的记录表示可能被防火墙拦截的 ICMP 的返回信息。</p>
+<p>在linux上使用traceroute，默认使用udp协议，除了第一跳，剩下的都是<em> </em> *。是因为虚拟机 nat 路由器，默认丢弃port&gt;32767的包。在命令中加入 -l 强制使用ICMP得到上图结果。</p>
+<h4 id="Ⅱ、wireshark"><a href="#Ⅱ、wireshark" class="headerlink" title="Ⅱ、wireshark"></a>Ⅱ、wireshark</h4><p><strong>1、实验目的：</strong>熟悉wireshark的使用</p>
+<p><strong>2、实验内容：</strong>下载安装wireshark软件，设置捕获条件，用wireshark捕获数据包，对以太网帧和IP数据包进行分析。</p>
+<p><strong>3、实验流程及结果</strong></p>
+<p>Wireshark 是一个免费开源的网络数据包分析软件。它的功能是截取网络数据包，并尽可能显示出最为详细的网络数据包数据。</p>
+<p>下载安装Wireshark并启动</p>
+<p><img src="https://s2.loli.net/2022/07/26/gVl5RE8uwCtqTfM.png" alt=""></p>
+<p>查询网卡</p>
+<p><img src="https://s2.loli.net/2022/07/26/1wGeMWDXuI27TSl.png" alt=""></p>
+<p>打开火绒浏览器开始发包测试</p>
+<p><img src="https://s2.loli.net/2022/07/26/YKhqtJekOu3IUV7.png" alt=""></p>
+<p>TCP找目的地址，捕获数据包，对以太网帧和IP数据包进行分析。</p>
+<p><img src="https://s2.loli.net/2022/07/26/HgNysLPCYbJ7Awa.png" alt=""></p>
+<p>将 <em>TCP 80 端口</em> 作为过滤条件进行筛选分析</p>
+<p><img src="https://s2.loli.net/2022/07/26/tdFr4m3YbPiUoAL.png" alt=""></p>
+<h3 id="四、工程性实验内容"><a href="#四、工程性实验内容" class="headerlink" title="四、工程性实验内容"></a>四、工程性实验内容</h3><h4 id="Ⅰ、Robots协议"><a href="#Ⅰ、Robots协议" class="headerlink" title="Ⅰ、Robots协议"></a>Ⅰ、Robots协议</h4><p><strong>具体内容：</strong>查看淘宝网的Robots协议，了解抓取网站数据需要遵循的规则</p>
+<p>Robots协议的全称是“网络爬虫排除标准”(Robots Exclusion Protocol)，网站通过Robots协议告诉搜索引擎哪些页面可以爬取，哪些页面不可以爬取。这个协议是互联网中的道德规范，虽没写入法律，但应遵守。在网站末尾加<code>/robots.txt</code>可以进行查看。</p>
+<p><img src="https://s2.loli.net/2022/07/26/D8pZfVWqHM67LNu.png" alt="image-20220427171824767"></p>
+<p>Robots协议的语法：#注释，*代表所有，/代表根目录。</p>
+<p>无robots协议的网站，信息可以爬取。</p>
+<p>自动或人工识别robots.txt，再进行内容爬取，Robots协议是建议但非约束性，网络爬虫可以不遵守，但存在法律风险。访问量很小的可以遵循，访问量大的建议遵循。非商业的建议遵循，涉及商业利益的必须遵循，爬取全网信息必须要遵循。如果是类似人类行为的爬取信息，可不遵循。</p>
+<h4 id="Ⅱ、-搜索关键词查询确定其关键词的查询接口"><a href="#Ⅱ、-搜索关键词查询确定其关键词的查询接口" class="headerlink" title="Ⅱ、 搜索关键词查询确定其关键词的查询接口"></a>Ⅱ、 搜索关键词查询确定其关键词的查询接口</h4><p>以豆瓣图书为例，进入豆瓣读书网站</p>
+<p><img src="https://s2.loli.net/2022/07/26/78cWoRNs1kzgBpZ.png" style="zoom:67%;"></p>
+<p>随便点击一本书，观察其网址</p>
+<p><img src="https://s2.loli.net/2022/07/26/iALYlmPfGcBs1I2.png" style="zoom:67%;"></p>
+<p>观察到红框部分即为该书在豆瓣数据库中的代号</p>
+<p>进入短评部分</p>
+<p><img src="https://s2.loli.net/2022/07/26/QMTEzFGlNgv2xLY.png" style="zoom:67%;"></p>
+<p>观察到前一个红框部分为该书的代码，后一个红框部分为这一页短评的起始标号，豆瓣书籍网页版一页共有20条短评，所以 start = num （num从0开始并且为20的整倍数）</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url = <span class="string">"https://book.douban.com/subject/{}/comments/?start={}&amp;limit=20&amp;status=P&amp;sort=new_score"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># booknum和index分别为书籍代码和start起始下标</span></span><br><span class="line">u = url.<span class="built_in">format</span>(<span class="built_in">str</span>(booknum),<span class="built_in">str</span>(index))</span><br></pre></td></tr></table></figure>
+<p>所以之后对豆瓣图书评论的查询靠替换关键字完成</p>
+<h4 id="Ⅲ、爬取豆瓣图书评论"><a href="#Ⅲ、爬取豆瓣图书评论" class="headerlink" title="Ⅲ、爬取豆瓣图书评论"></a>Ⅲ、爬取豆瓣图书评论</h4><h5 id="具体内容"><a href="#具体内容" class="headerlink" title="具体内容"></a>具体内容</h5><p>抓取豆瓣读书中对某本书的前50条短评内容并计算星级评定分数的平均值（保留两位小数）</p>
+<h5 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h5><p>TCP协议：传输控制协议（Transmission Control Protocol，缩写为TCP）是一种面向连接的、可靠的、基于字节流的传输层通信协议，它能提供高可靠性通信(即数据无误、数据无丢失、数据无失序、数据无重复到达的通信)。</p>
+<p>主要适用的场景：</p>
+<p>适合于对传输质量要求较高，以及传输大量数据的通信。</p>
+<p>在需要可靠数据传输的场合，通常使用TCP协议。</p>
+<p>HTTP/HTTPS等即网络服务都采用TCP协议。</p>
+<p>TCP通信需要经过创建连接、数据传送、终止连接三个步骤。</p>
+<ul>
+<li><p>初始化 url ，并通过 get() 函数逐网页爬取网页源代码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url = <span class="string">"https://book.douban.com/subject/{}/comments/?start={}&amp;limit=20&amp;status=P&amp;sort=new_score"</span></span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">60</span>, <span class="number">20</span>):</span><br><span class="line">    <span class="comment"># booknum 为豆瓣书籍编号，本实验选用的是35593780</span></span><br><span class="line">    u = url.<span class="built_in">format</span>(<span class="built_in">str</span>(booknum),<span class="built_in">str</span>(index))</span><br><span class="line">    r = get(u)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建 socket 实例，处理 https 的库</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">url</span>):</span><br><span class="line">    host = <span class="string">'book.douban.com'</span></span><br><span class="line">    path = url[<span class="number">23</span>:]</span><br><span class="line">	s = ssl.wrap_socket(socket.socket())</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化端口，与主机建立起连接</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">port = <span class="number">443</span>  <span class="comment"># 端口 https 默认端口443</span></span><br><span class="line">s.connect((host, port))  <span class="comment"># 建立起连接，连接主机</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置报文格式</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 报文格式： GET+空格+com后面的部分+空格+HTTP/1.1(或1.0)+\r\n+Host:+域名+\r\n\r\n</span></span><br><span class="line">request = <span class="string">'GET {} HTTP/1.1\r\nHost: {}\r\n\r\n'</span>.<span class="built_in">format</span>(path, host)  <span class="comment"># 构建请求</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发送请求并接受数据</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s.send(request.encode(<span class="string">'utf-8'</span>))  <span class="comment"># 发送请求  转码，将str 转成bytes类型</span></span><br><span class="line">response = <span class="string">b''</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="comment"># 接受数据</span></span><br><span class="line">    r = s.recv(<span class="number">1024</span>)</span><br><span class="line">    response += r</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(r) &lt; <span class="number">1024</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">response = response.decode(<span class="string">'utf-8'</span>) <span class="comment"># 解码</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对数据进行查找分析</p>
+<p>此处主要使用 str 类型所带的 find() 函数</p>
+<p>Python find() 方法检测<strong>字符串</strong>中是否包含<strong>子字符串</strong> str</p>
+<p>如果指定 beg（开始） 和 end（结束） 范围，则检查是否包含在指定范围内，如果包含子字符串返回开始的索引值，否则返回-1。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># html 为字符串</span></span><br><span class="line"><span class="comment"># userstart 为每个用户所在源代码的开始位置</span></span><br><span class="line"><span class="comment"># userend 每个用户所在源代码的结束位置</span></span><br><span class="line"><span class="comment"># start_str为所查询字符串的前部分</span></span><br><span class="line"><span class="comment"># end_str为所查询字符串的后部分</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getdata</span>(<span class="params">html, userstart, userend, start_str, end_str</span>):</span><br><span class="line">    start = html.find(start_str, userstart, userend)</span><br><span class="line">    end = html.find(end_str, start)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> start == -<span class="number">1</span> <span class="keyword">else</span> html[start + <span class="built_in">len</span>(start_str):end]</span><br></pre></td></tr></table></figure>
+<p>对于星级的平均分计算，考虑到有些用户没有打分，计算平均分时需将其删除。对于上面的数据查询函数 getdata() ，如果未能查询到该用户所打的分数，则在star[] 数组中写入0，若查询到所打的分数，则写入该分数。</p>
+</li>
+<li><p>将结果进行整理输出</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># douban.txt 文件和当前py文件位于同一目录之下</span></span><br><span class="line">output = <span class="built_in">open</span>(<span class="string">"douban.txt"</span>,<span class="string">'w'</span>,encoding=<span class="string">'UTF—8'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将50条评论逐行输入至 douban.txt 文件中，在第51行输入平均分数，第52行输入书名。</p>
+<h5 id="可视化界面"><a href="#可视化界面" class="headerlink" title="可视化界面"></a>可视化界面</h5><p>该可视化界面采用 Unity3D 制作，版本为 2021.2.7f1c1，所用语言为 C#</p>
+<p><strong>【展示】</strong></p>
+<p><img src="https://s2.loli.net/2022/07/26/4tcVLn1Huael2k5.png" alt="image-20220427223747102"></p>
+<p>[1] 处按钮为显示前页评论</p>
+<p>[2] 处按钮为显示后页评论</p>
+<p>[3] 处为书名显示区域</p>
+<p>[4] 处为所求得的平均分数（保留两位小数）</p>
+<p>[5] [6] [7] [8] 处为评论内容显示区域，可上下拖拽查看全部内容</p>
+<p>【<strong>代码及主要制作思路</strong>】</p>
+<p>创建一个string类型的数组，用以存储评论、书名、分数等数据</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span>[] txt</span><br></pre></td></tr></table></figure>
+<p>使用<strong>绝对路径</strong>读取上述 douban.txt 文件</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.IO;</span><br><span class="line">txt = File.ReadAllLines(<span class="string">"C:\\Users\\EKKO\\Desktop\\ComputerNetwork\\CNLab\\douban.txt"</span>);</span><br></pre></td></tr></table></figure>
+<p>此时 txt 数组共有52个元素，存储50条评论、一个书名、一个平均分数</p>
+<p>新建 TEXT 类型数组 comments 并与UI上的组件进行绑定，将书名和分数直接显示。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">comments[<span class="number">0</span>] = transform.GetChild(<span class="number">7</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">0</span>].text = <span class="string">"平均分数:"</span>+txt[<span class="number">50</span>];</span><br><span class="line">comments[<span class="number">1</span>] = transform.GetChild(<span class="number">1</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">2</span>] = transform.GetChild(<span class="number">2</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">3</span>] = transform.GetChild(<span class="number">3</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">4</span>] = transform.GetChild(<span class="number">4</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">bookname = transform.GetChild(<span class="number">9</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">bookname.text = <span class="string">"《"</span>+txt[<span class="number">51</span>] +<span class="string">"》"</span>; </span><br></pre></td></tr></table></figure>
+<p>调用按钮点击相应事件，为 ‘前页’ ‘后页’ 按钮绑定相关操作</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">upbtn.onClick.AddListener(setindexup);</span><br><span class="line">downbtn.onClick.AddListener(setindexdown);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setindexup</span>()</span></span><br><span class="line">{</span><br><span class="line">   <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>;i &lt;<span class="number">5</span>;i++)</span><br><span class="line">        <span class="keyword">if</span>(index[i] &lt; <span class="number">49</span>)</span><br><span class="line">			index[i] += <span class="number">4</span>;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setindexdown</span>()</span></span><br><span class="line">{</span><br><span class="line">   <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>;i &lt;<span class="number">5</span>;i++)</span><br><span class="line">		<span class="keyword">if</span>(index[i] &gt; <span class="number">4</span>)</span><br><span class="line">			index[i] -= <span class="number">4</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>最后在 Update() 函数中逐帧进行赋值操作，达到动态刷新的效果</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">{</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">1</span>;i &lt; <span class="number">5</span> ;i++)</span><br><span class="line">		<span class="keyword">if</span>( index[i]<span class="number">-1</span> &gt; <span class="number">49</span> )</span><br><span class="line">			comments[i].text = <span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		comments[i].text = txt[index[i] - <span class="number">1</span>];</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h4 id="Ⅳ、抓取道指成分股数据"><a href="#Ⅳ、抓取道指成分股数据" class="headerlink" title="Ⅳ、抓取道指成分股数据"></a>Ⅳ、抓取道指成分股数据</h4><h5 id="具体内容-1"><a href="#具体内容-1" class="headerlink" title="具体内容"></a>具体内容</h5><p>在<a href="https://money.cnn.com/data/dow30/">https://money.cnn.com/data/dow30/</a> 上抓取道指成分股数据并解析其中30家公司的代码、名称和最近一次成交价，将结果放到一个列表中输出。</p>
+<h5 id="实验步骤-1"><a href="#实验步骤-1" class="headerlink" title="实验步骤"></a>实验步骤</h5><p>采用 request 和 re 两个包来解决</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
+<p>确定查询网址路径</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url = <span class="string">'https://money.cnn.com/data/dow30/'</span></span><br></pre></td></tr></table></figure>
+<p>由于网址发生变化，所以实际进入的网址为</p>
+<p><img src="https://s2.loli.net/2022/07/26/mH5pUMjov8Kdg9b.png" style="zoom:67%;"></p>
+<p>通过r=request.get（url）构造一个向服务器请求资源的url对象。</p>
+<p>这个对象是Request库内部生成的。</p>
+<p>这时候的r返回的是一个包含服务器资源的Response对象。包含从服务器返回的所有的相关资源。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">r = requests.get(url)</span><br></pre></td></tr></table></figure>
+<p>根据网页源代码，构建查匹配对应数据所需的正则表达式</p>
+<p><img src="https://s2.loli.net/2022/07/26/D2TMdGf8sIoKmqO.png" alt="image-20220428173724771"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pattern = re.<span class="built_in">compile</span>(</span><br><span class="line">    <span class="string">'wsod_symbol"&gt;(.*?)&lt;/a&gt; &lt;span title="(.*?)"&gt;(.*?)&lt;/span&gt;&lt;/td&gt;&lt;td class="wsod_aRight"&gt;&lt;span stream="last_(.*?)&lt;'</span>)</span><br></pre></td></tr></table></figure>
+<p>进行匹配查询</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># data 为一个含有4个元素的元组，包含所需数据</span></span><br><span class="line">data = re.findall(pattern, r.text)</span><br></pre></td></tr></table></figure>
+<p> 数据处理：对数据进行筛选比对，选取所需要的 【公司的代码】、【名称】、【最近一次成交价】</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">    <span class="comment"># print("i:",i)</span></span><br><span class="line">    m = (i[<span class="number">0</span>], i[<span class="number">1</span>], i[<span class="number">3</span>][-<span class="number">6</span>:])</span><br><span class="line">    <span class="comment"># 将其添加到列表中</span></span><br><span class="line">    dowdata.append(m)</span><br></pre></td></tr></table></figure>
+<p>输出示例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> dowdata:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/07/26/fi17MO3lLc2pzSd.png" alt="image-20220428174108983"></p>
+<p>该结果对应时间：2022.4.28 -17:41</p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+        <tag>网络爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>基于Unity和MySQL的数据库课设</title>
     <url>/2022/07/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/</url>
     <content><![CDATA[<p>(前排提示:为了凑字数导致内容较水)</p>
@@ -973,140 +1107,6 @@ k(i,j) = \frac{\omega_c}{2\pi \sqrt {i^2 + j^2}}J _1(\omega_c \sqrt{i^2 + j^2})<
       <tags>
         <tag>Unity</tag>
         <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络爬虫</title>
-    <url>/2022/07/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/</url>
-    <content><![CDATA[<h3 id="一、基本信息"><a href="#一、基本信息" class="headerlink" title="一、基本信息"></a>一、基本信息</h3><p>（略）</p>
-<h3 id="二、实验目的"><a href="#二、实验目的" class="headerlink" title="二、实验目的"></a>二、实验目的</h3><p>要求学生掌握Socket编程技术及令牌总线协议工作过程</p>
-<script type="math/tex; mode=display">
-</script><span id="more"></span>
-<h3 id="三、基础实验内容"><a href="#三、基础实验内容" class="headerlink" title="三、基础实验内容"></a>三、基础实验内容</h3><h4 id="Ⅰ、traceroute"><a href="#Ⅰ、traceroute" class="headerlink" title="Ⅰ、traceroute"></a>Ⅰ、traceroute</h4><p><strong>1、实验目的：</strong>熟悉traceroute的使用</p>
-<p><strong>2、实验内容：</strong> 用traceroute测量到163网站（www.163.com）和到微软公司（www.microsoft.com）网站的路径。分析测量结果。</p>
-<p><strong>3、实验流程及结果</strong></p>
-<p>在Ubuntu上下载安装traceroute</p>
-<p><img src="https://s2.loli.net/2022/07/26/lIFAdX1gBsMZjVw.png" alt=""></p>
-<p>用traceroute测量到163网站（www.163.com）的路径</p>
-<p><img src="https://s2.loli.net/2022/07/26/Swt5TgJpsduilEn.png" alt="ICMP 163"></p>
-<p>用traceroute测量到微软网站（www.microsoft.com）的路径</p>
-<p><img src="https://s2.loli.net/2022/07/26/8MCBeayGq62RVzj.png" alt="ICMP microsoft"></p>
-<p>上述输出信息显示了跟踪到的路由地址信息。记录从序号 1 开始，每个记录就是一跳，而每一跳表示经过的一个网关。记录给出了每个网关对应的IP地址。其中，为 <em>*</em> 的记录表示可能被防火墙拦截的 ICMP 的返回信息。</p>
-<p>在linux上使用traceroute，默认使用udp协议，除了第一跳，剩下的都是<em> </em> *。是因为虚拟机 nat 路由器，默认丢弃port&gt;32767的包。在命令中加入 -l 强制使用ICMP得到上图结果。</p>
-<h4 id="Ⅱ、wireshark"><a href="#Ⅱ、wireshark" class="headerlink" title="Ⅱ、wireshark"></a>Ⅱ、wireshark</h4><p><strong>1、实验目的：</strong>熟悉wireshark的使用</p>
-<p><strong>2、实验内容：</strong>下载安装wireshark软件，设置捕获条件，用wireshark捕获数据包，对以太网帧和IP数据包进行分析。</p>
-<p><strong>3、实验流程及结果</strong></p>
-<p>Wireshark 是一个免费开源的网络数据包分析软件。它的功能是截取网络数据包，并尽可能显示出最为详细的网络数据包数据。</p>
-<p>下载安装Wireshark并启动</p>
-<p><img src="https://s2.loli.net/2022/07/26/gVl5RE8uwCtqTfM.png" alt=""></p>
-<p>查询网卡</p>
-<p><img src="https://s2.loli.net/2022/07/26/1wGeMWDXuI27TSl.png" alt=""></p>
-<p>打开火绒浏览器开始发包测试</p>
-<p><img src="https://s2.loli.net/2022/07/26/YKhqtJekOu3IUV7.png" alt=""></p>
-<p>TCP找目的地址，捕获数据包，对以太网帧和IP数据包进行分析。</p>
-<p><img src="https://s2.loli.net/2022/07/26/HgNysLPCYbJ7Awa.png" alt=""></p>
-<p>将 <em>TCP 80 端口</em> 作为过滤条件进行筛选分析</p>
-<p><img src="https://s2.loli.net/2022/07/26/tdFr4m3YbPiUoAL.png" alt=""></p>
-<h3 id="四、工程性实验内容"><a href="#四、工程性实验内容" class="headerlink" title="四、工程性实验内容"></a>四、工程性实验内容</h3><h4 id="Ⅰ、Robots协议"><a href="#Ⅰ、Robots协议" class="headerlink" title="Ⅰ、Robots协议"></a>Ⅰ、Robots协议</h4><p><strong>具体内容：</strong>查看淘宝网的Robots协议，了解抓取网站数据需要遵循的规则</p>
-<p>Robots协议的全称是“网络爬虫排除标准”(Robots Exclusion Protocol)，网站通过Robots协议告诉搜索引擎哪些页面可以爬取，哪些页面不可以爬取。这个协议是互联网中的道德规范，虽没写入法律，但应遵守。在网站末尾加<code>/robots.txt</code>可以进行查看。</p>
-<p><img src="https://s2.loli.net/2022/07/26/D8pZfVWqHM67LNu.png" alt="image-20220427171824767"></p>
-<p>Robots协议的语法：#注释，*代表所有，/代表根目录。</p>
-<p>无robots协议的网站，信息可以爬取。</p>
-<p>自动或人工识别robots.txt，再进行内容爬取，Robots协议是建议但非约束性，网络爬虫可以不遵守，但存在法律风险。访问量很小的可以遵循，访问量大的建议遵循。非商业的建议遵循，涉及商业利益的必须遵循，爬取全网信息必须要遵循。如果是类似人类行为的爬取信息，可不遵循。</p>
-<h4 id="Ⅱ、-搜索关键词查询确定其关键词的查询接口"><a href="#Ⅱ、-搜索关键词查询确定其关键词的查询接口" class="headerlink" title="Ⅱ、 搜索关键词查询确定其关键词的查询接口"></a>Ⅱ、 搜索关键词查询确定其关键词的查询接口</h4><p>以豆瓣图书为例，进入豆瓣读书网站</p>
-<p><img src="https://s2.loli.net/2022/07/26/78cWoRNs1kzgBpZ.png" style="zoom:67%;"></p>
-<p>随便点击一本书，观察其网址</p>
-<p><img src="https://s2.loli.net/2022/07/26/iALYlmPfGcBs1I2.png" style="zoom:67%;"></p>
-<p>观察到红框部分即为该书在豆瓣数据库中的代号</p>
-<p>进入短评部分</p>
-<p><img src="https://s2.loli.net/2022/07/26/QMTEzFGlNgv2xLY.png" style="zoom:67%;"></p>
-<p>观察到前一个红框部分为该书的代码，后一个红框部分为这一页短评的起始标号，豆瓣书籍网页版一页共有20条短评，所以 start = num （num从0开始并且为20的整倍数）</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url = <span class="string">"https://book.douban.com/subject/{}/comments/?start={}&amp;limit=20&amp;status=P&amp;sort=new_score"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># booknum和index分别为书籍代码和start起始下标</span></span><br><span class="line">u = url.<span class="built_in">format</span>(<span class="built_in">str</span>(booknum),<span class="built_in">str</span>(index))</span><br></pre></td></tr></table></figure>
-<p>所以之后对豆瓣图书评论的查询靠替换关键字完成</p>
-<h4 id="Ⅲ、爬取豆瓣图书评论"><a href="#Ⅲ、爬取豆瓣图书评论" class="headerlink" title="Ⅲ、爬取豆瓣图书评论"></a>Ⅲ、爬取豆瓣图书评论</h4><h5 id="具体内容"><a href="#具体内容" class="headerlink" title="具体内容"></a>具体内容</h5><p>抓取豆瓣读书中对某本书的前50条短评内容并计算星级评定分数的平均值（保留两位小数）</p>
-<h5 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h5><p>TCP协议：传输控制协议（Transmission Control Protocol，缩写为TCP）是一种面向连接的、可靠的、基于字节流的传输层通信协议，它能提供高可靠性通信(即数据无误、数据无丢失、数据无失序、数据无重复到达的通信)。</p>
-<p>主要适用的场景：</p>
-<p>适合于对传输质量要求较高，以及传输大量数据的通信。</p>
-<p>在需要可靠数据传输的场合，通常使用TCP协议。</p>
-<p>HTTP/HTTPS等即网络服务都采用TCP协议。</p>
-<p>TCP通信需要经过创建连接、数据传送、终止连接三个步骤。</p>
-<ul>
-<li><p>初始化 url ，并通过 get() 函数逐网页爬取网页源代码</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url = <span class="string">"https://book.douban.com/subject/{}/comments/?start={}&amp;limit=20&amp;status=P&amp;sort=new_score"</span></span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">60</span>, <span class="number">20</span>):</span><br><span class="line">    <span class="comment"># booknum 为豆瓣书籍编号，本实验选用的是35593780</span></span><br><span class="line">    u = url.<span class="built_in">format</span>(<span class="built_in">str</span>(booknum),<span class="built_in">str</span>(index))</span><br><span class="line">    r = get(u)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建 socket 实例，处理 https 的库</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">url</span>):</span><br><span class="line">    host = <span class="string">'book.douban.com'</span></span><br><span class="line">    path = url[<span class="number">23</span>:]</span><br><span class="line">	s = ssl.wrap_socket(socket.socket())</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>初始化端口，与主机建立起连接</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">port = <span class="number">443</span>  <span class="comment"># 端口 https 默认端口443</span></span><br><span class="line">s.connect((host, port))  <span class="comment"># 建立起连接，连接主机</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置报文格式</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 报文格式： GET+空格+com后面的部分+空格+HTTP/1.1(或1.0)+\r\n+Host:+域名+\r\n\r\n</span></span><br><span class="line">request = <span class="string">'GET {} HTTP/1.1\r\nHost: {}\r\n\r\n'</span>.<span class="built_in">format</span>(path, host)  <span class="comment"># 构建请求</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>发送请求并接受数据</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s.send(request.encode(<span class="string">'utf-8'</span>))  <span class="comment"># 发送请求  转码，将str 转成bytes类型</span></span><br><span class="line">response = <span class="string">b''</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="comment"># 接受数据</span></span><br><span class="line">    r = s.recv(<span class="number">1024</span>)</span><br><span class="line">    response += r</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(r) &lt; <span class="number">1024</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">response = response.decode(<span class="string">'utf-8'</span>) <span class="comment"># 解码</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对数据进行查找分析</p>
-<p>此处主要使用 str 类型所带的 find() 函数</p>
-<p>Python find() 方法检测<strong>字符串</strong>中是否包含<strong>子字符串</strong> str</p>
-<p>如果指定 beg（开始） 和 end（结束） 范围，则检查是否包含在指定范围内，如果包含子字符串返回开始的索引值，否则返回-1。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># html 为字符串</span></span><br><span class="line"><span class="comment"># userstart 为每个用户所在源代码的开始位置</span></span><br><span class="line"><span class="comment"># userend 每个用户所在源代码的结束位置</span></span><br><span class="line"><span class="comment"># start_str为所查询字符串的前部分</span></span><br><span class="line"><span class="comment"># end_str为所查询字符串的后部分</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getdata</span>(<span class="params">html, userstart, userend, start_str, end_str</span>):</span><br><span class="line">    start = html.find(start_str, userstart, userend)</span><br><span class="line">    end = html.find(end_str, start)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> start == -<span class="number">1</span> <span class="keyword">else</span> html[start + <span class="built_in">len</span>(start_str):end]</span><br></pre></td></tr></table></figure>
-<p>对于星级的平均分计算，考虑到有些用户没有打分，计算平均分时需将其删除。对于上面的数据查询函数 getdata() ，如果未能查询到该用户所打的分数，则在star[] 数组中写入0，若查询到所打的分数，则写入该分数。</p>
-</li>
-<li><p>将结果进行整理输出</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># douban.txt 文件和当前py文件位于同一目录之下</span></span><br><span class="line">output = <span class="built_in">open</span>(<span class="string">"douban.txt"</span>,<span class="string">'w'</span>,encoding=<span class="string">'UTF—8'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>将50条评论逐行输入至 douban.txt 文件中，在第51行输入平均分数，第52行输入书名。</p>
-<h5 id="可视化界面"><a href="#可视化界面" class="headerlink" title="可视化界面"></a>可视化界面</h5><p>该可视化界面采用 Unity3D 制作，版本为 2021.2.7f1c1，所用语言为 C#</p>
-<p><strong>【展示】</strong></p>
-<p><img src="https://s2.loli.net/2022/07/26/4tcVLn1Huael2k5.png" alt="image-20220427223747102"></p>
-<p>[1] 处按钮为显示前页评论</p>
-<p>[2] 处按钮为显示后页评论</p>
-<p>[3] 处为书名显示区域</p>
-<p>[4] 处为所求得的平均分数（保留两位小数）</p>
-<p>[5] [6] [7] [8] 处为评论内容显示区域，可上下拖拽查看全部内容</p>
-<p>【<strong>代码及主要制作思路</strong>】</p>
-<p>创建一个string类型的数组，用以存储评论、书名、分数等数据</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span>[] txt</span><br></pre></td></tr></table></figure>
-<p>使用<strong>绝对路径</strong>读取上述 douban.txt 文件</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.IO;</span><br><span class="line">txt = File.ReadAllLines(<span class="string">"C:\\Users\\EKKO\\Desktop\\ComputerNetwork\\CNLab\\douban.txt"</span>);</span><br></pre></td></tr></table></figure>
-<p>此时 txt 数组共有52个元素，存储50条评论、一个书名、一个平均分数</p>
-<p>新建 TEXT 类型数组 comments 并与UI上的组件进行绑定，将书名和分数直接显示。</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">comments[<span class="number">0</span>] = transform.GetChild(<span class="number">7</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">0</span>].text = <span class="string">"平均分数:"</span>+txt[<span class="number">50</span>];</span><br><span class="line">comments[<span class="number">1</span>] = transform.GetChild(<span class="number">1</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">2</span>] = transform.GetChild(<span class="number">2</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">3</span>] = transform.GetChild(<span class="number">3</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">4</span>] = transform.GetChild(<span class="number">4</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">bookname = transform.GetChild(<span class="number">9</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">bookname.text = <span class="string">"《"</span>+txt[<span class="number">51</span>] +<span class="string">"》"</span>; </span><br></pre></td></tr></table></figure>
-<p>调用按钮点击相应事件，为 ‘前页’ ‘后页’ 按钮绑定相关操作</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">upbtn.onClick.AddListener(setindexup);</span><br><span class="line">downbtn.onClick.AddListener(setindexdown);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setindexup</span>()</span></span><br><span class="line">{</span><br><span class="line">   <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>;i &lt;<span class="number">5</span>;i++)</span><br><span class="line">        <span class="keyword">if</span>(index[i] &lt; <span class="number">49</span>)</span><br><span class="line">			index[i] += <span class="number">4</span>;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setindexdown</span>()</span></span><br><span class="line">{</span><br><span class="line">   <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>;i &lt;<span class="number">5</span>;i++)</span><br><span class="line">		<span class="keyword">if</span>(index[i] &gt; <span class="number">4</span>)</span><br><span class="line">			index[i] -= <span class="number">4</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>最后在 Update() 函数中逐帧进行赋值操作，达到动态刷新的效果</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">{</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">1</span>;i &lt; <span class="number">5</span> ;i++)</span><br><span class="line">		<span class="keyword">if</span>( index[i]<span class="number">-1</span> &gt; <span class="number">49</span> )</span><br><span class="line">			comments[i].text = <span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		comments[i].text = txt[index[i] - <span class="number">1</span>];</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h4 id="Ⅳ、抓取道指成分股数据"><a href="#Ⅳ、抓取道指成分股数据" class="headerlink" title="Ⅳ、抓取道指成分股数据"></a>Ⅳ、抓取道指成分股数据</h4><h5 id="具体内容-1"><a href="#具体内容-1" class="headerlink" title="具体内容"></a>具体内容</h5><p>在<a href="https://money.cnn.com/data/dow30/">https://money.cnn.com/data/dow30/</a> 上抓取道指成分股数据并解析其中30家公司的代码、名称和最近一次成交价，将结果放到一个列表中输出。</p>
-<h5 id="实验步骤-1"><a href="#实验步骤-1" class="headerlink" title="实验步骤"></a>实验步骤</h5><p>采用 request 和 re 两个包来解决</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
-<p>确定查询网址路径</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url = <span class="string">'https://money.cnn.com/data/dow30/'</span></span><br></pre></td></tr></table></figure>
-<p>由于网址发生变化，所以实际进入的网址为</p>
-<p><img src="https://s2.loli.net/2022/07/26/mH5pUMjov8Kdg9b.png" style="zoom:67%;"></p>
-<p>通过r=request.get（url）构造一个向服务器请求资源的url对象。</p>
-<p>这个对象是Request库内部生成的。</p>
-<p>这时候的r返回的是一个包含服务器资源的Response对象。包含从服务器返回的所有的相关资源。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">r = requests.get(url)</span><br></pre></td></tr></table></figure>
-<p>根据网页源代码，构建查匹配对应数据所需的正则表达式</p>
-<p><img src="https://s2.loli.net/2022/07/26/D2TMdGf8sIoKmqO.png" alt="image-20220428173724771"></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pattern = re.<span class="built_in">compile</span>(</span><br><span class="line">    <span class="string">'wsod_symbol"&gt;(.*?)&lt;/a&gt; &lt;span title="(.*?)"&gt;(.*?)&lt;/span&gt;&lt;/td&gt;&lt;td class="wsod_aRight"&gt;&lt;span stream="last_(.*?)&lt;'</span>)</span><br></pre></td></tr></table></figure>
-<p>进行匹配查询</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># data 为一个含有4个元素的元组，包含所需数据</span></span><br><span class="line">data = re.findall(pattern, r.text)</span><br></pre></td></tr></table></figure>
-<p> 数据处理：对数据进行筛选比对，选取所需要的 【公司的代码】、【名称】、【最近一次成交价】</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">    <span class="comment"># print("i:",i)</span></span><br><span class="line">    m = (i[<span class="number">0</span>], i[<span class="number">1</span>], i[<span class="number">3</span>][-<span class="number">6</span>:])</span><br><span class="line">    <span class="comment"># 将其添加到列表中</span></span><br><span class="line">    dowdata.append(m)</span><br></pre></td></tr></table></figure>
-<p>输出示例：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> dowdata:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2022/07/26/fi17MO3lLc2pzSd.png" alt="image-20220428174108983"></p>
-<p>该结果对应时间：2022.4.28 -17:41</p>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-        <tag>网络爬虫</tag>
       </tags>
   </entry>
 </search>
