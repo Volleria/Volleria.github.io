@@ -20,18 +20,24 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":240,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="都是些较为笼统的东西，基本属于想到什么写什么，先当个框架摆着">
+  <meta name="description" content="实习笔记——Unity 性能优化本文内容是对以下两个官方教程视频的笔记整理，内容广泛但不深入，可以看作一个目录框架，并且视频发布于 2020.7，时至今日，Unity 经过多次版本更新，有些方法可能已经过时或失效 [Unity 活动]-Unite Now - （中文字幕）性能优化技巧（上） [Unity 活动]-Unite Now - （中文字幕）性能优化技巧（下）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实习笔记——Unity部分性能优化">
+<meta property="og:title" content="Unity部分性能优化">
 <meta property="og:url" content="http://example.com/2022/08/10/%E5%AE%9E%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Unity%E9%83%A8%E5%88%86%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="Volleria 个人博客">
-<meta property="og:description" content="都是些较为笼统的东西，基本属于想到什么写什么，先当个框架摆着">
+<meta property="og:description" content="实习笔记——Unity 性能优化本文内容是对以下两个官方教程视频的笔记整理，内容广泛但不深入，可以看作一个目录框架，并且视频发布于 2020.7，时至今日，Unity 经过多次版本更新，有些方法可能已经过时或失效 [Unity 活动]-Unite Now - （中文字幕）性能优化技巧（上） [Unity 活动]-Unite Now - （中文字幕）性能优化技巧（下）">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/08/12/34UM7xvmqz2uhVE.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/12/7HCSeGkXwgI95Yh.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/12/oAHJGLCDUzYSb5m.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/12/wV6S8vpKJzm2DjA.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/12/uIV3OtYCcGX5xB1.png">
 <meta property="article:published_time" content="2022-08-10T15:29:40.705Z">
-<meta property="article:modified_time" content="2022-08-10T15:35:37.701Z">
+<meta property="article:modified_time" content="2022-08-12T15:26:12.214Z">
 <meta property="article:author" content="易安亦难安">
 <meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/08/12/34UM7xvmqz2uhVE.png">
 
 <link rel="canonical" href="http://example.com/2022/08/10/%E5%AE%9E%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Unity%E9%83%A8%E5%88%86%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
 
@@ -46,7 +52,7 @@
   };
 </script>
 
-  <title>实习笔记——Unity部分性能优化 | Volleria 个人博客</title>
+  <title>Unity部分性能优化 | Volleria 个人博客</title>
   
 
 
@@ -310,7 +316,7 @@ mjx-container[display="true"] + br {
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          实习笔记——Unity部分性能优化
+          Unity部分性能优化
         </h1>
 
         <div class="post-meta">
@@ -319,10 +325,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-08-10 23:29:40 / 修改时间：23:35:37" itemprop="dateCreated datePublished" datetime="2022-08-10T23:29:40+08:00">2022-08-10</time>
+              <time title="创建时间：2022-08-10 23:29:40" itemprop="dateCreated datePublished" datetime="2022-08-10T23:29:40+08:00">2022-08-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-12 23:26:12" itemprop="dateModified" datetime="2022-08-12T23:26:12+08:00">2022-08-12</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -344,33 +356,131 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>都是些较为笼统的东西，基本属于想到什么写什么，先当个框架摆着</p>
+        <h1 id="实习笔记——Unity-性能优化"><a href="#实习笔记——Unity-性能优化" class="headerlink" title="实习笔记——Unity 性能优化"></a>实习笔记——Unity 性能优化</h1><p>本文内容是对以下两个官方教程视频的笔记整理，内容广泛但不深入，可以看作一个目录框架，并且视频发布于 2020.7，时至今日，Unity 经过多次版本更新，有些方法可能已经过时或失效</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Tt4y1X7f6?t=1824&amp;vd_source=e4b21da575ef85d87ce1b8e9f64ca190">[Unity 活动]-Unite Now - （中文字幕）性能优化技巧（上）</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Bp4y1i7wK?vd_source=e4b21da575ef85d87ce1b8e9f64ca190">[Unity 活动]-Unite Now - （中文字幕）性能优化技巧（下）</a></p>
 <span id="more"></span>
-<h3 id="纹理导入的设置"><a href="#纹理导入的设置" class="headerlink" title="纹理导入的设置"></a>纹理导入的设置</h3><p>目的: 尽可能减少文件大小并保证视觉效果，即在磁盘、空间以及视觉效果之间取得平衡</p>
+<h3 id="1、分析工具-（Profiling-tools-）"><a href="#1、分析工具-（Profiling-tools-）" class="headerlink" title="1、分析工具 （Profiling tools ）"></a>1、分析工具 （Profiling tools ）</h3><p>关于分析工具，记住一定要在目标设备上进行分析，在工作设备上的分析结果可能会和目标设备上的实际情况有所出入。</p>
+<p><strong>【Unity Editor Profiler】</strong></p>
+<p>性能分析器（Profiler）是 Unity 内部集成的一款性能优化工具，可以检查脚本代码，查看运行过程中资源使用情况，边开发边了解资源分配的情况，还可以比较不同平台上的性能。但是在运行过程中可能会增加一些性能消耗，降低程序运行速度。</p>
+<p>在 Edit-&gt;Preference-&gt;Analysis-&gt;Profiler 进行基本设置<br><img src="https://s2.loli.net/2022/08/12/34UM7xvmqz2uhVE.png" alt="2.png"></p>
+<p>在 Window-&gt;Analysis-&gt;Profiler 中打开<br><img src="https://s2.loli.net/2022/08/12/7HCSeGkXwgI95Yh.png" alt="1.png"></p>
+<p><strong>【Memory Profiler 】</strong></p>
+<p>功能:</p>
 <ul>
-<li>根据平台的不同，将纹理大小上限设为该平台的最小值 </li>
-<li>确定纹理大小是2的幂次方，因为某些压缩格式可能无法支持非2的幂次方的压缩，具体可见<a target="_blank" rel="noopener" href="https://docs.unity3d.com/2017.4/Documentation/Manual/class-TextureImporterOverride.html">纹理压缩</a>,同时尽可能将多张纹理合并为大图。</li>
-<li>对于背景纹理或者其他不透明的纹理，可以将其Alpha Channel移除</li>
-<li>如果不需要从代码访问纹理的底层数据，可以将 Read/Write Enabled选项取消</li>
-<li>如果较低的16bit的颜色格式就已经足够，则不需要使用32bit格式</li>
-<li>对于相机的Z值改变不会有任何变化的纹理(例如UI等)，可以将Mipmaps关闭 </li>
+<li>进一步分析应用程序的内存使用状况</li>
+<li>比较不同时间的快照，以便找出内存泄漏</li>
+<li>查看内存配置碎片化的问题</li>
 </ul>
-<h3 id="mesh网格的导入设置"><a href="#mesh网格的导入设置" class="headerlink" title="mesh网格的导入设置"></a>mesh网格的导入设置</h3><p>若3D资源导入不当，可能会造成文件占用过大、执行期内存使用过高等后果，在保证视觉效果的情况下尽可能提高压缩程度</p>
+<p>详情可见 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27963992">Memory Profiler 内存分析器使用方法</a></p>
+<p><strong>【Frame Debugger】</strong></p>
+<p>是时比较常用的工具，可以逐帧分析 Draw Call 等渲染步骤的细节<br>在 Window-&gt;Analysis-&gt;Frame Debugger 中打开</p>
+<p><img src="https://s2.loli.net/2022/08/12/oAHJGLCDUzYSb5m.png" alt="3.png"></p>
+<p>以上是 Unity 提供的工具，除此之外还有一些其他厂商提供的工具</p>
+<p><img src="https://s2.loli.net/2022/08/12/wV6S8vpKJzm2DjA.png" alt="4.png"></p>
+<h3 id="2、栈（stack）与堆（heap）"><a href="#2、栈（stack）与堆（heap）" class="headerlink" title="2、栈（stack）与堆（heap）"></a>2、栈（stack）与堆（heap）</h3><p><strong>【Stack】</strong><br>栈是内存中存储函数和值类型的地方，当我们调用一个函数时，会将该函数体与参数 push 到堆栈中，如果该函数中调用了其他函数，就会继续将那个函数 push 到栈中，知道函数执行完毕后，才会将其 pop 出去，因此我们在看 Debug 信息的时候，就会发现 Log 里面能够做到一层层的方法回溯，方便我们查看整体的调用过程，这也就是栈回溯。<br>在这里不会遇到碎片化或者垃圾收集的问题，但是如果调用了太多的函数，一直 push 进栈却没有 pop，最后会导致栈溢出</p>
+<p><strong>【Heap】</strong><br>堆是内存中另一个区域，比栈大。我们将所有的类别、实体和对象存放在这。通常我们每创建一个新的对象，会在堆中找到下一个足够存放的空位置将其存储。但是当我们销毁对象后，内存空间不会马上释放出来，而是标记成未使用，之后交由垃圾收集器去释放这部分内存空间。<br>对象实例化和摧毁的过程其实很慢，所以我们要尽可能的避免在堆中配置内存的行为</p>
+<h3 id="3、垃圾收集器-（Garbage-Collection）"><a href="#3、垃圾收集器-（Garbage-Collection）" class="headerlink" title="3、垃圾收集器 （Garbage Collection）"></a>3、垃圾收集器 （Garbage Collection）</h3><p>是用于清理先前配置的内存的机制，它的工作是对所有处于堆上的对象或内存遍历一次，找到需要被释放的东西</p>
+<p>每一次 GC，都会遍历堆积上所有的对象，找到需要释放的东西，也就是没有被引用的对象，然后将其释放。但是有时候我们的一些错误引用，导致一些我们希望释放掉的对象没有被 GC 掉，那么就会造成内存泄漏。</p>
+<h3 id="选择正确的数据结构"><a href="#选择正确的数据结构" class="headerlink" title="选择正确的数据结构"></a>选择正确的数据结构</h3><p>获取多个游戏对象实体，我们使用特定的数据结构来呈现数据和对象</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GameObject[] m_NetworkedObjects;</span><br><span class="line"><span class="function"><span class="keyword">or</span></span></span><br><span class="line"><span class="function"><span class="title">Dictionary</span>&lt;<span class="title">int</span>, <span class="title">GameObject</span>&gt; m_NetworkedObjects</span>;</span><br><span class="line"><span class="keyword">or</span></span><br><span class="line">List&lt;&gt;() m_NetworkedObjects;</span><br></pre></td></tr></table></figure>
+<p>在阵列或串列结构中使用索引的成本很低，但是增加或移除对象时，将比在字典结构中进行更昂贵，所以要<strong>根据需求</strong>使用的合适的数据结构</p>
+<h3 id="4、对象池-（Object-pooling）"><a href="#4、对象池-（Object-pooling）" class="headerlink" title="4、对象池 （Object pooling）"></a>4、对象池 （Object pooling）</h3><h4 id="为什么需要对象池？"><a href="#为什么需要对象池？" class="headerlink" title="为什么需要对象池？"></a>为什么需要对象池？</h4><p>在游戏中，创建和销毁对象是十分常见的操作，通常我们是使用游戏对象的实例化 <em>Instantiate()</em> 和摧毁 <em>Destroy()</em> 来实现的，但是如果太过频繁的执行这个行为，每次垃圾收集器执行时其负载就会增加，因为在很多时间点上都会有大量的已摧毁物体存在，这会造成 CPU 负载峰值并导致堆碎片化</p>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>在真正需要对象之前，先把它们实例化好，然后将其摧毁再创建新的对象，我们要做的是回收对象，将其藏在某处，恢复对象的初始参数，在用到的时候再把它们放到相应的位置。<br>注意点:</p>
 <ul>
-<li>Read/Write Enabled 选项如果被开启，Unity将会存储两份Mesh，导致执行期内存用量变为两倍</li>
-<li>如果该3D资源没有使用动画，可以将Rigs关闭，例如场景中的房子等</li>
-<li>对于法线向量和切线向量，如果该模型的材质(具体可以是材质所用的Shader)没有使用它们，也可以将其关闭。</li>
+<li>对象池的大小（要满足需求）</li>
+<li>一开始要产生多少数量的对象池在池中</li>
 </ul>
-<h3 id="图形部分"><a href="#图形部分" class="headerlink" title="图形部分"></a>图形部分</h3><ul>
-<li>DrawCall部分</li>
-<li>阴影部分，一个带有MeshRender组件的物体会自动开启阴影效果，如果有无该阴影对场景影响不大，可以将其关闭</li>
-</ul>
-<h3 id="RayCaster"><a href="#RayCaster" class="headerlink" title="RayCaster"></a>RayCaster</h3><p>该组件是用来处理输入事件的，例如触控或者鼠标点击到游戏对象，有时对于那些应该不能互动(也就是点了没反应)也附带了RayCaster组件。因此，当每次鼠标点击或者触控时，系统就需要遍历所有可能接受输入事件的UI元素，这就会有许多“点击位置或触摸位置是否落在矩形当中的”的检查，来判断点击或触摸该对象是否应该做出反应。在UI相当复杂的情况下，这个运算的成本就会很高。所以应该确保只有那些具备可互动功能的组件开启RayCaster，以减少CPU运行时间和不必要的评估。</p>
-<h3 id="全屏UI"><a href="#全屏UI" class="headerlink" title="全屏UI"></a>全屏UI</h3><p>有时对主画面进行展示时，会对其他UI元素或者集合对象进行遮蔽，此时虽然我们并没有看到场景中的3D对象，但是CPU和GPU还是会有运行成本，为了减少CPU和GPU的运行消耗，可以做出如下优化:</p>
+<p>可以使用单例模式来设计对象池</p>
+<h3 id="5、脚本化对象-（Scriptable-Objects）"><a href="#5、脚本化对象-（Scriptable-Objects）" class="headerlink" title="5、脚本化对象 （Scriptable Objects）"></a>5、脚本化对象 （Scriptable Objects）</h3><h4 id="（1）基本介绍"><a href="#（1）基本介绍" class="headerlink" title="（1）基本介绍"></a>（1）基本介绍</h4><p>Scriptable Objects 是用来存储数据的一个资源文件，有着资源文件的特性，可以用来存储数据。</p>
+<p>如果项目中使用了 prefab，并在其内的 MonoBehaviour 中存放固定数据，如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AB</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> b;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>有一个叫 AB 的 MonoBehaviour 对象，里面有 a,b 两个变量，如果我有很多这样的对象，并且 a，b 在每个游戏对象里都通用的话，就能用它们来做游戏参数设置，每次实例化这个 prefab 时，其组件中的这些数据就会重复一份，相当于让这两个浮点数重复出现在有此脚本的 AB 对象上，但是它们的数值都一样，这就造成了不必要的重复。<br>当遇到这种情况时，就可以改用 Scriptable Objects</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ABConfig</span> : <span class="title">ScriptableObject</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> b;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AB</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> ABConfig m_ABConfig;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>此时让我们的 prefab 去参考它，就只需要耗费一组这样数据的内存，每个 AB 对象都会指向同一个 Scriptable Object 对象以做参数设置之用，即使我们有几千个 AB 对象，也只需要花费两个浮点数的内存。</p>
+<blockquote>
+<p>注:</p>
+<p>MonoBehaviour 是以组件形式挂在 GameObject 上的，而 ScriptableObject 则以 Assets 资源的形式存在的</p>
+</blockquote>
+<h3 id="6、变量或属性-（Variables-or-properties）"><a href="#6、变量或属性-（Variables-or-properties）" class="headerlink" title="6、变量或属性 （Variables or properties）"></a>6、变量或属性 （Variables or properties）</h3><p>为了封装的安全性，在写程序时让对象属性通过 getter/setter 产生，所以对象属性基本上是方法调用，调用太多次时，花费在栈中时间就会增加。如果发生在频繁执行的循环中，就需要考虑对其优化。<br><strong>【优化建议】</strong></p>
+<p>可以利用 #if 这类的前置指令来处理</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">if</span> DEVELOPMENT_BUILD</span></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">int</span> health;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Health { <span class="keyword">get</span> { <span class="keyword">return</span> health; } }</span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Health;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>如果还在开在开发中，或者程序在编辑器中运行，那就都采用对象属性访问的方式。</p>
+<p><em>#else</em> 代表如果在设备上执行已发布的构建版本，那就把它当普通的变量来使用</p>
+<h3 id="7、Resources-文件夹"><a href="#7、Resources-文件夹" class="headerlink" title="7、Resources 文件夹"></a>7、Resources 文件夹</h3><p>代码中的资源管理通常会使用 Resources 文件夹以及下面两种方法</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Resources.Load(...);</span><br><span class="line">Resources.UnloadUnusedAssets();</span><br></pre></td></tr></table></figure>
+<p>这些方法有常见的坑:</p>
 <ul>
-<li>将渲染3D场景的摄像机关掉。对于被完全遮住的部分，直接关闭渲染该部分的摄像机。建议关闭canvas组件而不是游戏对象本身，这样在下次重新出现时，能减少运行处理时间。</li>
-<li>隐藏被遮挡掉的其他UI</li>
-<li>尽可能降低帧率，如果当前UI是静态的，或者动画帧率较低，就没必要再把帧率维持在60fps</li>
+<li>Resources 文件夹里的所有资源都会和游戏一起打包，即使并没有用到</li>
+<li>Resources 中的资源数量会直接影响游戏的启动时间</li>
+</ul>
+<p><strong>【优化建议】</strong></p>
+<p>不要直接使用 Resources 文件夹，而是改用 Addressable 资源系统，以更有效率的方式管理资源的载入和卸载</p>
+<h3 id="8、移除空的事件函数"><a href="#8、移除空的事件函数" class="headerlink" title="8、移除空的事件函数"></a>8、移除空的事件函数</h3><p>例如:</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Awake</span>()</span></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>即使空的函数，有时也会带来微性能消耗，应该将其删除</p>
+<h3 id="9、避免在-Start-和-Awake-中写入负载很重的初始化逻辑"><a href="#9、避免在-Start-和-Awake-中写入负载很重的初始化逻辑" class="headerlink" title="9、避免在 Start() 和 Awake() 中写入负载很重的初始化逻辑"></a>9、避免在 Start() 和 Awake() 中写入负载很重的初始化逻辑</h3><p>如果在 Start() 和 Awake() 中写入了负载很重的初始化逻辑，游戏的启动画面或者载入画面将需要花更长的时间渲染，用户将会看到长时间的黑屏，因为你必须等每个游戏对象都完成 Start 和 Awake 执行</p>
+<blockquote>
+<p>Unity 会在第一个 Awake() 和 Start() 方法执行后渲染第一个画面</p>
+</blockquote>
+<p>可以先简单呈现一个东西，然后再开始其他对象初始化的步骤</p>
+<h3 id="10、Hash-the-value-instead"><a href="#10、Hash-the-value-instead" class="headerlink" title="10、Hash the value instead"></a>10、Hash the value instead</h3><p>如果我们从代码指定参数或是指定材质和着色器的属性，例如</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">animator.SetTrigger(<span class="string">"Jump"</span>);</span><br><span class="line"></span><br><span class="line">material.SetTexture(<span class="string">"_MainMap"</span>, selectedTexture);</span><br><span class="line"></span><br><span class="line">shader.SetGlobalColor(<span class="string">"_MainColor"</span>, selectedColor);</span><br></pre></td></tr></table></figure>
+<p>我们常用包含属性名称的字符串当参数去调用对应的方法，对于程序员来说方便且好看，然而在 Unity 内部根本不用这些字符串，而会把它们杂凑成一个对应属性代号的整数，如果我们把这些函数写在 Update()等频繁调用的函数中，Unity 实际上会反复进行杂凑运算，造成不必要的性能消耗。</p>
+<p><strong>【优化建议】</strong></p>
+<p>一开始算出杂凑值，然后直接使用可以传入整数代号的重载方法</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> parameterId = Animator.StringToHash(<span class="string">"Jump"</span>);</span><br><span class="line">animator.SetTrigger(parameterID);</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> propertyId = Shader.PropertyToID(<span class="string">"_MainMap"</span>);</span><br><span class="line">material.SetTexture(propertyId, selectedTexture);</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> propertyId = Shader.PropertyToID(<span class="string">"_MainColor"</span>);</span><br><span class="line">shader.SetGlobalColor(propertyId, selectedColor);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>广泛使用可以省下很多处理器的时间</p>
+<h3 id="11、减少层级架构的复杂性"><a href="#11、减少层级架构的复杂性" class="headerlink" title="11、减少层级架构的复杂性"></a>11、减少层级架构的复杂性</h3><p><img src="https://s2.loli.net/2022/08/12/uIV3OtYCcGX5xB1.png" alt="6.png"></p>
+<p>处于某些原因，我们的场景中可能有很深的嵌套结构，当我们对有许多子物体的父物体进行平移、旋转、缩放等位置改变时，即使它的子对象在转换前后看不出有什么变化，我们还是造成了不必要的转换运算。较深的层级结构会让垃圾收集器花更多时间在层级结构之间遍历。<br><strong>【优化建议】</strong><br>尽量避免很深的层级结构，将那些真正需要坐标转换的对象从不需要坐标转换的对象中分离出来，这也可以加快垃圾收集器的处理时间</p>
+<h3 id="12、Accelerometer-Frequency-（没用过这玩意，不是很懂）"><a href="#12、Accelerometer-Frequency-（没用过这玩意，不是很懂）" class="headerlink" title="12、Accelerometer Frequency （没用过这玩意，不是很懂）"></a>12、Accelerometer Frequency （没用过这玩意，不是很懂）</h3><p>这个功能定义 Unity 从设备读取加速度仪信息的频率，在不需要这个功能的项目中可以关闭，即使有用到也尽量开到最低。</p>
+<h3 id="13、移动游戏对象"><a href="#13、移动游戏对象" class="headerlink" title="13、移动游戏对象"></a>13、移动游戏对象</h3><p>Unity 中有很多移动对象的方法，如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">{</span><br><span class="line">    transform.Translate(...);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如果对象需要使用碰撞判定，我们则会加上刚体组件与碰撞体，通过坐标转换移动有刚体组件的对象时，会造成 PhysX 物理引擎整体重新计算，对于复杂的场景成本很高。</p>
+<p><strong>【优化建议】</strong></p>
+<p>如果要移动一个有刚体组件的对象，使用 Rigidbody 类提供的方法，例如:</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FixedUpdate</span>()</span></span><br><span class="line">{</span><br><span class="line">    rigidBody.MovePosition();</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="14、GameObject-AddComponent-…"><a href="#14、GameObject-AddComponent-…" class="headerlink" title="14、GameObject.AddComponent(…)"></a>14、GameObject.AddComponent(…)</h3><p>当我们在运行期间将对象实例化时，常用增加组件来定义对象的行为</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">GameObject newBarrel = Instantiate(m_Template);</span><br><span class="line"></span><br><span class="line">newBarrel.AddComponent(<span class="keyword">typeof</span>(XXXX));</span><br><span class="line">newBarrel.AddComponent(<span class="keyword">typeof</span>(XXXX));</span><br><span class="line">newBarrel.AddComponent(<span class="keyword">typeof</span>(XXXX));</span><br><span class="line">newBarrel.AddComponent(<span class="keyword">typeof</span>(XXXX));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>实例化一个 Barrel 游戏对象时，如果要增加一些组件，就一直要调用 <em>AddComponent()</em> 函数，在运行期间调用该函数效率很低。当我们在运行期间增加组件时，Unity 会做如下事情:</p>
+<p>1、检查组件有无 DisallowMultipleComponent 的设置，如果有，还要去检查是否有同类组件加入<br>2、检查是否存在 RequireComponent 设置，若存在，就代表这个组件需要别的组件同步加入，然后必须加入那些组件，然后再重复一遍上述的检查<br>3、还需要调用所有被加入的 MonoBehaviour 的 Awake 方法</p>
+<p>上述步骤都发生在堆(heap)上 ，会增加垃圾收集器的处理时间，影响性能</p>
+<p><strong>【优化建议】</strong></p>
+<p>尽可能避免在执行期间加入组件</p>
+<h3 id="15、为参照建立缓存-（Cache-your-references）"><a href="#15、为参照建立缓存-（Cache-your-references）" class="headerlink" title="15、为参照建立缓存 （Cache your references）"></a>15、为参照建立缓存 （Cache your references）</h3><p>找到场景中的游戏对象是很常见的需求，对象可能是运行阶段或初始化阶段产生的。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GameObject.Find(...);</span><br><span class="line">GameObject.GetComponent(...);</span><br></pre></td></tr></table></figure>
+<p>GameObject.Find() 一类的方法需要 Unity 遍历所有内存中的游戏对象以及组件，在复杂场景中相当低效。<br>GameObject.GetComponent() 会查询所有附加到游戏对象上的组件，增加运行阶段的成本</p>
+<p><strong>【优化建议】</strong></p>
+<p>为刚找到的对象参照建立缓存</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">{</span><br><span class="line">    GameObject go = GameObject.Find();</span><br><span class="line">    go.Something();</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>也就是只调用一次 Find，充分利用结果，缓存最好在 Start 方法内建立</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">GameObject go;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">{</span><br><span class="line">    go = GameObject.Find();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">{</span><br><span class="line">    go.Something();</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>当找到那个对象后，整个游戏就只使用缓存的版本</p>
+<h3 id="16、纹理导入的设置"><a href="#16、纹理导入的设置" class="headerlink" title="16、纹理导入的设置"></a>16、纹理导入的设置</h3><p>目的: 尽可能减少文件大小并保证视觉效果，即在磁盘、空间以及视觉效果之间取得平衡</p>
+<ul>
+<li>根据平台的不同，将纹理大小上限设为该平台的最小值</li>
+<li>确定纹理大小是 2 的幂次方，因为某些压缩格式可能无法支持非 2 的幂次方的压缩，具体可见<a target="_blank" rel="noopener" href="https://docs.unity3d.com/2017.4/Documentation/Manual/class-TextureImporterOverride.html">纹理压缩</a>,同时尽可能将多张纹理合并为大图。</li>
+<li>对于背景纹理或者其他不透明的纹理，可以将其 Alpha Channel 移除</li>
+<li>如果不需要从代码访问纹理的底层数据，可以将 Read/Write Enabled 选项取消</li>
+<li>如果较低的 16bit 的颜色格式就已经足够，则不需要使用 32bit 格式</li>
+<li>对于相机的 Z 值改变不会有任何变化的纹理(例如 UI 等)，可以将 Mipmaps 关闭</li>
+</ul>
+<h3 id="17、mesh-网格的导入设置"><a href="#17、mesh-网格的导入设置" class="headerlink" title="17、mesh 网格的导入设置"></a>17、mesh 网格的导入设置</h3><p>若 3D 资源导入不当，可能会造成文件占用过大、执行期内存使用过高等后果，在保证视觉效果的情况下尽可能提高压缩程度</p>
+<ul>
+<li>Read/Write Enabled 选项如果被开启，Unity 将会存储两份 Mesh，导致执行期内存用量变为两倍</li>
+<li>如果该 3D 资源没有使用动画，可以将 Rigs 关闭，例如场景中的房子等</li>
+<li>对于法线向量和切线向量，如果该模型的材质(具体可以是材质所用的 Shader)没有使用它们，也可以将其关闭。</li>
+</ul>
+<h3 id="18、图形部分"><a href="#18、图形部分" class="headerlink" title="18、图形部分"></a>18、图形部分</h3><ul>
+<li>降低 DrawCall（大坑）</li>
+<li>尽量减少不必要的阴影，一个带有 MeshRender 组件的物体会自动开启阴影效果，如果有无该阴影对场景影响不大，可以将其关闭</li>
+</ul>
+<h3 id="19、某些组件的-RayCaster-选项"><a href="#19、某些组件的-RayCaster-选项" class="headerlink" title="19、某些组件的 RayCaster 选项"></a>19、某些组件的 RayCaster 选项</h3><p>该组件是用来处理输入事件的，例如触控或者鼠标点击到游戏对象，有时对于那些应该不能互动(也就是点了没反应)也附带了 RayCaster 组件。因此，当每次鼠标点击或者触控时，系统就需要遍历所有可能接受输入事件的 UI 元素，这就会有许多“点击位置或触摸位置是否落在矩形当中的”的检查，来判断点击或触摸该对象是否应该做出反应。在 UI 相当复杂的情况下，这个运算的成本就会很高。所以应该确保只有那些具备可互动功能的组件开启 RayCaster，以减少 CPU 运行时间和不必要的评估。</p>
+<h3 id="20、全屏-UI"><a href="#20、全屏-UI" class="headerlink" title="20、全屏 UI"></a>20、全屏 UI</h3><p>有时对主画面进行展示时，会对其他 UI 元素或者集合对象进行遮蔽，此时虽然我们并没有看到场景中的 3D 对象，但是 CPU 和 GPU 还是会有运行成本，为了减少 CPU 和 GPU 的运行消耗，可以做出如下优化:</p>
+<ul>
+<li>将渲染 3D 场景的摄像机关掉。对于被完全遮住的部分，直接关闭渲染该部分的摄像机。建议关闭 canvas 组件而不是游戏对象本身，这样在下次重新出现时，能减少运行处理时间。</li>
+<li>隐藏被遮挡掉的其他 UI</li>
+<li>尽可能降低帧率，如果当前 UI 是静态的，或者动画帧率较低，就没必要再把帧率维持在 60fps</li>
 </ul>
 
     </div>
@@ -455,7 +565,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%B9%E7%90%86%E5%AF%BC%E5%85%A5%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-text">纹理导入的设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mesh%E7%BD%91%E6%A0%BC%E7%9A%84%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE"><span class="nav-text">mesh网格的导入设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E9%83%A8%E5%88%86"><span class="nav-text">图形部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RayCaster"><span class="nav-text">RayCaster</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%8FUI"><span class="nav-text">全屏UI</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Unity-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="nav-text">实习笔记——Unity 性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7-%EF%BC%88Profiling-tools-%EF%BC%89"><span class="nav-text">1、分析工具 （Profiling tools ）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E6%A0%88%EF%BC%88stack%EF%BC%89%E4%B8%8E%E5%A0%86%EF%BC%88heap%EF%BC%89"><span class="nav-text">2、栈（stack）与堆（heap）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8-%EF%BC%88Garbage-Collection%EF%BC%89"><span class="nav-text">3、垃圾收集器 （Garbage Collection）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">选择正确的数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%AF%B9%E8%B1%A1%E6%B1%A0-%EF%BC%88Object-pooling%EF%BC%89"><span class="nav-text">4、对象池 （Object pooling）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AF%B9%E8%B1%A1%E6%B1%A0%EF%BC%9F"><span class="nav-text">为什么需要对象池？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-text">原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E8%84%9A%E6%9C%AC%E5%8C%96%E5%AF%B9%E8%B1%A1-%EF%BC%88Scriptable-Objects%EF%BC%89"><span class="nav-text">5、脚本化对象 （Scriptable Objects）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="nav-text">（1）基本介绍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E5%8F%98%E9%87%8F%E6%88%96%E5%B1%9E%E6%80%A7-%EF%BC%88Variables-or-properties%EF%BC%89"><span class="nav-text">6、变量或属性 （Variables or properties）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81Resources-%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">7、Resources 文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81%E7%A7%BB%E9%99%A4%E7%A9%BA%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%87%BD%E6%95%B0"><span class="nav-text">8、移除空的事件函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9%E3%80%81%E9%81%BF%E5%85%8D%E5%9C%A8-Start-%E5%92%8C-Awake-%E4%B8%AD%E5%86%99%E5%85%A5%E8%B4%9F%E8%BD%BD%E5%BE%88%E9%87%8D%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%80%BB%E8%BE%91"><span class="nav-text">9、避免在 Start() 和 Awake() 中写入负载很重的初始化逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10%E3%80%81Hash-the-value-instead"><span class="nav-text">10、Hash the value instead</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11%E3%80%81%E5%87%8F%E5%B0%91%E5%B1%82%E7%BA%A7%E6%9E%B6%E6%9E%84%E7%9A%84%E5%A4%8D%E6%9D%82%E6%80%A7"><span class="nav-text">11、减少层级架构的复杂性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12%E3%80%81Accelerometer-Frequency-%EF%BC%88%E6%B2%A1%E7%94%A8%E8%BF%87%E8%BF%99%E7%8E%A9%E6%84%8F%EF%BC%8C%E4%B8%8D%E6%98%AF%E5%BE%88%E6%87%82%EF%BC%89"><span class="nav-text">12、Accelerometer Frequency （没用过这玩意，不是很懂）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13%E3%80%81%E7%A7%BB%E5%8A%A8%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1"><span class="nav-text">13、移动游戏对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14%E3%80%81GameObject-AddComponent-%E2%80%A6"><span class="nav-text">14、GameObject.AddComponent(…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15%E3%80%81%E4%B8%BA%E5%8F%82%E7%85%A7%E5%BB%BA%E7%AB%8B%E7%BC%93%E5%AD%98-%EF%BC%88Cache-your-references%EF%BC%89"><span class="nav-text">15、为参照建立缓存 （Cache your references）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16%E3%80%81%E7%BA%B9%E7%90%86%E5%AF%BC%E5%85%A5%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-text">16、纹理导入的设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17%E3%80%81mesh-%E7%BD%91%E6%A0%BC%E7%9A%84%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE"><span class="nav-text">17、mesh 网格的导入设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18%E3%80%81%E5%9B%BE%E5%BD%A2%E9%83%A8%E5%88%86"><span class="nav-text">18、图形部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19%E3%80%81%E6%9F%90%E4%BA%9B%E7%BB%84%E4%BB%B6%E7%9A%84-RayCaster-%E9%80%89%E9%A1%B9"><span class="nav-text">19、某些组件的 RayCaster 选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20%E3%80%81%E5%85%A8%E5%B1%8F-UI"><span class="nav-text">20、全屏 UI</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2022/07/27/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>《Deep Learning for Rendering》阅读笔记</title>
     <url>/2022/07/27/DL%20for%20Render%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>中科大第九届《计算机图形学前沿》暑期课程</p>
@@ -143,78 +158,6 @@
       <tags>
         <tag>CG</tag>
         <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/07/27/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>传送门特效及实现</title>
-    <url>/2022/07/27/%E5%A5%87%E5%BC%82%E5%8D%9A%E5%A3%AB%E4%BC%A0%E9%80%81%E9%97%A8/</url>
-    <content><![CDATA[<h4 id="一、传送门特效"><a href="#一、传送门特效" class="headerlink" title="一、传送门特效"></a>一、传送门特效</h4><h5 id="1、使用组件"><a href="#1、使用组件" class="headerlink" title="1、使用组件"></a>1、使用组件</h5><p>采用Unity内置渲染管线中的Particle System制作</p>
-<h5 id="2、实现思路"><a href="#2、实现思路" class="headerlink" title="2、实现思路"></a>2、实现思路</h5><p>（1）首先创建四个圆球用于特效的定位，并且采用动画效果使其分散并旋转。<br><span id="more"></span><br><img src="https://s3.bmp.ovh/imgs/2022/04/19/0c8e40d99e10be4b.png" alt=""></p>
-<p>（2）新建一个Particle System，将其作为上述小球的子物体，将shape改为box，并修改颜色，添加自定义材质。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/2b276d77ae52b808.png" alt=""></p>
-<p>（3）再新建一个Particle System，将其作为上述小球的子物体，修改同上，并且设置Start Delay、Start Speed等，增加粒子量与Emission，使其呈现出喷散效果。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/6d6a8b76460555c7.png" alt=""></p>
-<p>（4）将 (2) (3) 组合，并复制一份到另一个小球上。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/3428e2c420bd454b.png" alt=""></p>
-<p>（5）再次新建Particle System，将shape改为Circle，适当减少粒子量</p>
-<p>，同时调整Start Delay、Start Lifetime、Start Speed与Velocity over LifeTime，添加碰撞效果，增加半径，并改为从边缘发射，得到如下效果。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/3aabfd25bb4ec3dd.png" alt=""></p>
-<p>（6）添加底部倒影。将Emission的粒子量减小到5，Start Speed设为0，进行旋转缩放，使其贴近地面</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/bdc12186e59e727c.png" alt=""></p>
-<p>（7）制作两侧溅射效果。将（5）处效果复制一份，对圆进行扇形裁减，扩大其 Velocity of LifeTime，使其溅射距离加大，同时添加与地面的碰撞效果。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/e3e461e0841c9e32.png" alt=""></p>
-<p>（8）将（7）处效果复制一份，旋转180置于另一侧，将上述效果组合起来，开启后处理（Bloom效果）。同时将一开始创建的四个小球利用起来，为其添加HDR颜色，伪装成高光闪烁部分。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/b87263501c6b29a9.png" alt=""></p>
-<h5 id="3、分析"><a href="#3、分析" class="headerlink" title="3、分析"></a>3、分析</h5><p>共计使用了8个Particle System，总粒子数在10000左右。材质贴图为自定义制作。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/f773ed0159d8543d.png" alt="image-20220419173927582"></p>
-<p>可以通过不同的材质贴图对粒子数进行修改，若将图中白色部分拉长，可适当减少粒子数量。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/b64566f4efc838a2.png" alt="image-20220419174033159"></p>
-<p>经过测试，粒子将会显得十分细长，且颜色不好控制，即使将bloom效果开的很低，也难以分辨。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/ea4777b3378991e9.png" alt=""></p>
-<h4 id="二、具体传送效果"><a href="#二、具体传送效果" class="headerlink" title="二、具体传送效果"></a>二、具体传送效果</h4><h5 id="1、组件使用情况"><a href="#1、组件使用情况" class="headerlink" title="1、组件使用情况"></a>1、组件使用情况</h5><p>玩家：一个人物和摄像机移动的控制脚本</p>
-<p>传送门：一个总控制脚本，两个传送脚本</p>
-<p>Shader：使用屏幕空间的坐标，材质附加在传送门上</p>
-<p>传送门：一个Cylinder模型，将其压缩，模拟一个圆形面。</p>
-<h5 id="2、实现思路-1"><a href="#2、实现思路-1" class="headerlink" title="2、实现思路"></a>2、实现思路</h5><p>场景中共有三个摄像头(两个传送门)。一个玩家主摄像头，两个传送门摄像头PortalCamA 和 PortalCamB，首先新建两个Render Texture 作为两个传送门所用的摄像头的Target Texture，将PortalCamA 渲染出的Render Texture添加到传送门B上，作为主纹理。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/8cdbac208214e128.png" alt="image-20220419175956871"></p>
-<p>配合上述Shader中的裁剪效果</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// vert</span></span><br><span class="line">o.vertex = UnityObjectToClipPos(v.vertex);</span><br><span class="line">o.screenPos = ComputeScreenPos(o.vertex);</span><br><span class="line">..........................</span><br><span class="line"><span class="comment">//frag    </span></span><br><span class="line">float2 uv = i.screenPos.xy / i.screenPos.w;</span><br><span class="line">fixed4 portalCol = tex2D(_MainTex, uv);</span><br></pre></td></tr></table></figure>
-<p>传送门B中显示的便是PortalCamA摄像机所观察到的画面。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/051b58db13d21f8d.png" alt="image-20220419175906347"></p>
-<p>对另一个传送门采用同样的设置。</p>
-<p>根据向量加减的原理，可以同玩家相对于传送门A的位置 和 传送门B的位置求出PortalCamB的位置，此时PortalCamB的观察图像就相当于玩家在另一个场景的观察图像。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/0f074cea5e3f6b33.png" alt=""></p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Yangle = player.transform.eulerAngles.y;</span><br><span class="line">Xangle = playerCam.transform.eulerAngles.x;</span><br><span class="line"></span><br><span class="line">portalCamB.transform.position = DoorB.position + player.position - DoorA.position;</span><br><span class="line">portalCamB.transform.localRotation = Quaternion.Euler(Xangle,Yangle,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">portalCamA.transform.position = DoorA.position + player.position - DoorB.position;</span><br><span class="line">portalCamA.transform.localRotation = Quaternion.Euler(Xangle,Yangle,<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-<p>为传送门添加一个碰撞体，当玩家进入到传送门A时，触发传送效果，将此时 PortalCamB 的位置和旋转角度赋值给玩家及摄像头，即可实现玩家位置的传送效果。</p>
-<p>此处添加了一个判断，用于对摄像机进行渲染层级的裁剪，避免视角重叠情况。</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// camera.cullingMask &amp;= ~(1 &lt;&lt; x); // 关闭层x</span></span><br><span class="line">playerCam.cullingMask &amp;= ~(<span class="number">1</span> &lt;&lt; PortalLayer);</span><br><span class="line">...............................</span><br><span class="line">...............................</span><br><span class="line">MyPortal01.transflag = MyPortal01.transflag + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(MyPortal01.transflag == <span class="number">3</span>)</span><br><span class="line">{</span><br><span class="line">   <span class="comment">// camera.cullingMask |= (1 &lt;&lt; x); // 打开层x</span></span><br><span class="line">   playerCam.cullingMask |= (<span class="number">1</span> &lt;&lt; PortalLayer);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h6 id="踩坑点："><a href="#踩坑点：" class="headerlink" title="踩坑点："></a>踩坑点：</h6><p>1、玩家控制脚本使用了Character Controller组件导致 </p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">other.transform.position = transPos;</span><br></pre></td></tr></table></figure>
-<p>赋值后不起作用，需要在cc. move() 前面添加如下代码</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Physics.autoSyncTransforms = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
-<p>2、在使用碰撞体触发传送时，进入第一个传送门触发一次OnTriggerEnter()，然后传送到第二个传送门，触发一次来自第一个传送门的OnTriggerExit() 和来自第二个传送门的OnTriggerEnter()。</p>
-<hr>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
       </tags>
   </entry>
   <entry>
@@ -364,6 +307,63 @@
       </tags>
   </entry>
   <entry>
+    <title>传送门特效及实现</title>
+    <url>/2022/07/27/%E5%A5%87%E5%BC%82%E5%8D%9A%E5%A3%AB%E4%BC%A0%E9%80%81%E9%97%A8/</url>
+    <content><![CDATA[<h4 id="一、传送门特效"><a href="#一、传送门特效" class="headerlink" title="一、传送门特效"></a>一、传送门特效</h4><h5 id="1、使用组件"><a href="#1、使用组件" class="headerlink" title="1、使用组件"></a>1、使用组件</h5><p>采用Unity内置渲染管线中的Particle System制作</p>
+<h5 id="2、实现思路"><a href="#2、实现思路" class="headerlink" title="2、实现思路"></a>2、实现思路</h5><p>（1）首先创建四个圆球用于特效的定位，并且采用动画效果使其分散并旋转。<br><span id="more"></span><br><img src="https://s3.bmp.ovh/imgs/2022/04/19/0c8e40d99e10be4b.png" alt=""></p>
+<p>（2）新建一个Particle System，将其作为上述小球的子物体，将shape改为box，并修改颜色，添加自定义材质。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/2b276d77ae52b808.png" alt=""></p>
+<p>（3）再新建一个Particle System，将其作为上述小球的子物体，修改同上，并且设置Start Delay、Start Speed等，增加粒子量与Emission，使其呈现出喷散效果。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/6d6a8b76460555c7.png" alt=""></p>
+<p>（4）将 (2) (3) 组合，并复制一份到另一个小球上。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/3428e2c420bd454b.png" alt=""></p>
+<p>（5）再次新建Particle System，将shape改为Circle，适当减少粒子量</p>
+<p>，同时调整Start Delay、Start Lifetime、Start Speed与Velocity over LifeTime，添加碰撞效果，增加半径，并改为从边缘发射，得到如下效果。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/3aabfd25bb4ec3dd.png" alt=""></p>
+<p>（6）添加底部倒影。将Emission的粒子量减小到5，Start Speed设为0，进行旋转缩放，使其贴近地面</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/bdc12186e59e727c.png" alt=""></p>
+<p>（7）制作两侧溅射效果。将（5）处效果复制一份，对圆进行扇形裁减，扩大其 Velocity of LifeTime，使其溅射距离加大，同时添加与地面的碰撞效果。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/e3e461e0841c9e32.png" alt=""></p>
+<p>（8）将（7）处效果复制一份，旋转180置于另一侧，将上述效果组合起来，开启后处理（Bloom效果）。同时将一开始创建的四个小球利用起来，为其添加HDR颜色，伪装成高光闪烁部分。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/b87263501c6b29a9.png" alt=""></p>
+<h5 id="3、分析"><a href="#3、分析" class="headerlink" title="3、分析"></a>3、分析</h5><p>共计使用了8个Particle System，总粒子数在10000左右。材质贴图为自定义制作。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/f773ed0159d8543d.png" alt="image-20220419173927582"></p>
+<p>可以通过不同的材质贴图对粒子数进行修改，若将图中白色部分拉长，可适当减少粒子数量。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/b64566f4efc838a2.png" alt="image-20220419174033159"></p>
+<p>经过测试，粒子将会显得十分细长，且颜色不好控制，即使将bloom效果开的很低，也难以分辨。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/ea4777b3378991e9.png" alt=""></p>
+<h4 id="二、具体传送效果"><a href="#二、具体传送效果" class="headerlink" title="二、具体传送效果"></a>二、具体传送效果</h4><h5 id="1、组件使用情况"><a href="#1、组件使用情况" class="headerlink" title="1、组件使用情况"></a>1、组件使用情况</h5><p>玩家：一个人物和摄像机移动的控制脚本</p>
+<p>传送门：一个总控制脚本，两个传送脚本</p>
+<p>Shader：使用屏幕空间的坐标，材质附加在传送门上</p>
+<p>传送门：一个Cylinder模型，将其压缩，模拟一个圆形面。</p>
+<h5 id="2、实现思路-1"><a href="#2、实现思路-1" class="headerlink" title="2、实现思路"></a>2、实现思路</h5><p>场景中共有三个摄像头(两个传送门)。一个玩家主摄像头，两个传送门摄像头PortalCamA 和 PortalCamB，首先新建两个Render Texture 作为两个传送门所用的摄像头的Target Texture，将PortalCamA 渲染出的Render Texture添加到传送门B上，作为主纹理。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/8cdbac208214e128.png" alt="image-20220419175956871"></p>
+<p>配合上述Shader中的裁剪效果</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// vert</span></span><br><span class="line">o.vertex = UnityObjectToClipPos(v.vertex);</span><br><span class="line">o.screenPos = ComputeScreenPos(o.vertex);</span><br><span class="line">..........................</span><br><span class="line"><span class="comment">//frag    </span></span><br><span class="line">float2 uv = i.screenPos.xy / i.screenPos.w;</span><br><span class="line">fixed4 portalCol = tex2D(_MainTex, uv);</span><br></pre></td></tr></table></figure>
+<p>传送门B中显示的便是PortalCamA摄像机所观察到的画面。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/051b58db13d21f8d.png" alt="image-20220419175906347"></p>
+<p>对另一个传送门采用同样的设置。</p>
+<p>根据向量加减的原理，可以同玩家相对于传送门A的位置 和 传送门B的位置求出PortalCamB的位置，此时PortalCamB的观察图像就相当于玩家在另一个场景的观察图像。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/0f074cea5e3f6b33.png" alt=""></p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Yangle = player.transform.eulerAngles.y;</span><br><span class="line">Xangle = playerCam.transform.eulerAngles.x;</span><br><span class="line"></span><br><span class="line">portalCamB.transform.position = DoorB.position + player.position - DoorA.position;</span><br><span class="line">portalCamB.transform.localRotation = Quaternion.Euler(Xangle,Yangle,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">portalCamA.transform.position = DoorA.position + player.position - DoorB.position;</span><br><span class="line">portalCamA.transform.localRotation = Quaternion.Euler(Xangle,Yangle,<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>为传送门添加一个碰撞体，当玩家进入到传送门A时，触发传送效果，将此时 PortalCamB 的位置和旋转角度赋值给玩家及摄像头，即可实现玩家位置的传送效果。</p>
+<p>此处添加了一个判断，用于对摄像机进行渲染层级的裁剪，避免视角重叠情况。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// camera.cullingMask &amp;= ~(1 &lt;&lt; x); // 关闭层x</span></span><br><span class="line">playerCam.cullingMask &amp;= ~(<span class="number">1</span> &lt;&lt; PortalLayer);</span><br><span class="line">...............................</span><br><span class="line">...............................</span><br><span class="line">MyPortal01.transflag = MyPortal01.transflag + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(MyPortal01.transflag == <span class="number">3</span>)</span><br><span class="line">{</span><br><span class="line">   <span class="comment">// camera.cullingMask |= (1 &lt;&lt; x); // 打开层x</span></span><br><span class="line">   playerCam.cullingMask |= (<span class="number">1</span> &lt;&lt; PortalLayer);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h6 id="踩坑点："><a href="#踩坑点：" class="headerlink" title="踩坑点："></a>踩坑点：</h6><p>1、玩家控制脚本使用了Character Controller组件导致 </p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">other.transform.position = transPos;</span><br></pre></td></tr></table></figure>
+<p>赋值后不起作用，需要在cc. move() 前面添加如下代码</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Physics.autoSyncTransforms = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+<p>2、在使用碰撞体触发传送时，进入第一个传送门触发一次OnTriggerEnter()，然后传送到第二个传送门，触发一次来自第一个传送门的OnTriggerExit() 和来自第二个传送门的OnTriggerEnter()。</p>
+<hr>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>实习笔记——RPC通信</title>
     <url>/2022/08/10/%E5%AE%9E%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94RPC%E9%80%9A%E4%BF%A1/</url>
     <content><![CDATA[<p>在写代码时经常看到类似如下的函数调用<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="title class_">XXXXXRpc</span>.<span class="title function_">XXXXXXXX</span>({}, <span class="function">(<span class="params">res</span>) =&gt;</span> {<span class="variable constant_">XXXXXXXXX</span>});</span><br></pre></td></tr></table></figure><br>经学习后了解到这是向服务端发送请求的一类函数，所使用的是RPC通信的方式，起初我对此一无所知，在代码中多次调用该类函数向服务端发送请求，造成许多逻辑错误，后来在导师的讲解和自行学习下我逐渐对RPC有了一定的了解。</p>
@@ -410,35 +410,133 @@
       </tags>
   </entry>
   <entry>
-    <title>实习笔记——Unity部分性能优化</title>
+    <title>Unity部分性能优化</title>
     <url>/2022/08/10/%E5%AE%9E%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Unity%E9%83%A8%E5%88%86%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<p>都是些较为笼统的东西，基本属于想到什么写什么，先当个框架摆着</p>
+    <content><![CDATA[<h1 id="实习笔记——Unity-性能优化"><a href="#实习笔记——Unity-性能优化" class="headerlink" title="实习笔记——Unity 性能优化"></a>实习笔记——Unity 性能优化</h1><p>本文内容是对以下两个官方教程视频的笔记整理，内容广泛但不深入，可以看作一个目录框架，并且视频发布于 2020.7，时至今日，Unity 经过多次版本更新，有些方法可能已经过时或失效</p>
+<p><a href="https://www.bilibili.com/video/BV1Tt4y1X7f6?t=1824&amp;vd_source=e4b21da575ef85d87ce1b8e9f64ca190">[Unity 活动]-Unite Now - （中文字幕）性能优化技巧（上）</a></p>
+<p><a href="https://www.bilibili.com/video/BV1Bp4y1i7wK?vd_source=e4b21da575ef85d87ce1b8e9f64ca190">[Unity 活动]-Unite Now - （中文字幕）性能优化技巧（下）</a></p>
 <span id="more"></span>
-<h3 id="纹理导入的设置"><a href="#纹理导入的设置" class="headerlink" title="纹理导入的设置"></a>纹理导入的设置</h3><p>目的: 尽可能减少文件大小并保证视觉效果，即在磁盘、空间以及视觉效果之间取得平衡</p>
+<h3 id="1、分析工具-（Profiling-tools-）"><a href="#1、分析工具-（Profiling-tools-）" class="headerlink" title="1、分析工具 （Profiling tools ）"></a>1、分析工具 （Profiling tools ）</h3><p>关于分析工具，记住一定要在目标设备上进行分析，在工作设备上的分析结果可能会和目标设备上的实际情况有所出入。</p>
+<p><strong>【Unity Editor Profiler】</strong></p>
+<p>性能分析器（Profiler）是 Unity 内部集成的一款性能优化工具，可以检查脚本代码，查看运行过程中资源使用情况，边开发边了解资源分配的情况，还可以比较不同平台上的性能。但是在运行过程中可能会增加一些性能消耗，降低程序运行速度。</p>
+<p>在 Edit-&gt;Preference-&gt;Analysis-&gt;Profiler 进行基本设置<br><img src="https://s2.loli.net/2022/08/12/34UM7xvmqz2uhVE.png" alt="2.png"></p>
+<p>在 Window-&gt;Analysis-&gt;Profiler 中打开<br><img src="https://s2.loli.net/2022/08/12/7HCSeGkXwgI95Yh.png" alt="1.png"></p>
+<p><strong>【Memory Profiler 】</strong></p>
+<p>功能:</p>
 <ul>
-<li>根据平台的不同，将纹理大小上限设为该平台的最小值 </li>
-<li>确定纹理大小是2的幂次方，因为某些压缩格式可能无法支持非2的幂次方的压缩，具体可见<a href="https://docs.unity3d.com/2017.4/Documentation/Manual/class-TextureImporterOverride.html">纹理压缩</a>,同时尽可能将多张纹理合并为大图。</li>
-<li>对于背景纹理或者其他不透明的纹理，可以将其Alpha Channel移除</li>
-<li>如果不需要从代码访问纹理的底层数据，可以将 Read/Write Enabled选项取消</li>
-<li>如果较低的16bit的颜色格式就已经足够，则不需要使用32bit格式</li>
-<li>对于相机的Z值改变不会有任何变化的纹理(例如UI等)，可以将Mipmaps关闭 </li>
+<li>进一步分析应用程序的内存使用状况</li>
+<li>比较不同时间的快照，以便找出内存泄漏</li>
+<li>查看内存配置碎片化的问题</li>
 </ul>
-<h3 id="mesh网格的导入设置"><a href="#mesh网格的导入设置" class="headerlink" title="mesh网格的导入设置"></a>mesh网格的导入设置</h3><p>若3D资源导入不当，可能会造成文件占用过大、执行期内存使用过高等后果，在保证视觉效果的情况下尽可能提高压缩程度</p>
+<p>详情可见 <a href="https://zhuanlan.zhihu.com/p/27963992">Memory Profiler 内存分析器使用方法</a></p>
+<p><strong>【Frame Debugger】</strong></p>
+<p>是时比较常用的工具，可以逐帧分析 Draw Call 等渲染步骤的细节<br>在 Window-&gt;Analysis-&gt;Frame Debugger 中打开</p>
+<p><img src="https://s2.loli.net/2022/08/12/oAHJGLCDUzYSb5m.png" alt="3.png"></p>
+<p>以上是 Unity 提供的工具，除此之外还有一些其他厂商提供的工具</p>
+<p><img src="https://s2.loli.net/2022/08/12/wV6S8vpKJzm2DjA.png" alt="4.png"></p>
+<h3 id="2、栈（stack）与堆（heap）"><a href="#2、栈（stack）与堆（heap）" class="headerlink" title="2、栈（stack）与堆（heap）"></a>2、栈（stack）与堆（heap）</h3><p><strong>【Stack】</strong><br>栈是内存中存储函数和值类型的地方，当我们调用一个函数时，会将该函数体与参数 push 到堆栈中，如果该函数中调用了其他函数，就会继续将那个函数 push 到栈中，知道函数执行完毕后，才会将其 pop 出去，因此我们在看 Debug 信息的时候，就会发现 Log 里面能够做到一层层的方法回溯，方便我们查看整体的调用过程，这也就是栈回溯。<br>在这里不会遇到碎片化或者垃圾收集的问题，但是如果调用了太多的函数，一直 push 进栈却没有 pop，最后会导致栈溢出</p>
+<p><strong>【Heap】</strong><br>堆是内存中另一个区域，比栈大。我们将所有的类别、实体和对象存放在这。通常我们每创建一个新的对象，会在堆中找到下一个足够存放的空位置将其存储。但是当我们销毁对象后，内存空间不会马上释放出来，而是标记成未使用，之后交由垃圾收集器去释放这部分内存空间。<br>对象实例化和摧毁的过程其实很慢，所以我们要尽可能的避免在堆中配置内存的行为</p>
+<h3 id="3、垃圾收集器-（Garbage-Collection）"><a href="#3、垃圾收集器-（Garbage-Collection）" class="headerlink" title="3、垃圾收集器 （Garbage Collection）"></a>3、垃圾收集器 （Garbage Collection）</h3><p>是用于清理先前配置的内存的机制，它的工作是对所有处于堆上的对象或内存遍历一次，找到需要被释放的东西</p>
+<p>每一次 GC，都会遍历堆积上所有的对象，找到需要释放的东西，也就是没有被引用的对象，然后将其释放。但是有时候我们的一些错误引用，导致一些我们希望释放掉的对象没有被 GC 掉，那么就会造成内存泄漏。</p>
+<h3 id="选择正确的数据结构"><a href="#选择正确的数据结构" class="headerlink" title="选择正确的数据结构"></a>选择正确的数据结构</h3><p>获取多个游戏对象实体，我们使用特定的数据结构来呈现数据和对象</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">GameObject[] m_NetworkedObjects;</span><br><span class="line"><span class="function"><span class="keyword">or</span></span></span><br><span class="line"><span class="function"><span class="title">Dictionary</span>&lt;<span class="title">int</span>, <span class="title">GameObject</span>&gt; m_NetworkedObjects</span>;</span><br><span class="line"><span class="keyword">or</span></span><br><span class="line">List&lt;&gt;() m_NetworkedObjects;</span><br></pre></td></tr></table></figure>
+<p>在阵列或串列结构中使用索引的成本很低，但是增加或移除对象时，将比在字典结构中进行更昂贵，所以要<strong>根据需求</strong>使用的合适的数据结构</p>
+<h3 id="4、对象池-（Object-pooling）"><a href="#4、对象池-（Object-pooling）" class="headerlink" title="4、对象池 （Object pooling）"></a>4、对象池 （Object pooling）</h3><h4 id="为什么需要对象池？"><a href="#为什么需要对象池？" class="headerlink" title="为什么需要对象池？"></a>为什么需要对象池？</h4><p>在游戏中，创建和销毁对象是十分常见的操作，通常我们是使用游戏对象的实例化 <em>Instantiate()</em> 和摧毁 <em>Destroy()</em> 来实现的，但是如果太过频繁的执行这个行为，每次垃圾收集器执行时其负载就会增加，因为在很多时间点上都会有大量的已摧毁物体存在，这会造成 CPU 负载峰值并导致堆碎片化</p>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>在真正需要对象之前，先把它们实例化好，然后将其摧毁再创建新的对象，我们要做的是回收对象，将其藏在某处，恢复对象的初始参数，在用到的时候再把它们放到相应的位置。<br>注意点:</p>
 <ul>
-<li>Read/Write Enabled 选项如果被开启，Unity将会存储两份Mesh，导致执行期内存用量变为两倍</li>
-<li>如果该3D资源没有使用动画，可以将Rigs关闭，例如场景中的房子等</li>
-<li>对于法线向量和切线向量，如果该模型的材质(具体可以是材质所用的Shader)没有使用它们，也可以将其关闭。</li>
+<li>对象池的大小（要满足需求）</li>
+<li>一开始要产生多少数量的对象池在池中</li>
 </ul>
-<h3 id="图形部分"><a href="#图形部分" class="headerlink" title="图形部分"></a>图形部分</h3><ul>
-<li>DrawCall部分</li>
-<li>阴影部分，一个带有MeshRender组件的物体会自动开启阴影效果，如果有无该阴影对场景影响不大，可以将其关闭</li>
-</ul>
-<h3 id="RayCaster"><a href="#RayCaster" class="headerlink" title="RayCaster"></a>RayCaster</h3><p>该组件是用来处理输入事件的，例如触控或者鼠标点击到游戏对象，有时对于那些应该不能互动(也就是点了没反应)也附带了RayCaster组件。因此，当每次鼠标点击或者触控时，系统就需要遍历所有可能接受输入事件的UI元素，这就会有许多“点击位置或触摸位置是否落在矩形当中的”的检查，来判断点击或触摸该对象是否应该做出反应。在UI相当复杂的情况下，这个运算的成本就会很高。所以应该确保只有那些具备可互动功能的组件开启RayCaster，以减少CPU运行时间和不必要的评估。</p>
-<h3 id="全屏UI"><a href="#全屏UI" class="headerlink" title="全屏UI"></a>全屏UI</h3><p>有时对主画面进行展示时，会对其他UI元素或者集合对象进行遮蔽，此时虽然我们并没有看到场景中的3D对象，但是CPU和GPU还是会有运行成本，为了减少CPU和GPU的运行消耗，可以做出如下优化:</p>
+<p>可以使用单例模式来设计对象池</p>
+<h3 id="5、脚本化对象-（Scriptable-Objects）"><a href="#5、脚本化对象-（Scriptable-Objects）" class="headerlink" title="5、脚本化对象 （Scriptable Objects）"></a>5、脚本化对象 （Scriptable Objects）</h3><h4 id="（1）基本介绍"><a href="#（1）基本介绍" class="headerlink" title="（1）基本介绍"></a>（1）基本介绍</h4><p>Scriptable Objects 是用来存储数据的一个资源文件，有着资源文件的特性，可以用来存储数据。</p>
+<p>如果项目中使用了 prefab，并在其内的 MonoBehaviour 中存放固定数据，如下</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AB</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> b;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>有一个叫 AB 的 MonoBehaviour 对象，里面有 a,b 两个变量，如果我有很多这样的对象，并且 a，b 在每个游戏对象里都通用的话，就能用它们来做游戏参数设置，每次实例化这个 prefab 时，其组件中的这些数据就会重复一份，相当于让这两个浮点数重复出现在有此脚本的 AB 对象上，但是它们的数值都一样，这就造成了不必要的重复。<br>当遇到这种情况时，就可以改用 Scriptable Objects</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ABConfig</span> : <span class="title">ScriptableObject</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> b;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AB</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> ABConfig m_ABConfig;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>此时让我们的 prefab 去参考它，就只需要耗费一组这样数据的内存，每个 AB 对象都会指向同一个 Scriptable Object 对象以做参数设置之用，即使我们有几千个 AB 对象，也只需要花费两个浮点数的内存。</p>
+<blockquote>
+<p>注:</p>
+<p>MonoBehaviour 是以组件形式挂在 GameObject 上的，而 ScriptableObject 则以 Assets 资源的形式存在的</p>
+</blockquote>
+<h3 id="6、变量或属性-（Variables-or-properties）"><a href="#6、变量或属性-（Variables-or-properties）" class="headerlink" title="6、变量或属性 （Variables or properties）"></a>6、变量或属性 （Variables or properties）</h3><p>为了封装的安全性，在写程序时让对象属性通过 getter/setter 产生，所以对象属性基本上是方法调用，调用太多次时，花费在栈中时间就会增加。如果发生在频繁执行的循环中，就需要考虑对其优化。<br><strong>【优化建议】</strong></p>
+<p>可以利用 #if 这类的前置指令来处理</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">if</span> DEVELOPMENT_BUILD</span></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">int</span> health;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Health { <span class="keyword">get</span> { <span class="keyword">return</span> health; } }</span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Health;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>如果还在开在开发中，或者程序在编辑器中运行，那就都采用对象属性访问的方式。</p>
+<p><em>#else</em> 代表如果在设备上执行已发布的构建版本，那就把它当普通的变量来使用</p>
+<h3 id="7、Resources-文件夹"><a href="#7、Resources-文件夹" class="headerlink" title="7、Resources 文件夹"></a>7、Resources 文件夹</h3><p>代码中的资源管理通常会使用 Resources 文件夹以及下面两种方法</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Resources.Load(...);</span><br><span class="line">Resources.UnloadUnusedAssets();</span><br></pre></td></tr></table></figure>
+<p>这些方法有常见的坑:</p>
 <ul>
-<li>将渲染3D场景的摄像机关掉。对于被完全遮住的部分，直接关闭渲染该部分的摄像机。建议关闭canvas组件而不是游戏对象本身，这样在下次重新出现时，能减少运行处理时间。</li>
-<li>隐藏被遮挡掉的其他UI</li>
-<li>尽可能降低帧率，如果当前UI是静态的，或者动画帧率较低，就没必要再把帧率维持在60fps</li>
+<li>Resources 文件夹里的所有资源都会和游戏一起打包，即使并没有用到</li>
+<li>Resources 中的资源数量会直接影响游戏的启动时间</li>
+</ul>
+<p><strong>【优化建议】</strong></p>
+<p>不要直接使用 Resources 文件夹，而是改用 Addressable 资源系统，以更有效率的方式管理资源的载入和卸载</p>
+<h3 id="8、移除空的事件函数"><a href="#8、移除空的事件函数" class="headerlink" title="8、移除空的事件函数"></a>8、移除空的事件函数</h3><p>例如:</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Awake</span>()</span></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>即使空的函数，有时也会带来微性能消耗，应该将其删除</p>
+<h3 id="9、避免在-Start-和-Awake-中写入负载很重的初始化逻辑"><a href="#9、避免在-Start-和-Awake-中写入负载很重的初始化逻辑" class="headerlink" title="9、避免在 Start() 和 Awake() 中写入负载很重的初始化逻辑"></a>9、避免在 Start() 和 Awake() 中写入负载很重的初始化逻辑</h3><p>如果在 Start() 和 Awake() 中写入了负载很重的初始化逻辑，游戏的启动画面或者载入画面将需要花更长的时间渲染，用户将会看到长时间的黑屏，因为你必须等每个游戏对象都完成 Start 和 Awake 执行</p>
+<blockquote>
+<p>Unity 会在第一个 Awake() 和 Start() 方法执行后渲染第一个画面</p>
+</blockquote>
+<p>可以先简单呈现一个东西，然后再开始其他对象初始化的步骤</p>
+<h3 id="10、Hash-the-value-instead"><a href="#10、Hash-the-value-instead" class="headerlink" title="10、Hash the value instead"></a>10、Hash the value instead</h3><p>如果我们从代码指定参数或是指定材质和着色器的属性，例如</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">animator.SetTrigger(<span class="string">"Jump"</span>);</span><br><span class="line"></span><br><span class="line">material.SetTexture(<span class="string">"_MainMap"</span>, selectedTexture);</span><br><span class="line"></span><br><span class="line">shader.SetGlobalColor(<span class="string">"_MainColor"</span>, selectedColor);</span><br></pre></td></tr></table></figure>
+<p>我们常用包含属性名称的字符串当参数去调用对应的方法，对于程序员来说方便且好看，然而在 Unity 内部根本不用这些字符串，而会把它们杂凑成一个对应属性代号的整数，如果我们把这些函数写在 Update()等频繁调用的函数中，Unity 实际上会反复进行杂凑运算，造成不必要的性能消耗。</p>
+<p><strong>【优化建议】</strong></p>
+<p>一开始算出杂凑值，然后直接使用可以传入整数代号的重载方法</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="built_in">int</span> parameterId = Animator.StringToHash(<span class="string">"Jump"</span>);</span><br><span class="line">animator.SetTrigger(parameterID);</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> propertyId = Shader.PropertyToID(<span class="string">"_MainMap"</span>);</span><br><span class="line">material.SetTexture(propertyId, selectedTexture);</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> propertyId = Shader.PropertyToID(<span class="string">"_MainColor"</span>);</span><br><span class="line">shader.SetGlobalColor(propertyId, selectedColor);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>广泛使用可以省下很多处理器的时间</p>
+<h3 id="11、减少层级架构的复杂性"><a href="#11、减少层级架构的复杂性" class="headerlink" title="11、减少层级架构的复杂性"></a>11、减少层级架构的复杂性</h3><p><img src="https://s2.loli.net/2022/08/12/uIV3OtYCcGX5xB1.png" alt="6.png"></p>
+<p>处于某些原因，我们的场景中可能有很深的嵌套结构，当我们对有许多子物体的父物体进行平移、旋转、缩放等位置改变时，即使它的子对象在转换前后看不出有什么变化，我们还是造成了不必要的转换运算。较深的层级结构会让垃圾收集器花更多时间在层级结构之间遍历。<br><strong>【优化建议】</strong><br>尽量避免很深的层级结构，将那些真正需要坐标转换的对象从不需要坐标转换的对象中分离出来，这也可以加快垃圾收集器的处理时间</p>
+<h3 id="12、Accelerometer-Frequency-（没用过这玩意，不是很懂）"><a href="#12、Accelerometer-Frequency-（没用过这玩意，不是很懂）" class="headerlink" title="12、Accelerometer Frequency （没用过这玩意，不是很懂）"></a>12、Accelerometer Frequency （没用过这玩意，不是很懂）</h3><p>这个功能定义 Unity 从设备读取加速度仪信息的频率，在不需要这个功能的项目中可以关闭，即使有用到也尽量开到最低。</p>
+<h3 id="13、移动游戏对象"><a href="#13、移动游戏对象" class="headerlink" title="13、移动游戏对象"></a>13、移动游戏对象</h3><p>Unity 中有很多移动对象的方法，如下</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">{</span><br><span class="line">    transform.Translate(...);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如果对象需要使用碰撞判定，我们则会加上刚体组件与碰撞体，通过坐标转换移动有刚体组件的对象时，会造成 PhysX 物理引擎整体重新计算，对于复杂的场景成本很高。</p>
+<p><strong>【优化建议】</strong></p>
+<p>如果要移动一个有刚体组件的对象，使用 Rigidbody 类提供的方法，例如:</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FixedUpdate</span>()</span></span><br><span class="line">{</span><br><span class="line">    rigidBody.MovePosition();</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="14、GameObject-AddComponent-…"><a href="#14、GameObject-AddComponent-…" class="headerlink" title="14、GameObject.AddComponent(…)"></a>14、GameObject.AddComponent(…)</h3><p>当我们在运行期间将对象实例化时，常用增加组件来定义对象的行为</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">GameObject newBarrel = Instantiate(m_Template);</span><br><span class="line"></span><br><span class="line">newBarrel.AddComponent(<span class="keyword">typeof</span>(XXXX));</span><br><span class="line">newBarrel.AddComponent(<span class="keyword">typeof</span>(XXXX));</span><br><span class="line">newBarrel.AddComponent(<span class="keyword">typeof</span>(XXXX));</span><br><span class="line">newBarrel.AddComponent(<span class="keyword">typeof</span>(XXXX));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>实例化一个 Barrel 游戏对象时，如果要增加一些组件，就一直要调用 <em>AddComponent()</em> 函数，在运行期间调用该函数效率很低。当我们在运行期间增加组件时，Unity 会做如下事情:</p>
+<p>1、检查组件有无 DisallowMultipleComponent 的设置，如果有，还要去检查是否有同类组件加入<br>2、检查是否存在 RequireComponent 设置，若存在，就代表这个组件需要别的组件同步加入，然后必须加入那些组件，然后再重复一遍上述的检查<br>3、还需要调用所有被加入的 MonoBehaviour 的 Awake 方法</p>
+<p>上述步骤都发生在堆(heap)上 ，会增加垃圾收集器的处理时间，影响性能</p>
+<p><strong>【优化建议】</strong></p>
+<p>尽可能避免在执行期间加入组件</p>
+<h3 id="15、为参照建立缓存-（Cache-your-references）"><a href="#15、为参照建立缓存-（Cache-your-references）" class="headerlink" title="15、为参照建立缓存 （Cache your references）"></a>15、为参照建立缓存 （Cache your references）</h3><p>找到场景中的游戏对象是很常见的需求，对象可能是运行阶段或初始化阶段产生的。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">GameObject.Find(...);</span><br><span class="line">GameObject.GetComponent(...);</span><br></pre></td></tr></table></figure>
+<p>GameObject.Find() 一类的方法需要 Unity 遍历所有内存中的游戏对象以及组件，在复杂场景中相当低效。<br>GameObject.GetComponent() 会查询所有附加到游戏对象上的组件，增加运行阶段的成本</p>
+<p><strong>【优化建议】</strong></p>
+<p>为刚找到的对象参照建立缓存</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">{</span><br><span class="line">    GameObject go = GameObject.Find();</span><br><span class="line">    go.Something();</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>也就是只调用一次 Find，充分利用结果，缓存最好在 Start 方法内建立</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">GameObject go;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">{</span><br><span class="line">    go = GameObject.Find();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">{</span><br><span class="line">    go.Something();</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>当找到那个对象后，整个游戏就只使用缓存的版本</p>
+<h3 id="16、纹理导入的设置"><a href="#16、纹理导入的设置" class="headerlink" title="16、纹理导入的设置"></a>16、纹理导入的设置</h3><p>目的: 尽可能减少文件大小并保证视觉效果，即在磁盘、空间以及视觉效果之间取得平衡</p>
+<ul>
+<li>根据平台的不同，将纹理大小上限设为该平台的最小值</li>
+<li>确定纹理大小是 2 的幂次方，因为某些压缩格式可能无法支持非 2 的幂次方的压缩，具体可见<a href="https://docs.unity3d.com/2017.4/Documentation/Manual/class-TextureImporterOverride.html">纹理压缩</a>,同时尽可能将多张纹理合并为大图。</li>
+<li>对于背景纹理或者其他不透明的纹理，可以将其 Alpha Channel 移除</li>
+<li>如果不需要从代码访问纹理的底层数据，可以将 Read/Write Enabled 选项取消</li>
+<li>如果较低的 16bit 的颜色格式就已经足够，则不需要使用 32bit 格式</li>
+<li>对于相机的 Z 值改变不会有任何变化的纹理(例如 UI 等)，可以将 Mipmaps 关闭</li>
+</ul>
+<h3 id="17、mesh-网格的导入设置"><a href="#17、mesh-网格的导入设置" class="headerlink" title="17、mesh 网格的导入设置"></a>17、mesh 网格的导入设置</h3><p>若 3D 资源导入不当，可能会造成文件占用过大、执行期内存使用过高等后果，在保证视觉效果的情况下尽可能提高压缩程度</p>
+<ul>
+<li>Read/Write Enabled 选项如果被开启，Unity 将会存储两份 Mesh，导致执行期内存用量变为两倍</li>
+<li>如果该 3D 资源没有使用动画，可以将 Rigs 关闭，例如场景中的房子等</li>
+<li>对于法线向量和切线向量，如果该模型的材质(具体可以是材质所用的 Shader)没有使用它们，也可以将其关闭。</li>
+</ul>
+<h3 id="18、图形部分"><a href="#18、图形部分" class="headerlink" title="18、图形部分"></a>18、图形部分</h3><ul>
+<li>降低 DrawCall（大坑）</li>
+<li>尽量减少不必要的阴影，一个带有 MeshRender 组件的物体会自动开启阴影效果，如果有无该阴影对场景影响不大，可以将其关闭</li>
+</ul>
+<h3 id="19、某些组件的-RayCaster-选项"><a href="#19、某些组件的-RayCaster-选项" class="headerlink" title="19、某些组件的 RayCaster 选项"></a>19、某些组件的 RayCaster 选项</h3><p>该组件是用来处理输入事件的，例如触控或者鼠标点击到游戏对象，有时对于那些应该不能互动(也就是点了没反应)也附带了 RayCaster 组件。因此，当每次鼠标点击或者触控时，系统就需要遍历所有可能接受输入事件的 UI 元素，这就会有许多“点击位置或触摸位置是否落在矩形当中的”的检查，来判断点击或触摸该对象是否应该做出反应。在 UI 相当复杂的情况下，这个运算的成本就会很高。所以应该确保只有那些具备可互动功能的组件开启 RayCaster，以减少 CPU 运行时间和不必要的评估。</p>
+<h3 id="20、全屏-UI"><a href="#20、全屏-UI" class="headerlink" title="20、全屏 UI"></a>20、全屏 UI</h3><p>有时对主画面进行展示时，会对其他 UI 元素或者集合对象进行遮蔽，此时虽然我们并没有看到场景中的 3D 对象，但是 CPU 和 GPU 还是会有运行成本，为了减少 CPU 和 GPU 的运行消耗，可以做出如下优化:</p>
+<ul>
+<li>将渲染 3D 场景的摄像机关掉。对于被完全遮住的部分，直接关闭渲染该部分的摄像机。建议关闭 canvas 组件而不是游戏对象本身，这样在下次重新出现时，能减少运行处理时间。</li>
+<li>隐藏被遮挡掉的其他 UI</li>
+<li>尽可能降低帧率，如果当前 UI 是静态的，或者动画帧率较低，就没必要再把帧率维持在 60fps</li>
 </ul>
 ]]></content>
       <categories>
@@ -495,16 +593,16 @@ t(x) = \ 1- \omega \min\limits_c (\min\limits_{y \in \Omega(x)} ( \frac{I^c(y)}{
 \   \ \ \ \ mean_p = f_{mean} (p)\\
 \  \ \  \ \ \ \ \ corr_I = f_{mean} (I. *I)\\
 \   \ \ \ \ \ \ \ \ corr_{Ip} = f_{mean} (I.*p)\\
-
+\\
 2:var_I = corr_I - mean_I.*mean_I \\
 \ \ \ \ \ \ \ \  \ \ \ \ cov_{Ip} = -corr{Ip} - mean_I. *mean_p \\
-
+\\
 3:a = cov_{Ip}./(var_I + \epsilon) \\
 \ \ \ \ \ \ \ \ \  b = mean_p - a.*mean_I\\
-
+\\
 4:mean_a = f_{mean}(a)
 \\ \ \ \ \ \ mean_b  = f_{mean}(b) \\
-
+\\
 5:q = mean_a. * I + mean_b</script><p>依照该伪代码在python中使用 opencv 实现如下：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Guidedfilter</span>(<span class="params">image, p, r, eps</span>):</span><br><span class="line">    mean_I = cv2.boxFilter(image, cv2.CV_64F, (r, r))</span><br><span class="line">    mean_p = cv2.boxFilter(p, cv2.CV_64F, (r, r))</span><br><span class="line">    corr_I = cv2.boxFilter(image * image, cv2.CV_64F, (r, r))</span><br><span class="line">    corr_IP = cv2.boxFilter(image * p, cv2.CV_64F, (r, r))</span><br><span class="line"></span><br><span class="line">    var_I = corr_I - mean_I * mean_I</span><br><span class="line">    cov_Ip = corr_IP - mean_I * mean_p</span><br><span class="line"></span><br><span class="line">    a = cov_Ip / (var_I + eps)</span><br><span class="line">    b = mean_p - a * mean_I</span><br><span class="line"></span><br><span class="line">    mean_a = cv2.boxFilter(a, cv2.CV_64F, (r, r))</span><br><span class="line">    mean_b = cv2.boxFilter(b, cv2.CV_64F, (r, r))</span><br><span class="line"></span><br><span class="line">    q = mean_a * image + mean_b</span><br><span class="line">    <span class="keyword">return</span> q</span><br></pre></td></tr></table></figure>
 <p><strong>【未使用引导滤波的结果】</strong></p>
@@ -751,140 +849,6 @@ k(i,j) = \frac{\omega_c}{2\pi \sqrt {i^2 + j^2}}J _1(\omega_c \sqrt{i^2 + j^2})<
       </tags>
   </entry>
   <entry>
-    <title>计算机网络爬虫</title>
-    <url>/2022/07/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/</url>
-    <content><![CDATA[<h3 id="一、基本信息"><a href="#一、基本信息" class="headerlink" title="一、基本信息"></a>一、基本信息</h3><p>（略）</p>
-<h3 id="二、实验目的"><a href="#二、实验目的" class="headerlink" title="二、实验目的"></a>二、实验目的</h3><p>要求学生掌握Socket编程技术及令牌总线协议工作过程</p>
-<script type="math/tex; mode=display">
-</script><span id="more"></span>
-<h3 id="三、基础实验内容"><a href="#三、基础实验内容" class="headerlink" title="三、基础实验内容"></a>三、基础实验内容</h3><h4 id="Ⅰ、traceroute"><a href="#Ⅰ、traceroute" class="headerlink" title="Ⅰ、traceroute"></a>Ⅰ、traceroute</h4><p><strong>1、实验目的：</strong>熟悉traceroute的使用</p>
-<p><strong>2、实验内容：</strong> 用traceroute测量到163网站（www.163.com）和到微软公司（www.microsoft.com）网站的路径。分析测量结果。</p>
-<p><strong>3、实验流程及结果</strong></p>
-<p>在Ubuntu上下载安装traceroute</p>
-<p><img src="https://s2.loli.net/2022/07/26/lIFAdX1gBsMZjVw.png" alt=""></p>
-<p>用traceroute测量到163网站（www.163.com）的路径</p>
-<p><img src="https://s2.loli.net/2022/07/26/Swt5TgJpsduilEn.png" alt="ICMP 163"></p>
-<p>用traceroute测量到微软网站（www.microsoft.com）的路径</p>
-<p><img src="https://s2.loli.net/2022/07/26/8MCBeayGq62RVzj.png" alt="ICMP microsoft"></p>
-<p>上述输出信息显示了跟踪到的路由地址信息。记录从序号 1 开始，每个记录就是一跳，而每一跳表示经过的一个网关。记录给出了每个网关对应的IP地址。其中，为 <em>*</em> 的记录表示可能被防火墙拦截的 ICMP 的返回信息。</p>
-<p>在linux上使用traceroute，默认使用udp协议，除了第一跳，剩下的都是<em> </em> *。是因为虚拟机 nat 路由器，默认丢弃port&gt;32767的包。在命令中加入 -l 强制使用ICMP得到上图结果。</p>
-<h4 id="Ⅱ、wireshark"><a href="#Ⅱ、wireshark" class="headerlink" title="Ⅱ、wireshark"></a>Ⅱ、wireshark</h4><p><strong>1、实验目的：</strong>熟悉wireshark的使用</p>
-<p><strong>2、实验内容：</strong>下载安装wireshark软件，设置捕获条件，用wireshark捕获数据包，对以太网帧和IP数据包进行分析。</p>
-<p><strong>3、实验流程及结果</strong></p>
-<p>Wireshark 是一个免费开源的网络数据包分析软件。它的功能是截取网络数据包，并尽可能显示出最为详细的网络数据包数据。</p>
-<p>下载安装Wireshark并启动</p>
-<p><img src="https://s2.loli.net/2022/07/26/gVl5RE8uwCtqTfM.png" alt=""></p>
-<p>查询网卡</p>
-<p><img src="https://s2.loli.net/2022/07/26/1wGeMWDXuI27TSl.png" alt=""></p>
-<p>打开火绒浏览器开始发包测试</p>
-<p><img src="https://s2.loli.net/2022/07/26/YKhqtJekOu3IUV7.png" alt=""></p>
-<p>TCP找目的地址，捕获数据包，对以太网帧和IP数据包进行分析。</p>
-<p><img src="https://s2.loli.net/2022/07/26/HgNysLPCYbJ7Awa.png" alt=""></p>
-<p>将 <em>TCP 80 端口</em> 作为过滤条件进行筛选分析</p>
-<p><img src="https://s2.loli.net/2022/07/26/tdFr4m3YbPiUoAL.png" alt=""></p>
-<h3 id="四、工程性实验内容"><a href="#四、工程性实验内容" class="headerlink" title="四、工程性实验内容"></a>四、工程性实验内容</h3><h4 id="Ⅰ、Robots协议"><a href="#Ⅰ、Robots协议" class="headerlink" title="Ⅰ、Robots协议"></a>Ⅰ、Robots协议</h4><p><strong>具体内容：</strong>查看淘宝网的Robots协议，了解抓取网站数据需要遵循的规则</p>
-<p>Robots协议的全称是“网络爬虫排除标准”(Robots Exclusion Protocol)，网站通过Robots协议告诉搜索引擎哪些页面可以爬取，哪些页面不可以爬取。这个协议是互联网中的道德规范，虽没写入法律，但应遵守。在网站末尾加<code>/robots.txt</code>可以进行查看。</p>
-<p><img src="https://s2.loli.net/2022/07/26/D8pZfVWqHM67LNu.png" alt="image-20220427171824767"></p>
-<p>Robots协议的语法：#注释，*代表所有，/代表根目录。</p>
-<p>无robots协议的网站，信息可以爬取。</p>
-<p>自动或人工识别robots.txt，再进行内容爬取，Robots协议是建议但非约束性，网络爬虫可以不遵守，但存在法律风险。访问量很小的可以遵循，访问量大的建议遵循。非商业的建议遵循，涉及商业利益的必须遵循，爬取全网信息必须要遵循。如果是类似人类行为的爬取信息，可不遵循。</p>
-<h4 id="Ⅱ、-搜索关键词查询确定其关键词的查询接口"><a href="#Ⅱ、-搜索关键词查询确定其关键词的查询接口" class="headerlink" title="Ⅱ、 搜索关键词查询确定其关键词的查询接口"></a>Ⅱ、 搜索关键词查询确定其关键词的查询接口</h4><p>以豆瓣图书为例，进入豆瓣读书网站</p>
-<p><img src="https://s2.loli.net/2022/07/26/78cWoRNs1kzgBpZ.png" style="zoom:67%;"></p>
-<p>随便点击一本书，观察其网址</p>
-<p><img src="https://s2.loli.net/2022/07/26/iALYlmPfGcBs1I2.png" style="zoom:67%;"></p>
-<p>观察到红框部分即为该书在豆瓣数据库中的代号</p>
-<p>进入短评部分</p>
-<p><img src="https://s2.loli.net/2022/07/26/QMTEzFGlNgv2xLY.png" style="zoom:67%;"></p>
-<p>观察到前一个红框部分为该书的代码，后一个红框部分为这一页短评的起始标号，豆瓣书籍网页版一页共有20条短评，所以 start = num （num从0开始并且为20的整倍数）</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url = <span class="string">"https://book.douban.com/subject/{}/comments/?start={}&amp;limit=20&amp;status=P&amp;sort=new_score"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># booknum和index分别为书籍代码和start起始下标</span></span><br><span class="line">u = url.<span class="built_in">format</span>(<span class="built_in">str</span>(booknum),<span class="built_in">str</span>(index))</span><br></pre></td></tr></table></figure>
-<p>所以之后对豆瓣图书评论的查询靠替换关键字完成</p>
-<h4 id="Ⅲ、爬取豆瓣图书评论"><a href="#Ⅲ、爬取豆瓣图书评论" class="headerlink" title="Ⅲ、爬取豆瓣图书评论"></a>Ⅲ、爬取豆瓣图书评论</h4><h5 id="具体内容"><a href="#具体内容" class="headerlink" title="具体内容"></a>具体内容</h5><p>抓取豆瓣读书中对某本书的前50条短评内容并计算星级评定分数的平均值（保留两位小数）</p>
-<h5 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h5><p>TCP协议：传输控制协议（Transmission Control Protocol，缩写为TCP）是一种面向连接的、可靠的、基于字节流的传输层通信协议，它能提供高可靠性通信(即数据无误、数据无丢失、数据无失序、数据无重复到达的通信)。</p>
-<p>主要适用的场景：</p>
-<p>适合于对传输质量要求较高，以及传输大量数据的通信。</p>
-<p>在需要可靠数据传输的场合，通常使用TCP协议。</p>
-<p>HTTP/HTTPS等即网络服务都采用TCP协议。</p>
-<p>TCP通信需要经过创建连接、数据传送、终止连接三个步骤。</p>
-<ul>
-<li><p>初始化 url ，并通过 get() 函数逐网页爬取网页源代码</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url = <span class="string">"https://book.douban.com/subject/{}/comments/?start={}&amp;limit=20&amp;status=P&amp;sort=new_score"</span></span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">60</span>, <span class="number">20</span>):</span><br><span class="line">    <span class="comment"># booknum 为豆瓣书籍编号，本实验选用的是35593780</span></span><br><span class="line">    u = url.<span class="built_in">format</span>(<span class="built_in">str</span>(booknum),<span class="built_in">str</span>(index))</span><br><span class="line">    r = get(u)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建 socket 实例，处理 https 的库</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">url</span>):</span><br><span class="line">    host = <span class="string">'book.douban.com'</span></span><br><span class="line">    path = url[<span class="number">23</span>:]</span><br><span class="line">	s = ssl.wrap_socket(socket.socket())</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>初始化端口，与主机建立起连接</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">port = <span class="number">443</span>  <span class="comment"># 端口 https 默认端口443</span></span><br><span class="line">s.connect((host, port))  <span class="comment"># 建立起连接，连接主机</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置报文格式</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 报文格式： GET+空格+com后面的部分+空格+HTTP/1.1(或1.0)+\r\n+Host:+域名+\r\n\r\n</span></span><br><span class="line">request = <span class="string">'GET {} HTTP/1.1\r\nHost: {}\r\n\r\n'</span>.<span class="built_in">format</span>(path, host)  <span class="comment"># 构建请求</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>发送请求并接受数据</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s.send(request.encode(<span class="string">'utf-8'</span>))  <span class="comment"># 发送请求  转码，将str 转成bytes类型</span></span><br><span class="line">response = <span class="string">b''</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="comment"># 接受数据</span></span><br><span class="line">    r = s.recv(<span class="number">1024</span>)</span><br><span class="line">    response += r</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(r) &lt; <span class="number">1024</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">response = response.decode(<span class="string">'utf-8'</span>) <span class="comment"># 解码</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对数据进行查找分析</p>
-<p>此处主要使用 str 类型所带的 find() 函数</p>
-<p>Python find() 方法检测<strong>字符串</strong>中是否包含<strong>子字符串</strong> str</p>
-<p>如果指定 beg（开始） 和 end（结束） 范围，则检查是否包含在指定范围内，如果包含子字符串返回开始的索引值，否则返回-1。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># html 为字符串</span></span><br><span class="line"><span class="comment"># userstart 为每个用户所在源代码的开始位置</span></span><br><span class="line"><span class="comment"># userend 每个用户所在源代码的结束位置</span></span><br><span class="line"><span class="comment"># start_str为所查询字符串的前部分</span></span><br><span class="line"><span class="comment"># end_str为所查询字符串的后部分</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getdata</span>(<span class="params">html, userstart, userend, start_str, end_str</span>):</span><br><span class="line">    start = html.find(start_str, userstart, userend)</span><br><span class="line">    end = html.find(end_str, start)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> start == -<span class="number">1</span> <span class="keyword">else</span> html[start + <span class="built_in">len</span>(start_str):end]</span><br></pre></td></tr></table></figure>
-<p>对于星级的平均分计算，考虑到有些用户没有打分，计算平均分时需将其删除。对于上面的数据查询函数 getdata() ，如果未能查询到该用户所打的分数，则在star[] 数组中写入0，若查询到所打的分数，则写入该分数。</p>
-</li>
-<li><p>将结果进行整理输出</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># douban.txt 文件和当前py文件位于同一目录之下</span></span><br><span class="line">output = <span class="built_in">open</span>(<span class="string">"douban.txt"</span>,<span class="string">'w'</span>,encoding=<span class="string">'UTF—8'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>将50条评论逐行输入至 douban.txt 文件中，在第51行输入平均分数，第52行输入书名。</p>
-<h5 id="可视化界面"><a href="#可视化界面" class="headerlink" title="可视化界面"></a>可视化界面</h5><p>该可视化界面采用 Unity3D 制作，版本为 2021.2.7f1c1，所用语言为 C#</p>
-<p><strong>【展示】</strong></p>
-<p><img src="https://s2.loli.net/2022/07/26/4tcVLn1Huael2k5.png" alt="image-20220427223747102"></p>
-<p>[1] 处按钮为显示前页评论</p>
-<p>[2] 处按钮为显示后页评论</p>
-<p>[3] 处为书名显示区域</p>
-<p>[4] 处为所求得的平均分数（保留两位小数）</p>
-<p>[5] [6] [7] [8] 处为评论内容显示区域，可上下拖拽查看全部内容</p>
-<p>【<strong>代码及主要制作思路</strong>】</p>
-<p>创建一个string类型的数组，用以存储评论、书名、分数等数据</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span>[] txt</span><br></pre></td></tr></table></figure>
-<p>使用<strong>绝对路径</strong>读取上述 douban.txt 文件</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.IO;</span><br><span class="line">txt = File.ReadAllLines(<span class="string">"C:\\Users\\EKKO\\Desktop\\ComputerNetwork\\CNLab\\douban.txt"</span>);</span><br></pre></td></tr></table></figure>
-<p>此时 txt 数组共有52个元素，存储50条评论、一个书名、一个平均分数</p>
-<p>新建 TEXT 类型数组 comments 并与UI上的组件进行绑定，将书名和分数直接显示。</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">comments[<span class="number">0</span>] = transform.GetChild(<span class="number">7</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">0</span>].text = <span class="string">"平均分数:"</span>+txt[<span class="number">50</span>];</span><br><span class="line">comments[<span class="number">1</span>] = transform.GetChild(<span class="number">1</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">2</span>] = transform.GetChild(<span class="number">2</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">3</span>] = transform.GetChild(<span class="number">3</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">4</span>] = transform.GetChild(<span class="number">4</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">bookname = transform.GetChild(<span class="number">9</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">bookname.text = <span class="string">"《"</span>+txt[<span class="number">51</span>] +<span class="string">"》"</span>; </span><br></pre></td></tr></table></figure>
-<p>调用按钮点击相应事件，为 ‘前页’ ‘后页’ 按钮绑定相关操作</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">upbtn.onClick.AddListener(setindexup);</span><br><span class="line">downbtn.onClick.AddListener(setindexdown);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setindexup</span>()</span></span><br><span class="line">{</span><br><span class="line">   <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>;i &lt;<span class="number">5</span>;i++)</span><br><span class="line">        <span class="keyword">if</span>(index[i] &lt; <span class="number">49</span>)</span><br><span class="line">			index[i] += <span class="number">4</span>;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setindexdown</span>()</span></span><br><span class="line">{</span><br><span class="line">   <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>;i &lt;<span class="number">5</span>;i++)</span><br><span class="line">		<span class="keyword">if</span>(index[i] &gt; <span class="number">4</span>)</span><br><span class="line">			index[i] -= <span class="number">4</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>最后在 Update() 函数中逐帧进行赋值操作，达到动态刷新的效果</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">{</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">1</span>;i &lt; <span class="number">5</span> ;i++)</span><br><span class="line">		<span class="keyword">if</span>( index[i]<span class="number">-1</span> &gt; <span class="number">49</span> )</span><br><span class="line">			comments[i].text = <span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		comments[i].text = txt[index[i] - <span class="number">1</span>];</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h4 id="Ⅳ、抓取道指成分股数据"><a href="#Ⅳ、抓取道指成分股数据" class="headerlink" title="Ⅳ、抓取道指成分股数据"></a>Ⅳ、抓取道指成分股数据</h4><h5 id="具体内容-1"><a href="#具体内容-1" class="headerlink" title="具体内容"></a>具体内容</h5><p>在<a href="https://money.cnn.com/data/dow30/">https://money.cnn.com/data/dow30/</a> 上抓取道指成分股数据并解析其中30家公司的代码、名称和最近一次成交价，将结果放到一个列表中输出。</p>
-<h5 id="实验步骤-1"><a href="#实验步骤-1" class="headerlink" title="实验步骤"></a>实验步骤</h5><p>采用 request 和 re 两个包来解决</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
-<p>确定查询网址路径</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url = <span class="string">'https://money.cnn.com/data/dow30/'</span></span><br></pre></td></tr></table></figure>
-<p>由于网址发生变化，所以实际进入的网址为</p>
-<p><img src="https://s2.loli.net/2022/07/26/mH5pUMjov8Kdg9b.png" style="zoom:67%;"></p>
-<p>通过r=request.get（url）构造一个向服务器请求资源的url对象。</p>
-<p>这个对象是Request库内部生成的。</p>
-<p>这时候的r返回的是一个包含服务器资源的Response对象。包含从服务器返回的所有的相关资源。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">r = requests.get(url)</span><br></pre></td></tr></table></figure>
-<p>根据网页源代码，构建查匹配对应数据所需的正则表达式</p>
-<p><img src="https://s2.loli.net/2022/07/26/D2TMdGf8sIoKmqO.png" alt="image-20220428173724771"></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pattern = re.<span class="built_in">compile</span>(</span><br><span class="line">    <span class="string">'wsod_symbol"&gt;(.*?)&lt;/a&gt; &lt;span title="(.*?)"&gt;(.*?)&lt;/span&gt;&lt;/td&gt;&lt;td class="wsod_aRight"&gt;&lt;span stream="last_(.*?)&lt;'</span>)</span><br></pre></td></tr></table></figure>
-<p>进行匹配查询</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># data 为一个含有4个元素的元组，包含所需数据</span></span><br><span class="line">data = re.findall(pattern, r.text)</span><br></pre></td></tr></table></figure>
-<p> 数据处理：对数据进行筛选比对，选取所需要的 【公司的代码】、【名称】、【最近一次成交价】</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">    <span class="comment"># print("i:",i)</span></span><br><span class="line">    m = (i[<span class="number">0</span>], i[<span class="number">1</span>], i[<span class="number">3</span>][-<span class="number">6</span>:])</span><br><span class="line">    <span class="comment"># 将其添加到列表中</span></span><br><span class="line">    dowdata.append(m)</span><br></pre></td></tr></table></figure>
-<p>输出示例：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> dowdata:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2022/07/26/fi17MO3lLc2pzSd.png" alt="image-20220428174108983"></p>
-<p>该结果对应时间：2022.4.28 -17:41</p>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-        <tag>网络爬虫</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基于Unity和MySQL的数据库课设</title>
     <url>/2022/07/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/</url>
     <content><![CDATA[<p>(前排提示:为了凑字数导致内容较水)</p>
@@ -1107,6 +1071,140 @@ k(i,j) = \frac{\omega_c}{2\pi \sqrt {i^2 + j^2}}J _1(\omega_c \sqrt{i^2 + j^2})<
       <tags>
         <tag>Unity</tag>
         <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络爬虫</title>
+    <url>/2022/07/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/</url>
+    <content><![CDATA[<h3 id="一、基本信息"><a href="#一、基本信息" class="headerlink" title="一、基本信息"></a>一、基本信息</h3><p>（略）</p>
+<h3 id="二、实验目的"><a href="#二、实验目的" class="headerlink" title="二、实验目的"></a>二、实验目的</h3><p>要求学生掌握Socket编程技术及令牌总线协议工作过程</p>
+<script type="math/tex; mode=display">
+</script><span id="more"></span>
+<h3 id="三、基础实验内容"><a href="#三、基础实验内容" class="headerlink" title="三、基础实验内容"></a>三、基础实验内容</h3><h4 id="Ⅰ、traceroute"><a href="#Ⅰ、traceroute" class="headerlink" title="Ⅰ、traceroute"></a>Ⅰ、traceroute</h4><p><strong>1、实验目的：</strong>熟悉traceroute的使用</p>
+<p><strong>2、实验内容：</strong> 用traceroute测量到163网站（www.163.com）和到微软公司（www.microsoft.com）网站的路径。分析测量结果。</p>
+<p><strong>3、实验流程及结果</strong></p>
+<p>在Ubuntu上下载安装traceroute</p>
+<p><img src="https://s2.loli.net/2022/07/26/lIFAdX1gBsMZjVw.png" alt=""></p>
+<p>用traceroute测量到163网站（www.163.com）的路径</p>
+<p><img src="https://s2.loli.net/2022/07/26/Swt5TgJpsduilEn.png" alt="ICMP 163"></p>
+<p>用traceroute测量到微软网站（www.microsoft.com）的路径</p>
+<p><img src="https://s2.loli.net/2022/07/26/8MCBeayGq62RVzj.png" alt="ICMP microsoft"></p>
+<p>上述输出信息显示了跟踪到的路由地址信息。记录从序号 1 开始，每个记录就是一跳，而每一跳表示经过的一个网关。记录给出了每个网关对应的IP地址。其中，为 <em>*</em> 的记录表示可能被防火墙拦截的 ICMP 的返回信息。</p>
+<p>在linux上使用traceroute，默认使用udp协议，除了第一跳，剩下的都是<em> </em> *。是因为虚拟机 nat 路由器，默认丢弃port&gt;32767的包。在命令中加入 -l 强制使用ICMP得到上图结果。</p>
+<h4 id="Ⅱ、wireshark"><a href="#Ⅱ、wireshark" class="headerlink" title="Ⅱ、wireshark"></a>Ⅱ、wireshark</h4><p><strong>1、实验目的：</strong>熟悉wireshark的使用</p>
+<p><strong>2、实验内容：</strong>下载安装wireshark软件，设置捕获条件，用wireshark捕获数据包，对以太网帧和IP数据包进行分析。</p>
+<p><strong>3、实验流程及结果</strong></p>
+<p>Wireshark 是一个免费开源的网络数据包分析软件。它的功能是截取网络数据包，并尽可能显示出最为详细的网络数据包数据。</p>
+<p>下载安装Wireshark并启动</p>
+<p><img src="https://s2.loli.net/2022/07/26/gVl5RE8uwCtqTfM.png" alt=""></p>
+<p>查询网卡</p>
+<p><img src="https://s2.loli.net/2022/07/26/1wGeMWDXuI27TSl.png" alt=""></p>
+<p>打开火绒浏览器开始发包测试</p>
+<p><img src="https://s2.loli.net/2022/07/26/YKhqtJekOu3IUV7.png" alt=""></p>
+<p>TCP找目的地址，捕获数据包，对以太网帧和IP数据包进行分析。</p>
+<p><img src="https://s2.loli.net/2022/07/26/HgNysLPCYbJ7Awa.png" alt=""></p>
+<p>将 <em>TCP 80 端口</em> 作为过滤条件进行筛选分析</p>
+<p><img src="https://s2.loli.net/2022/07/26/tdFr4m3YbPiUoAL.png" alt=""></p>
+<h3 id="四、工程性实验内容"><a href="#四、工程性实验内容" class="headerlink" title="四、工程性实验内容"></a>四、工程性实验内容</h3><h4 id="Ⅰ、Robots协议"><a href="#Ⅰ、Robots协议" class="headerlink" title="Ⅰ、Robots协议"></a>Ⅰ、Robots协议</h4><p><strong>具体内容：</strong>查看淘宝网的Robots协议，了解抓取网站数据需要遵循的规则</p>
+<p>Robots协议的全称是“网络爬虫排除标准”(Robots Exclusion Protocol)，网站通过Robots协议告诉搜索引擎哪些页面可以爬取，哪些页面不可以爬取。这个协议是互联网中的道德规范，虽没写入法律，但应遵守。在网站末尾加<code>/robots.txt</code>可以进行查看。</p>
+<p><img src="https://s2.loli.net/2022/07/26/D8pZfVWqHM67LNu.png" alt="image-20220427171824767"></p>
+<p>Robots协议的语法：#注释，*代表所有，/代表根目录。</p>
+<p>无robots协议的网站，信息可以爬取。</p>
+<p>自动或人工识别robots.txt，再进行内容爬取，Robots协议是建议但非约束性，网络爬虫可以不遵守，但存在法律风险。访问量很小的可以遵循，访问量大的建议遵循。非商业的建议遵循，涉及商业利益的必须遵循，爬取全网信息必须要遵循。如果是类似人类行为的爬取信息，可不遵循。</p>
+<h4 id="Ⅱ、-搜索关键词查询确定其关键词的查询接口"><a href="#Ⅱ、-搜索关键词查询确定其关键词的查询接口" class="headerlink" title="Ⅱ、 搜索关键词查询确定其关键词的查询接口"></a>Ⅱ、 搜索关键词查询确定其关键词的查询接口</h4><p>以豆瓣图书为例，进入豆瓣读书网站</p>
+<p><img src="https://s2.loli.net/2022/07/26/78cWoRNs1kzgBpZ.png" style="zoom:67%;"></p>
+<p>随便点击一本书，观察其网址</p>
+<p><img src="https://s2.loli.net/2022/07/26/iALYlmPfGcBs1I2.png" style="zoom:67%;"></p>
+<p>观察到红框部分即为该书在豆瓣数据库中的代号</p>
+<p>进入短评部分</p>
+<p><img src="https://s2.loli.net/2022/07/26/QMTEzFGlNgv2xLY.png" style="zoom:67%;"></p>
+<p>观察到前一个红框部分为该书的代码，后一个红框部分为这一页短评的起始标号，豆瓣书籍网页版一页共有20条短评，所以 start = num （num从0开始并且为20的整倍数）</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url = <span class="string">"https://book.douban.com/subject/{}/comments/?start={}&amp;limit=20&amp;status=P&amp;sort=new_score"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># booknum和index分别为书籍代码和start起始下标</span></span><br><span class="line">u = url.<span class="built_in">format</span>(<span class="built_in">str</span>(booknum),<span class="built_in">str</span>(index))</span><br></pre></td></tr></table></figure>
+<p>所以之后对豆瓣图书评论的查询靠替换关键字完成</p>
+<h4 id="Ⅲ、爬取豆瓣图书评论"><a href="#Ⅲ、爬取豆瓣图书评论" class="headerlink" title="Ⅲ、爬取豆瓣图书评论"></a>Ⅲ、爬取豆瓣图书评论</h4><h5 id="具体内容"><a href="#具体内容" class="headerlink" title="具体内容"></a>具体内容</h5><p>抓取豆瓣读书中对某本书的前50条短评内容并计算星级评定分数的平均值（保留两位小数）</p>
+<h5 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h5><p>TCP协议：传输控制协议（Transmission Control Protocol，缩写为TCP）是一种面向连接的、可靠的、基于字节流的传输层通信协议，它能提供高可靠性通信(即数据无误、数据无丢失、数据无失序、数据无重复到达的通信)。</p>
+<p>主要适用的场景：</p>
+<p>适合于对传输质量要求较高，以及传输大量数据的通信。</p>
+<p>在需要可靠数据传输的场合，通常使用TCP协议。</p>
+<p>HTTP/HTTPS等即网络服务都采用TCP协议。</p>
+<p>TCP通信需要经过创建连接、数据传送、终止连接三个步骤。</p>
+<ul>
+<li><p>初始化 url ，并通过 get() 函数逐网页爬取网页源代码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url = <span class="string">"https://book.douban.com/subject/{}/comments/?start={}&amp;limit=20&amp;status=P&amp;sort=new_score"</span></span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">60</span>, <span class="number">20</span>):</span><br><span class="line">    <span class="comment"># booknum 为豆瓣书籍编号，本实验选用的是35593780</span></span><br><span class="line">    u = url.<span class="built_in">format</span>(<span class="built_in">str</span>(booknum),<span class="built_in">str</span>(index))</span><br><span class="line">    r = get(u)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建 socket 实例，处理 https 的库</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">url</span>):</span><br><span class="line">    host = <span class="string">'book.douban.com'</span></span><br><span class="line">    path = url[<span class="number">23</span>:]</span><br><span class="line">	s = ssl.wrap_socket(socket.socket())</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化端口，与主机建立起连接</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">port = <span class="number">443</span>  <span class="comment"># 端口 https 默认端口443</span></span><br><span class="line">s.connect((host, port))  <span class="comment"># 建立起连接，连接主机</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置报文格式</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 报文格式： GET+空格+com后面的部分+空格+HTTP/1.1(或1.0)+\r\n+Host:+域名+\r\n\r\n</span></span><br><span class="line">request = <span class="string">'GET {} HTTP/1.1\r\nHost: {}\r\n\r\n'</span>.<span class="built_in">format</span>(path, host)  <span class="comment"># 构建请求</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发送请求并接受数据</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s.send(request.encode(<span class="string">'utf-8'</span>))  <span class="comment"># 发送请求  转码，将str 转成bytes类型</span></span><br><span class="line">response = <span class="string">b''</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="comment"># 接受数据</span></span><br><span class="line">    r = s.recv(<span class="number">1024</span>)</span><br><span class="line">    response += r</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(r) &lt; <span class="number">1024</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">response = response.decode(<span class="string">'utf-8'</span>) <span class="comment"># 解码</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对数据进行查找分析</p>
+<p>此处主要使用 str 类型所带的 find() 函数</p>
+<p>Python find() 方法检测<strong>字符串</strong>中是否包含<strong>子字符串</strong> str</p>
+<p>如果指定 beg（开始） 和 end（结束） 范围，则检查是否包含在指定范围内，如果包含子字符串返回开始的索引值，否则返回-1。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># html 为字符串</span></span><br><span class="line"><span class="comment"># userstart 为每个用户所在源代码的开始位置</span></span><br><span class="line"><span class="comment"># userend 每个用户所在源代码的结束位置</span></span><br><span class="line"><span class="comment"># start_str为所查询字符串的前部分</span></span><br><span class="line"><span class="comment"># end_str为所查询字符串的后部分</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getdata</span>(<span class="params">html, userstart, userend, start_str, end_str</span>):</span><br><span class="line">    start = html.find(start_str, userstart, userend)</span><br><span class="line">    end = html.find(end_str, start)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> start == -<span class="number">1</span> <span class="keyword">else</span> html[start + <span class="built_in">len</span>(start_str):end]</span><br></pre></td></tr></table></figure>
+<p>对于星级的平均分计算，考虑到有些用户没有打分，计算平均分时需将其删除。对于上面的数据查询函数 getdata() ，如果未能查询到该用户所打的分数，则在star[] 数组中写入0，若查询到所打的分数，则写入该分数。</p>
+</li>
+<li><p>将结果进行整理输出</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># douban.txt 文件和当前py文件位于同一目录之下</span></span><br><span class="line">output = <span class="built_in">open</span>(<span class="string">"douban.txt"</span>,<span class="string">'w'</span>,encoding=<span class="string">'UTF—8'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将50条评论逐行输入至 douban.txt 文件中，在第51行输入平均分数，第52行输入书名。</p>
+<h5 id="可视化界面"><a href="#可视化界面" class="headerlink" title="可视化界面"></a>可视化界面</h5><p>该可视化界面采用 Unity3D 制作，版本为 2021.2.7f1c1，所用语言为 C#</p>
+<p><strong>【展示】</strong></p>
+<p><img src="https://s2.loli.net/2022/07/26/4tcVLn1Huael2k5.png" alt="image-20220427223747102"></p>
+<p>[1] 处按钮为显示前页评论</p>
+<p>[2] 处按钮为显示后页评论</p>
+<p>[3] 处为书名显示区域</p>
+<p>[4] 处为所求得的平均分数（保留两位小数）</p>
+<p>[5] [6] [7] [8] 处为评论内容显示区域，可上下拖拽查看全部内容</p>
+<p>【<strong>代码及主要制作思路</strong>】</p>
+<p>创建一个string类型的数组，用以存储评论、书名、分数等数据</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span>[] txt</span><br></pre></td></tr></table></figure>
+<p>使用<strong>绝对路径</strong>读取上述 douban.txt 文件</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.IO;</span><br><span class="line">txt = File.ReadAllLines(<span class="string">"C:\\Users\\EKKO\\Desktop\\ComputerNetwork\\CNLab\\douban.txt"</span>);</span><br></pre></td></tr></table></figure>
+<p>此时 txt 数组共有52个元素，存储50条评论、一个书名、一个平均分数</p>
+<p>新建 TEXT 类型数组 comments 并与UI上的组件进行绑定，将书名和分数直接显示。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">comments[<span class="number">0</span>] = transform.GetChild(<span class="number">7</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">0</span>].text = <span class="string">"平均分数:"</span>+txt[<span class="number">50</span>];</span><br><span class="line">comments[<span class="number">1</span>] = transform.GetChild(<span class="number">1</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">2</span>] = transform.GetChild(<span class="number">2</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">3</span>] = transform.GetChild(<span class="number">3</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">comments[<span class="number">4</span>] = transform.GetChild(<span class="number">4</span>).GetChild(<span class="number">0</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">bookname = transform.GetChild(<span class="number">9</span>).GetComponent&lt;Text&gt;();</span><br><span class="line">bookname.text = <span class="string">"《"</span>+txt[<span class="number">51</span>] +<span class="string">"》"</span>; </span><br></pre></td></tr></table></figure>
+<p>调用按钮点击相应事件，为 ‘前页’ ‘后页’ 按钮绑定相关操作</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">upbtn.onClick.AddListener(setindexup);</span><br><span class="line">downbtn.onClick.AddListener(setindexdown);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setindexup</span>()</span></span><br><span class="line">{</span><br><span class="line">   <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>;i &lt;<span class="number">5</span>;i++)</span><br><span class="line">        <span class="keyword">if</span>(index[i] &lt; <span class="number">49</span>)</span><br><span class="line">			index[i] += <span class="number">4</span>;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setindexdown</span>()</span></span><br><span class="line">{</span><br><span class="line">   <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>;i &lt;<span class="number">5</span>;i++)</span><br><span class="line">		<span class="keyword">if</span>(index[i] &gt; <span class="number">4</span>)</span><br><span class="line">			index[i] -= <span class="number">4</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>最后在 Update() 函数中逐帧进行赋值操作，达到动态刷新的效果</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">{</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">1</span>;i &lt; <span class="number">5</span> ;i++)</span><br><span class="line">		<span class="keyword">if</span>( index[i]<span class="number">-1</span> &gt; <span class="number">49</span> )</span><br><span class="line">			comments[i].text = <span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		comments[i].text = txt[index[i] - <span class="number">1</span>];</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h4 id="Ⅳ、抓取道指成分股数据"><a href="#Ⅳ、抓取道指成分股数据" class="headerlink" title="Ⅳ、抓取道指成分股数据"></a>Ⅳ、抓取道指成分股数据</h4><h5 id="具体内容-1"><a href="#具体内容-1" class="headerlink" title="具体内容"></a>具体内容</h5><p>在<a href="https://money.cnn.com/data/dow30/">https://money.cnn.com/data/dow30/</a> 上抓取道指成分股数据并解析其中30家公司的代码、名称和最近一次成交价，将结果放到一个列表中输出。</p>
+<h5 id="实验步骤-1"><a href="#实验步骤-1" class="headerlink" title="实验步骤"></a>实验步骤</h5><p>采用 request 和 re 两个包来解决</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
+<p>确定查询网址路径</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url = <span class="string">'https://money.cnn.com/data/dow30/'</span></span><br></pre></td></tr></table></figure>
+<p>由于网址发生变化，所以实际进入的网址为</p>
+<p><img src="https://s2.loli.net/2022/07/26/mH5pUMjov8Kdg9b.png" style="zoom:67%;"></p>
+<p>通过r=request.get（url）构造一个向服务器请求资源的url对象。</p>
+<p>这个对象是Request库内部生成的。</p>
+<p>这时候的r返回的是一个包含服务器资源的Response对象。包含从服务器返回的所有的相关资源。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">r = requests.get(url)</span><br></pre></td></tr></table></figure>
+<p>根据网页源代码，构建查匹配对应数据所需的正则表达式</p>
+<p><img src="https://s2.loli.net/2022/07/26/D2TMdGf8sIoKmqO.png" alt="image-20220428173724771"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pattern = re.<span class="built_in">compile</span>(</span><br><span class="line">    <span class="string">'wsod_symbol"&gt;(.*?)&lt;/a&gt; &lt;span title="(.*?)"&gt;(.*?)&lt;/span&gt;&lt;/td&gt;&lt;td class="wsod_aRight"&gt;&lt;span stream="last_(.*?)&lt;'</span>)</span><br></pre></td></tr></table></figure>
+<p>进行匹配查询</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># data 为一个含有4个元素的元组，包含所需数据</span></span><br><span class="line">data = re.findall(pattern, r.text)</span><br></pre></td></tr></table></figure>
+<p> 数据处理：对数据进行筛选比对，选取所需要的 【公司的代码】、【名称】、【最近一次成交价】</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">    <span class="comment"># print("i:",i)</span></span><br><span class="line">    m = (i[<span class="number">0</span>], i[<span class="number">1</span>], i[<span class="number">3</span>][-<span class="number">6</span>:])</span><br><span class="line">    <span class="comment"># 将其添加到列表中</span></span><br><span class="line">    dowdata.append(m)</span><br></pre></td></tr></table></figure>
+<p>输出示例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> dowdata:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/07/26/fi17MO3lLc2pzSd.png" alt="image-20220428174108983"></p>
+<p>该结果对应时间：2022.4.28 -17:41</p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+        <tag>网络爬虫</tag>
       </tags>
   </entry>
 </search>
