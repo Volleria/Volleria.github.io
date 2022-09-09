@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/rubbish.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/rubbish.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":240,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="之前完成的光追是依靠GAMES101中闫老师提供的一个完成度非常高的框架实现的，自己也就补充完成了几个函数，虽然最后也成功渲染出了一张图，但是总觉得只是学会了光追的中的重要的几个点，而对全局的架构理解不深。这门课程虽然仅仅只是实现了最基础的光追，但却是从零开始逐步完善整个项目工程，同样令我收获颇丰。 原文地址: https:&#x2F;&#x2F;raytracing.github.io&#x2F;books&#x2F;RayTrac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Volleria 个人博客">
+<meta property="og:url" content="http://example.com/2022/09/10/%E3%80%90%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E3%80%91Ray%20Tracing%20in%20One%20Weekend/index.html">
+<meta property="og:site_name" content="Volleria 个人博客">
+<meta property="og:description" content="之前完成的光追是依靠GAMES101中闫老师提供的一个完成度非常高的框架实现的，自己也就补充完成了几个函数，虽然最后也成功渲染出了一张图，但是总觉得只是学会了光追的中的重要的几个点，而对全局的架构理解不深。这门课程虽然仅仅只是实现了最基础的光追，但却是从零开始逐步完善整个项目工程，同样令我收获颇丰。 原文地址: https:&#x2F;&#x2F;raytracing.github.io&#x2F;books&#x2F;RayTrac">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/09/09/RLE6mcZ79OjhJHf.png">
+<meta property="og:image" content="https://s2.loli.net/2022/09/09/SzyJYRswZxMEQ9H.png">
+<meta property="og:image" content="https://s2.loli.net/2022/09/09/NagPncTemUoMJIX.png">
+<meta property="og:image" content="https://s2.loli.net/2022/09/09/Yabg7S5BcmQOhj1.png">
+<meta property="og:image" content="https://s2.loli.net/2022/09/09/8OUx5Lz2vj6Fy1X.png">
+<meta property="og:image" content="https://s2.loli.net/2022/09/09/on1GSKkCVt74x2s.png">
+<meta property="og:image" content="https://s2.loli.net/2022/09/09/A39cdUPRyioBJjN.png">
+<meta property="og:image" content="https://s2.loli.net/2022/09/09/w4CmaTXrHFh9Rcx.png">
+<meta property="og:image" content="https://s2.loli.net/2022/09/09/RLE6mcZ79OjhJHf.png">
+<meta property="article:published_time" content="2022-09-09T20:36:31.183Z">
+<meta property="article:modified_time" content="2022-09-09T20:36:54.568Z">
+<meta property="article:author" content="易安亦难安">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/09/09/RLE6mcZ79OjhJHf.png">
+
+<link rel="canonical" href="http://example.com/2022/09/10/%E3%80%90%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E3%80%91Ray%20Tracing%20in%20One%20Weekend/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | Volleria 个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Volleria 个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Volleria 个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/10/%E3%80%90%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E3%80%91Ray%20Tracing%20in%20One%20Weekend/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.png">
+      <meta itemprop="name" content="易安亦难安">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Volleria 个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-09-10 04:36:31 / 修改时间：04:36:54" itemprop="dateCreated datePublished" datetime="2022-09-10T04:36:31+08:00">2022-09-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://s2.loli.net/2022/09/09/RLE6mcZ79OjhJHf.png" alt="image-20220909102129774" style="zoom:67%;" /></p>
+<p>之前完成的光追是依靠GAMES101中闫老师提供的一个完成度非常高的框架实现的，自己也就补充完成了几个函数，虽然最后也成功渲染出了一张图，但是总觉得只是学会了光追的中的重要的几个点，而对全局的架构理解不深。这门课程虽然仅仅只是实现了最基础的光追，但却是从零开始逐步完善整个项目工程，同样令我收获颇丰。</p>
+<p>原文地址: <a target="_blank" rel="noopener" href="https://raytracing.github.io/books/RayTracingInOneWeekend.html">https://raytracing.github.io/books/RayTracingInOneWeekend.html</a></p>
+<span id="more"></span>
+<h3 id="一、原理概述"><a href="#一、原理概述" class="headerlink" title="一、原理概述"></a>一、原理概述</h3><p>渲染主要考虑每一个物体对每一个像素点的影响，它主要包括两种普遍的方式：</p>
+<p><strong>1、物体顺序渲染（object-order rendering）</strong></p>
+<p> 依次考虑每一个物体，并且对于每一个物体，我们会查找它影响了哪些像素的值并更新这些像素值</p>
+<p><strong>2、图像顺序渲染（image-order rendering）</strong></p>
+<p>轮流考虑每一个像素，对于每一个像素，查找所有会影响它的物体，计算最终的像素值。</p>
+<p>光线追踪就是一种根据图像顺序渲染的方式。</p>
+<p>基本的光线追踪其包含三个部分：</p>
+<ol>
+<li><p><strong>光线生成 ray generation</strong>，基于相机几何学计算每一个像素上”光线“的起点和方向</p>
+</li>
+<li><p><strong>光线求交 ray intersection</strong>，找到光线和最靠近物体的交点</p>
+</li>
+<li><p><strong>着色 shading</strong> ，通过光线求交的结果和其它信息计算像素颜色</p>
+</li>
+</ol>
+<p>基本的光线追踪算法的算法流程为</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">对于每一个像素点:</span><br><span class="line">		从每一个像素发射一系列的采样光线，计算观察方向发出的光线</span><br><span class="line">		计算每一条采样光线在场景中与物体发生的折射反射，将颜色累加</span><br><span class="line">		将上述颜色取平均值作为一个像素对应的颜色值</span><br></pre></td></tr></table></figure>
+<p>具体执行的大致流程如下：</p>
+<p>（1）设置一些参数，如像素宽高，每个像素采样次数，递归深度等</p>
+<p>（2）对于每一个像素使用随机函数打出多条随即方向的光线</p>
+<p>（3）每条光线都通过 ray_color() 这个函数与场景中的物体进行碰撞，发生反射、折射</p>
+<p>（4）根据物体的材质计算反射光线，递归计算光线与物体碰撞得到的颜色</p>
+<p>（5）将上述得到的颜色值累加起来写入当前像素的位置</p>
+<p>（6）循环重复步骤（2) —(5)</p>
+<p>（7）将颜色值除以光线个数取平均，有时还需用到Gamma矫正</p>
+<h3 id="二、教程的几个关键步骤"><a href="#二、教程的几个关键步骤" class="headerlink" title="二、教程的几个关键步骤"></a>二、教程的几个关键步骤</h3><h4 id="1、对于光线的定义"><a href="#1、对于光线的定义" class="headerlink" title="1、对于光线的定义"></a>1、对于光线的定义</h4><p><img src="https://s2.loli.net/2022/09/09/SzyJYRswZxMEQ9H.png" alt="image-20220907232615527" style="zoom:50%;" /></p>
+<script type="math/tex; mode=display">
+\vec{Ray} = O + t * \vec{Dir}</script><ul>
+<li>光线是一个三维向量</li>
+<li>$O$ 为光线起始位置，是一个三维向量</li>
+<li>$t$ 为光线起始位置到光线打到物体上的点的距离，是一维标量</li>
+<li>$Dir$ 为光线的方向，是一个三维向量</li>
+</ul>
+<h4 id="2、光线与球体求交"><a href="#2、光线与球体求交" class="headerlink" title="2、光线与球体求交"></a>2、光线与球体求交</h4><p>该教程的场景全都是由球体构成，那些看起来像地面的物体是一个超大半径的球体，所以该教程与物体有关的碰撞求教基本上是与球体之间的碰撞。具体体现在如下函数中：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">hit_sphere</span><span class="params">(<span class="type">const</span> point3 &amp;center, <span class="type">double</span> radius, <span class="type">const</span> ray &amp;r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    vec3 oc = r.<span class="built_in">origin</span>() - center;</span><br><span class="line">    <span class="keyword">auto</span> a = <span class="built_in">dot</span>(r.<span class="built_in">direction</span>(), r.<span class="built_in">direction</span>());</span><br><span class="line">    <span class="keyword">auto</span> b = <span class="number">2.0</span> * <span class="built_in">dot</span>(oc, r.<span class="built_in">direction</span>());</span><br><span class="line">    <span class="keyword">auto</span> c = <span class="built_in">dot</span>(oc, oc) - radius * radius;</span><br><span class="line">    <span class="keyword">auto</span> discriminant = b * b - <span class="number">4</span> * a * c;</span><br><span class="line">    <span class="keyword">if</span> (discriminant &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">return</span> (-b - <span class="built_in">sqrt</span>(discriminant)) / (<span class="number">2.0</span> * a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该函数接受三个参数</p>
+<ul>
+<li>与光线碰撞的球体的中心点 center</li>
+<li>与光线碰撞的球体的半径 radius</li>
+<li>光线 r</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/09/09/NagPncTemUoMJIX.png" alt="image-20220908003512493" style="zoom:67%;" /></p>
+<p>教程中对于光线与球体是否有交点是根据二次方程是否有解来判断的，有三个注意点：如果两个解中更小的解在区间内，那么更小的解是交点，体现在:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (-b - <span class="built_in">sqrt</span>(discriminant)) / (<span class="number">2.0</span> * a);</span><br></pre></td></tr></table></figure>
+<p>和</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> root = (-half_b - sqrtd) / a;</span><br><span class="line"><span class="keyword">if</span> (root &lt; t_min || t_max &lt; root) </span><br><span class="line">&#123;</span><br><span class="line">    root = (-half_b + sqrtd) / a;</span><br><span class="line">    <span class="keyword">if</span> (root &lt; t_min || t_max &lt; root)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>否则，如果更大的解在区间内，那么更大的解是交点。否则没有交点。</p>
+<h4 id="3、对可命中对象进行抽象"><a href="#3、对可命中对象进行抽象" class="headerlink" title="3、对可命中对象进行抽象"></a>3、对可命中对象进行抽象</h4><p>建立一个名为hittable的抽象类</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">hittable</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">virtual</span> <span class="type">bool</span> <span class="title">hit</span><span class="params">(<span class="type">const</span> ray&amp; r, <span class="type">double</span> t_min, <span class="type">double</span> t_max, hit_record&amp; rec)</span> <span class="type">const</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>该类拥有一个 hit 函数，该函数接受如下参数：</p>
+<ul>
+<li><p>光线 r</p>
+</li>
+<li><p>碰撞最短距离 t_min</p>
+</li>
+<li><p>碰撞最长距离 t_max</p>
+</li>
+<li><p>碰撞记录 rec</p>
+<p>碰撞记录存放着与光线碰撞的物体上的点的相关信息，包括碰撞处点的位置、法线（由球心指向外）、光线移动的距离。</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">hit_record</span></span><br><span class="line">&#123;</span><br><span class="line">    point3 p;  </span><br><span class="line">    vec3 normal;</span><br><span class="line">    <span class="type">double</span> t;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>之后便可以让sphere类继承该碰撞类，并覆写 hit 函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">sphere::hit</span><span class="params">(<span class="type">const</span> ray&amp; r, <span class="type">double</span> t_min, <span class="type">double</span> t_max, hit_record&amp; rec)</span> <span class="type">const</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 光线起始方向到球心的距离</span></span><br><span class="line">    vec3 oc = r.<span class="built_in">origin</span>() - center;</span><br><span class="line">    <span class="comment">// 通过二次方程是否有解判断是否发生碰撞</span></span><br><span class="line">    <span class="keyword">auto</span> a = r.<span class="built_in">direction</span>().<span class="built_in">length_squared</span>();</span><br><span class="line">    <span class="keyword">auto</span> half_b = <span class="built_in">dot</span>(oc, r.<span class="built_in">direction</span>());</span><br><span class="line">    <span class="keyword">auto</span> c = oc.<span class="built_in">length_squared</span>() - radius*radius;</span><br><span class="line">    <span class="keyword">auto</span> discriminant = half_b*half_b - a*c;</span><br><span class="line">    <span class="keyword">if</span> (discriminant &lt; <span class="number">0</span>) </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">auto</span> sqrtd = <span class="built_in">sqrt</span>(discriminant);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 求出在位于区间内的最近的那个解</span></span><br><span class="line">     <span class="comment">//   如果两个解中更小的解在区间内，那么更小的解是交点</span></span><br><span class="line">     <span class="comment">//   否则，如果更大的解在区间内，那么更大的解是交点。</span></span><br><span class="line">     <span class="comment">//   否则没有交点。</span></span><br><span class="line">    <span class="keyword">auto</span> root = (-half_b - sqrtd) / a;</span><br><span class="line">    <span class="keyword">if</span> (root &lt; t_min || t_max &lt; root) &#123;</span><br><span class="line">        root = (-half_b + sqrtd) / a;</span><br><span class="line">        <span class="keyword">if</span> (root &lt; t_min || t_max &lt; root)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 若有交点，则将该交点记录保存在 hit_record中</span></span><br><span class="line">    rec.t = root;</span><br><span class="line">    rec.p = r.<span class="built_in">at</span>(rec.t);</span><br><span class="line">    rec.normal = (rec.p - center) / radius; <span class="comment">// 对法向量进行归一化</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后建立一个的列表类 <em>hittable_list</em> ，存储可命中对象</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> std::shared_ptr; </span><br><span class="line"><span class="keyword">using</span> std::make_shared;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">hittable_list</span> : <span class="keyword">public</span> hittable &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">hittable_list</span>() &#123;&#125;</span><br><span class="line">        <span class="built_in">hittable_list</span>(shared_ptr&lt;hittable&gt; object) &#123; <span class="built_in">add</span>(object); &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">clear</span><span class="params">()</span> </span>&#123; objects.<span class="built_in">clear</span>(); &#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(shared_ptr&lt;hittable&gt; object)</span> </span>&#123; objects.<span class="built_in">push_back</span>(object); &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">virtual</span> <span class="type">bool</span> <span class="title">hit</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="type">const</span> ray&amp; r, <span class="type">double</span> t_min, <span class="type">double</span> t_max, hit_record&amp; rec)</span> <span class="type">const</span> <span class="keyword">override</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        std::vector&lt;shared_ptr&lt;hittable&gt;&gt; objects;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">hittable_list::hit</span><span class="params">(<span class="type">const</span> ray&amp; r, <span class="type">double</span> t_min, <span class="type">double</span> t_max, hit_record&amp; rec)</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">    hit_record temp_rec;</span><br><span class="line">    <span class="type">bool</span> hit_anything = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">auto</span> closest_so_far = t_max;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span>&amp; object : objects) &#123;</span><br><span class="line">        <span class="keyword">if</span> (object-&gt;<span class="built_in">hit</span>(r, t_min, closest_so_far, temp_rec)) &#123;</span><br><span class="line">            hit_anything = <span class="literal">true</span>;</span><br><span class="line">            closest_so_far = temp_rec.t;</span><br><span class="line">            rec = temp_rec;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> hit_anything;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该类使用了智能指针（shared_ptr），会记录有多少个 shared_ptr 共同指向一个对象，一旦最后一个这样的指针被销毁，也就是一旦某个对象的引用计数变为0，这个对象会被自动删除。这在非环形数据结构中防止资源泄露很有帮助。具体可见 <a target="_blank" rel="noopener" href="https://blog.csdn.net/shaosunrise/article/details/85228823">C++ 智能指针 shared_ptr 详解与示例</a></p>
+<h4 id="4、关于抗锯齿"><a href="#4、关于抗锯齿" class="headerlink" title="4、关于抗锯齿"></a>4、关于抗锯齿</h4><p><strong>主要方法：</strong></p>
+<p>1、在采样时使用随机函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> u = (i + <span class="built_in">random_double</span>()) / (image_width - <span class="number">1</span>);</span><br><span class="line"><span class="keyword">auto</span> v = (j + <span class="built_in">random_double</span>()) / (image_height - <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<p>2、对颜色多次采样，最后取平均值</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> samples_per_pixel = <span class="number">500</span>;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">auto</span> scale = <span class="number">1.0</span> / samples_per_pixel;</span><br></pre></td></tr></table></figure>
+<h4 id="5、漫反射的材质"><a href="#5、漫反射的材质" class="headerlink" title="5、漫反射的材质"></a>5、漫反射的材质</h4><p><img src="https://s2.loli.net/2022/09/09/Yabg7S5BcmQOhj1.png" alt="image-20220908004652800" style="zoom:67%;" /></p>
+<p>上图表示两个单位球在 <strong>P</strong> 点处相切，<strong>$\vec{N}$</strong> 为表面法线。两个单位球的球心为 （$P + N$）与 （$P - N$），我们将球心为 （$P + N$）的球视为表面外的球，在该单位求内随机取一点 $S$ ,从 <strong>P</strong> 点出发出一条光线，方向为 （$ S- P$）,表示发生漫反射时随机反射出去的一条光线。</p>
+<p>光线不可能无止境的递归反射下去，所以我们还需要确立一个最大反射次数用于终止递归</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> max_depth = <span class="number">50</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">color <span class="title">ray_color</span><span class="params">(<span class="type">const</span> ray&amp; r, <span class="type">const</span> hittable&amp; world, <span class="type">int</span> depth)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (depth &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">color</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="comment">// ..............</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>示例效果如下:</p>
+<p><img src="https://s2.loli.net/2022/09/09/8OUx5Lz2vj6Fy1X.png" alt="image-20220908011724278" style="zoom:67%;" /></p>
+<h4 id="6、金属材质"><a href="#6、金属材质" class="headerlink" title="6、金属材质"></a>6、金属材质</h4><p>对于光滑金属，光线不会随机散射</p>
+<p><img src="https://s2.loli.net/2022/09/09/on1GSKkCVt74x2s.png" alt="image-20220908010855254" style="zoom:67%;" /></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 上图对应的反射代码如下</span></span><br><span class="line"><span class="function">vec3 <span class="title">reflect</span><span class="params">(<span class="type">const</span> vec3&amp; v, <span class="type">const</span> vec3&amp; n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> v - <span class="number">2</span>*<span class="built_in">dot</span>(v,n)*n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于金属材质，创建对应的材质类：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">metal</span> : <span class="keyword">public</span> material </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">metal</span>(<span class="type">const</span> color&amp; a) : <span class="built_in">albedo</span>(a) &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">virtual</span> <span class="type">bool</span> <span class="title">scatter</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="type">const</span> ray&amp; r_in, <span class="type">const</span> hit_record&amp; rec, color&amp; attenuation, ray&amp; scattered</span></span></span><br><span class="line"><span class="params"><span class="function">        )</span> <span class="type">const</span> <span class="keyword">override</span> </span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            vec3 reflected = <span class="built_in">reflect</span>(<span class="built_in">unit_vector</span>(r_in.<span class="built_in">direction</span>()), rec.normal);</span><br><span class="line">            scattered = <span class="built_in">ray</span>(rec.p, reflected);</span><br><span class="line">            attenuation = albedo;</span><br><span class="line">            <span class="comment">// 若散射方向与法线夹角小于90°，说明发生了正确的反射</span></span><br><span class="line">            <span class="keyword">return</span> (<span class="built_in">dot</span>(scattered.<span class="built_in">direction</span>(), rec.normal) &gt; <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        color albedo;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>示例效果如下：</p>
+<p><img src="https://s2.loli.net/2022/09/09/A39cdUPRyioBJjN.png" alt="image-20220908011704309"></p>
+<h3 id="三、成果"><a href="#三、成果" class="headerlink" title="三、成果"></a>三、成果</h3><p><sup><a href="#fn_格式问题" id="reffn_格式问题">格式问题</a></sup>:尝试了多种网页在线转换和python代码都没法把 .ppm 格式的文件转换成 .jpg，只好直接截图了。</p>
+<p>按照教程上的代码渲染出的图，花费了一晚上才渲染好</p>
+<p><img src="https://s2.loli.net/2022/09/09/w4CmaTXrHFh9Rcx.png" alt="image-20220909102013774" style="zoom:80%;" /></p>
+<p>自己修改了一些球的材质位置，减少了球的数量，耗时15分钟左右</p>
+<p><img src="https://s2.loli.net/2022/09/09/RLE6mcZ79OjhJHf.png" alt="image-20220909102129774" style="zoom:67%;" /></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/08/10/%E5%AE%9E%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Unity%E9%83%A8%E5%88%86%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="prev" title="Unity部分性能优化">
+      <i class="fa fa-chevron-left"></i> Unity部分性能优化
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/09/10/%E3%80%90GAMES202%E3%80%91%E4%BD%9C%E4%B8%9A1%E2%80%94%E5%AE%9E%E6%97%B6%E9%98%B4%E5%BD%B1/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0"><span class="nav-text">一、原理概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%95%99%E7%A8%8B%E7%9A%84%E5%87%A0%E4%B8%AA%E5%85%B3%E9%94%AE%E6%AD%A5%E9%AA%A4"><span class="nav-text">二、教程的几个关键步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E5%AF%B9%E4%BA%8E%E5%85%89%E7%BA%BF%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">1、对于光线的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E5%85%89%E7%BA%BF%E4%B8%8E%E7%90%83%E4%BD%93%E6%B1%82%E4%BA%A4"><span class="nav-text">2、光线与球体求交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81%E5%AF%B9%E5%8F%AF%E5%91%BD%E4%B8%AD%E5%AF%B9%E8%B1%A1%E8%BF%9B%E8%A1%8C%E6%8A%BD%E8%B1%A1"><span class="nav-text">3、对可命中对象进行抽象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81%E5%85%B3%E4%BA%8E%E6%8A%97%E9%94%AF%E9%BD%BF"><span class="nav-text">4、关于抗锯齿</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5%E3%80%81%E6%BC%AB%E5%8F%8D%E5%B0%84%E7%9A%84%E6%9D%90%E8%B4%A8"><span class="nav-text">5、漫反射的材质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6%E3%80%81%E9%87%91%E5%B1%9E%E6%9D%90%E8%B4%A8"><span class="nav-text">6、金属材质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%88%90%E6%9E%9C"><span class="nav-text">三、成果</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="易安亦难安"
+      src="/images/header.png">
+  <p class="site-author-name" itemprop="name">易安亦难安</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Volleria" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Volleria" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:EKKO0908@outlook.com" title="E-Mail → mailto:EKKO0908@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-feather"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">易安亦难安</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
