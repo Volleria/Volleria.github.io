@@ -22,7 +22,7 @@
 
   <meta name="description" content="作业1的内容主要是实现实时渲染管线中的阴影计算，在作业1的assignment中可以看到一共包含如下三种阴影的实现：  硬阴影 ​    Two Pass Shadow Map 方法  软阴影 ​    PCF (Percentage Closer Filter)  ​    PCSS (Percentage Closer Soft Shadow)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Volleria 个人博客">
+<meta property="og:title" content="【GAMES202】作业1—实时阴影">
 <meta property="og:url" content="http://example.com/2022/09/10/%E3%80%90GAMES202%E3%80%91%E4%BD%9C%E4%B8%9A1%E2%80%94%E5%AE%9E%E6%97%B6%E9%98%B4%E5%BD%B1/index.html">
 <meta property="og:site_name" content="Volleria 个人博客">
 <meta property="og:description" content="作业1的内容主要是实现实时渲染管线中的阴影计算，在作业1的assignment中可以看到一共包含如下三种阴影的实现：  硬阴影 ​    Two Pass Shadow Map 方法  软阴影 ​    PCF (Percentage Closer Filter)  ​    PCSS (Percentage Closer Soft Shadow)">
@@ -55,8 +55,9 @@
 <meta property="og:image" content="https://s2.loli.net/2022/09/09/OFA348qL1J6aByT.png">
 <meta property="og:image" content="https://s2.loli.net/2022/09/09/UTZbXVF2CGSPNcq.png">
 <meta property="article:published_time" content="2022-09-09T20:36:31.184Z">
-<meta property="article:modified_time" content="2022-09-09T20:36:50.826Z">
+<meta property="article:modified_time" content="2022-09-10T02:35:58.255Z">
 <meta property="article:author" content="易安亦难安">
+<meta property="article:tag" content="CG">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s2.loli.net/2022/09/09/SQZiAlBcFxRnqow.png">
 
@@ -73,7 +74,7 @@
   };
 </script>
 
-  <title> | Volleria 个人博客</title>
+  <title>【GAMES202】作业1—实时阴影 | Volleria 个人博客</title>
   
 
 
@@ -104,7 +105,119 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="Volleria 个人博客" type="application/atom+xml">
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="Volleria 个人博客" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -225,7 +338,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          【GAMES202】作业1—实时阴影
         </h1>
 
         <div class="post-meta">
@@ -236,7 +349,16 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-09-10 04:36:31 / 修改时间：04:36:50" itemprop="dateCreated datePublished" datetime="2022-09-10T04:36:31+08:00">2022-09-10</time>
+              <time title="创建时间：2022-09-10 04:36:31 / 修改时间：10:35:58" itemprop="dateCreated datePublished" datetime="2022-09-10T04:36:31+08:00">2022-09-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CG/" itemprop="url" rel="index"><span itemprop="name">CG</span></a>
+                </span>
             </span>
 
           
@@ -250,7 +372,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="https://s2.loli.net/2022/09/09/SQZiAlBcFxRnqow.png" alt="image-20220909100657576" style="zoom:80%;" /></p>
+        <p><img src="https://s2.loli.net/2022/09/09/SQZiAlBcFxRnqow.png" alt="image-20220909100657576" style="zoom:80%;"></p>
 <p>作业1的内容主要是实现实时渲染管线中的阴影计算，在作业1的assignment中可以看到一共包含如下三种阴影的实现：</p>
 <ul>
 <li><p>硬阴影</p>
@@ -276,25 +398,25 @@ L_0(p,\omega_o) \approx \frac{\int_{\Omega^+}V(p,\omega_i)d\omega_i}{\int_{\Omeg
 <li>自遮挡现象</li>
 <li>锯齿</li>
 </ul>
-<h5 id="【一些问题】"><a href="#【一些问题】" class="headerlink" title="【一些问题】"></a>【一些问题】</h5><h5 id="（1）自遮挡"><a href="#（1）自遮挡" class="headerlink" title="（1）自遮挡"></a>（1）自遮挡</h5><p><img src="https://s2.loli.net/2022/09/10/XGKeA6y23LRo5d4.png" alt="image-20220910022704267" style="zoom:67%;" /></p>
+<h5 id="【一些问题】"><a href="#【一些问题】" class="headerlink" title="【一些问题】"></a>【一些问题】</h5><h5 id="（1）自遮挡"><a href="#（1）自遮挡" class="headerlink" title="（1）自遮挡"></a>（1）自遮挡</h5><p><img src="https://s2.loli.net/2022/09/10/XGKeA6y23LRo5d4.png" alt="image-20220910022704267" style="zoom:67%;"></p>
 <p>精度问题，产生自遮挡，因为Shadow Map 记录的深度不连续。</p>
 <p>在光源和地板垂直时没有这个问题，在光源和地板平行时（夕阳西下）容易出现这个问题。</p>
 <p><strong>【解决方法】</strong></p>
 <p>加一个较小的 Bias，通过偏移值bias，将被离散的距离遮挡部分剔除。</p>
 <p>但此时又出现了新的问题：</p>
-<p><img src="https://s2.loli.net/2022/09/10/4coS8elJZWQCEzI.png" alt="image-20220910023628782" style="zoom:67%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/10/4coS8elJZWQCEzI.png" alt="image-20220910023628782" style="zoom:67%;"></p>
 <p>存在阴影失真、阴影悬浮现象。针对该现象，学术界提出以下解决方法：</p>
-<p><img src="https://s2.loli.net/2022/09/10/DG2RvsBMYnLawQP.png" alt="image-20220910023735185" style="zoom:67%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/10/DG2RvsBMYnLawQP.png" alt="image-20220910023735185" style="zoom:67%;"></p>
 <p>对于每个Shadow Map，不仅存最小深度，还存次小深度，用它们的中间深度来进行比较。</p>
 <p><strong>【缺点】</strong></p>
 <p>要求物体都是watertight，有正面一定有反面，比如地板就不是watertight</p>
-<h5 id="（2）锯齿-Aliasing"><a href="#（2）锯齿-Aliasing" class="headerlink" title="（2）锯齿 Aliasing"></a>（2）锯齿 Aliasing</h5><p><img src="https://s2.loli.net/2022/09/10/adsubWZxTOr68cp.png" alt="image-20220910024721890" style="zoom:67%;" /></p>
+<h5 id="（2）锯齿-Aliasing"><a href="#（2）锯齿-Aliasing" class="headerlink" title="（2）锯齿 Aliasing"></a>（2）锯齿 Aliasing</h5><p><img src="https://s2.loli.net/2022/09/10/adsubWZxTOr68cp.png" alt="image-20220910024721890" style="zoom:67%;"></p>
 <p>通过PCF解决</p>
 <h4 id="2、硬阴影Two-Pass-Shadow-Map"><a href="#2、硬阴影Two-Pass-Shadow-Map" class="headerlink" title="2、硬阴影Two Pass Shadow Map"></a>2、硬阴影Two Pass Shadow Map</h4><p>渲染场景两次：</p>
 <p>第一次从光源所在方向看向这个场景，生成Shadow Map，只记录最浅的深度</p>
-<p><img src="https://s2.loli.net/2022/09/10/k8eVZB5UCLasrNg.png" alt="image-20220910021711958" style="zoom:67%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/10/k8eVZB5UCLasrNg.png" alt="image-20220910021711958" style="zoom:67%;"></p>
 <p>第二次使用上面的pass渲染出的纹理，判断是否处于阴影中</p>
-<p><img src="https://s2.loli.net/2022/09/10/pJ1rRn8Kqd5Z3Tf.png" alt="image-20220910021809112" style="zoom:67%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/10/pJ1rRn8Kqd5Z3Tf.png" alt="image-20220910021809112" style="zoom:67%;"></p>
 <p>当前点到light的距离和上一个pass中的距离一致，则可见，若Shadow Map上的值更小，则被遮挡</p>
 <h4 id="3、一个重要约等式"><a href="#3、一个重要约等式" class="headerlink" title="3、一个重要约等式"></a>3、一个重要约等式</h4><p>实时渲染领域的一个重要约等式：</p>
 <script type="math/tex; mode=display">
@@ -307,13 +429,13 @@ L_o(p,\omega_o)\approx \frac{\int_{\Omega^+}V(p,\omega_i)d\omega_i}{\int_{\Omega
 <li>PCF一开始是用来做抗锯齿的</li>
 <li>对阴影的比较结果进行一个 filtering，可以理解为求平均</li>
 </ul>
-<p><img src="https://s2.loli.net/2022/09/10/8KfDXRVFU6Z4gwr.png" alt="image-20220910032629480" style="zoom:67%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/10/8KfDXRVFU6Z4gwr.png" alt="image-20220910032629480" style="zoom:67%;"></p>
 <p>并不是对 Shadow进行filtering</p>
 <ul>
 <li>Texture filtering仅仅是对颜色的比较进行filtering，一开始会得到一个较为模糊的Shadow Map</li>
 <li>对深度值进行均值化，然后进行比较，可见性的依然是二值（非1即0）</li>
 </ul>
-<h4 id="5、软阴影PCSS"><a href="#5、软阴影PCSS" class="headerlink" title="5、软阴影PCSS"></a>5、软阴影PCSS</h4><p><img src="https://s2.loli.net/2022/09/10/QUBCWbOkxF2mJYw.png" alt="image-20220910033440784" style="zoom:67%;" /></p>
+<h4 id="5、软阴影PCSS"><a href="#5、软阴影PCSS" class="headerlink" title="5、软阴影PCSS"></a>5、软阴影PCSS</h4><p><img src="https://s2.loli.net/2022/09/10/QUBCWbOkxF2mJYw.png" alt="image-20220910033440784" style="zoom:67%;"></p>
 <ul>
 <li>黄色线段代表光源</li>
 <li>绿色线段代表遮挡物（或者说是物体自身）</li>
@@ -322,7 +444,7 @@ L_o(p,\omega_o)\approx \frac{\int_{\Omega^+}V(p,\omega_i)d\omega_i}{\int_{\Omega
 <p>图中存在一对相似三角形，d_Blocker 的长度会影响 W 的长度，d_Blocker越长， W越小，通俗的讲就是物体离光源越近，半影范围越大，filter越大，阴影看起来就更“软”。</p>
 <p>【翻译成如下公式】</p>
 <script type="math/tex; mode=display">
-W_{Penumbra} = W_{light} * \frac{(d_{Receiver} - d_{Blocker})}{d_{Blocker}}</script><p><img src="https://s2.loli.net/2022/09/10/kapic3ntIuRKFLl.png" alt="image-20220910034307664" style="zoom:67%;" /></p>
+W_{Penumbra} = W_{light} * \frac{(d_{Receiver} - d_{Blocker})}{d_{Blocker}}</script><p><img src="https://s2.loli.net/2022/09/10/kapic3ntIuRKFLl.png" alt="image-20220910034307664" style="zoom:67%;"></p>
 <p>面光源无法生成Shadow Map，常用点光源的方式去生成Shadow Map</p>
 <p><strong>【步骤】</strong></p>
 <ol>
@@ -331,11 +453,11 @@ W_{Penumbra} = W_{light} * \frac{(d_{Receiver} - d_{Blocker})}{d_{Blocker}}</scr
 <li>再次使用PCF</li>
 </ol>
 <p>一个新的问题，该用哪个区域进行blocker的查询呢？</p>
-<p><img src="https://s2.loli.net/2022/09/10/gWwOB9X6GcYT21d.png" alt="image-20220910034934841" style="zoom:67%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/10/gWwOB9X6GcYT21d.png" alt="image-20220910034934841" style="zoom:67%;"></p>
 <p>估计上图红色区域内，所有能挡住shading point的点，计算它们对应深度的平均值。使用自适应的采样半径 ，将采样半径与光源宽度、视锥体宽度关联起来，从shading point连向光源，计算在Shadow Map上覆盖的区域，顶点距离光源越远，红色区域就越大，应使用更大的采样半径，反之则使用更小的采样半径。</p>
 <h2 id="二、具体实现"><a href="#二、具体实现" class="headerlink" title="二、具体实现"></a>二、具体实现</h2><h4 id="1、光源的变换矩阵实现"><a href="#1、光源的变换矩阵实现" class="headerlink" title="1、光源的变换矩阵实现"></a>1、光源的变换矩阵实现</h4><p>我们需要以光源的位置对场景进行渲染，得到一张Shadow Map，相当于将一个摄像机摆在光源的位置，朝向光源的方向，根据需求确定渲染的范围，然后对场景进行渲染，得到在该位置的每个像素上的最近点的深度值。在 ShadowMaterial.js 中需要向 Shader 传递正确的 uLightMVP 矩阵，其调用了 light 中的 CalcLightMVP 函数。</p>
 <p>该函数如下:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="title class_">CalcLightMVP</span>(translate, scale) </span><br><span class="line">&#123;</span><br><span class="line">   	<span class="keyword">let</span> lightMVP = mat4.<span class="title function_">create</span>();</span><br><span class="line">   	<span class="keyword">let</span> modelMatrix = mat4.<span class="title function_">create</span>();</span><br><span class="line">   	<span class="keyword">let</span> viewMatrix = mat4.<span class="title function_">create</span>();</span><br><span class="line">   	<span class="keyword">let</span> projectionMatrix = mat4.<span class="property">creat</span>	</span><br><span class="line">    </span><br><span class="line">   	<span class="comment">// Model transform</span></span><br><span class="line">    </span><br><span class="line">   	<span class="comment">// View transform</span></span><br><span class="line">    </span><br><span class="line">   	<span class="comment">// Projection transform</span></span><br><span class="line">    </span><br><span class="line">   	mat4.<span class="title function_">multiply</span>(lightMVP, projectionMatrix, viewMatrix);</span><br><span class="line">   	mat4.<span class="title function_">multiply</span>(lightMVP, lightMVP, modelMatr	</span><br><span class="line">   	<span class="keyword">return</span> lightMVP;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="title class_">CalcLightMVP</span>(translate, scale) </span><br><span class="line">{</span><br><span class="line">   	<span class="keyword">let</span> lightMVP = mat4.<span class="title function_">create</span>();</span><br><span class="line">   	<span class="keyword">let</span> modelMatrix = mat4.<span class="title function_">create</span>();</span><br><span class="line">   	<span class="keyword">let</span> viewMatrix = mat4.<span class="title function_">create</span>();</span><br><span class="line">   	<span class="keyword">let</span> projectionMatrix = mat4.<span class="property">creat</span>	</span><br><span class="line">    </span><br><span class="line">   	<span class="comment">// Model transform</span></span><br><span class="line">    </span><br><span class="line">   	<span class="comment">// View transform</span></span><br><span class="line">    </span><br><span class="line">   	<span class="comment">// Projection transform</span></span><br><span class="line">    </span><br><span class="line">   	mat4.<span class="title function_">multiply</span>(lightMVP, projectionMatrix, viewMatrix);</span><br><span class="line">   	mat4.<span class="title function_">multiply</span>(lightMVP, lightMVP, modelMatr	</span><br><span class="line">   	<span class="keyword">return</span> lightMVP;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <p>我们需要完成这三个变换矩阵</p>
 <p><strong>（1）Model transform</strong></p>
 <p>模型矩阵的构建先调用位移方法，再调用缩放方法，没有调用旋转方法</p>
@@ -349,7 +471,7 @@ W_{Penumbra} = W_{light} * \frac{(d_{Receiver} - d_{Blocker})}{d_{Blocker}}</scr
 <p>作业指导中在此处推荐使用正交投影</p>
 <p><img src="https://s2.loli.net/2022/09/09/QxH29lkpFBYEzCo.png" alt="image-20220908143520351"></p>
 <p>这里依旧可以直接调用 glMatrix 库提供的接口 mat4.ortho()</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Generates a orthogonal projection matrix with the given bounds</span></span><br><span class="line">(<span class="keyword">static</span>) <span class="title function_">ortho</span>(out, left, right, bottom, top, near, far) → &#123;mat4&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Generates a orthogonal projection matrix with the given bounds</span></span><br><span class="line">(<span class="keyword">static</span>) <span class="title function_">ortho</span>(out, left, right, bottom, top, near, far) → {mat4}</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Projection transform</span></span><br><span class="line">mat4.<span class="title function_">identity</span>(projectionMatrix);</span><br><span class="line">mat4.<span class="title function_">ortho</span>(projectionMatrix, -<span class="number">150</span>, <span class="number">150</span>, -<span class="number">150</span>, <span class="number">150</span>, <span class="number">1e-2</span>, <span class="number">400</span>);</span><br></pre></td></tr></table></figure>
 <h4 id="2、坐标空间转换"><a href="#2、坐标空间转换" class="headerlink" title="2、坐标空间转换"></a>2、坐标空间转换</h4><p>由作业提示可知，首先需要将 vPositionFromLight 的坐标范围映射到 0 ~ 1 之间，因为纹理采样的坐标范围是 0 ~ 1 ，Shadowmap 中存储的纹理深度范围也是 0 ~ 1 </p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vec3 shadowCoord = vPositionFromLight.<span class="property">xyz</span> / vPositionFromLight.<span class="property">w</span>;</span><br><span class="line">shadowCoord.<span class="property">xyz</span> = (shadowCoord.<span class="property">xyz</span> + <span class="number">1.0</span>) / <span class="number">2.0</span>;</span><br></pre></td></tr></table></figure>
@@ -358,60 +480,60 @@ W_{Penumbra} = W_{light} * \frac{(d_{Receiver} - d_{Blocker})}{d_{Blocker}}</scr
 <h4 id="3、硬阴影"><a href="#3、硬阴影" class="headerlink" title="3、硬阴影"></a>3、硬阴影</h4><p><img src="https://s2.loli.net/2022/09/09/LUktCWMVzosZHPe.png" alt="image-20220908150237548"></p>
 <p>由作业提示可知，硬阴影主要需要实现phongFragment.glsl 中的 useShadowMap 函数</p>
 <p>该函数具体实现如下:</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> useShadowMap(<span class="type">sampler2D</span> shadowMap, <span class="type">vec4</span> shadowCoord)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 获取距离最近的深度值</span></span><br><span class="line">  <span class="type">float</span> shadowDepth = unpack(<span class="built_in">texture2D</span>(shadowMap,shadowCoord.xy));</span><br><span class="line">  <span class="comment">// 获取当前深度值</span></span><br><span class="line">  <span class="type">float</span> currentDepth = shadowCoord.z;</span><br><span class="line">  <span class="comment">// 将二者进行比较</span></span><br><span class="line">  <span class="keyword">return</span> shadowDepth + EPS &lt;= currentDepth ? <span class="number">0.0</span> : <span class="number">1.0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> useShadowMap(<span class="type">sampler2D</span> shadowMap, <span class="type">vec4</span> shadowCoord)</span><br><span class="line">{</span><br><span class="line">  <span class="comment">// 获取距离最近的深度值</span></span><br><span class="line">  <span class="type">float</span> shadowDepth = unpack(<span class="built_in">texture2D</span>(shadowMap,shadowCoord.xy));</span><br><span class="line">  <span class="comment">// 获取当前深度值</span></span><br><span class="line">  <span class="type">float</span> currentDepth = shadowCoord.z;</span><br><span class="line">  <span class="comment">// 将二者进行比较</span></span><br><span class="line">  <span class="keyword">return</span> shadowDepth + EPS &lt;= currentDepth ? <span class="number">0.0</span> : <span class="number">1.0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <p>其中作业框架以及提供了 unpack 函数</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> unpack(<span class="type">vec4</span> rgbaDepth) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="type">vec4</span> bitShift = <span class="type">vec4</span>(<span class="number">1.0</span>, <span class="number">1.0</span>/<span class="number">256.0</span>, <span class="number">1.0</span>/(<span class="number">256.0</span>*<span class="number">256.0</span>), <span class="number">1.0</span>/(<span class="number">256.0</span>*<span class="number">256.0</span>*<span class="number">256.0</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dot</span>(rgbaDepth, bitShift);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> unpack(<span class="type">vec4</span> rgbaDepth) </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">const</span> <span class="type">vec4</span> bitShift = <span class="type">vec4</span>(<span class="number">1.0</span>, <span class="number">1.0</span>/<span class="number">256.0</span>, <span class="number">1.0</span>/(<span class="number">256.0</span>*<span class="number">256.0</span>), <span class="number">1.0</span>/(<span class="number">256.0</span>*<span class="number">256.0</span>*<span class="number">256.0</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dot</span>(rgbaDepth, bitShift);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <p>运行结果如下：</p>
-<p><img src="https://s2.loli.net/2022/09/09/fWsPhaLKQ6iyH3r.png" alt="image-20220908150601727" style="zoom:80%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/09/fWsPhaLKQ6iyH3r.png" alt="image-20220908150601727" style="zoom:80%;"></p>
 <p>可以观察到，当光线方向与顶点法线方向夹角较大时容易出现阴影瑕疵（shadow acne），这是由于 ShadowMap 的精度问题（采样率低）而产生的自遮挡（self occlusion）现象，在Lecture 03中有相关的论述。</p>
-<p><img src="https://s2.loli.net/2022/09/09/CRn8wHhlSbvojVq.jpg" style="zoom:67%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/09/CRn8wHhlSbvojVq.jpg" style="zoom:67%;"></p>
 <p>我们可以引入 bias 来对阴影纹理的采样值进行一定程度的偏移来处理自遮挡问题，但这种处理方式同样会产生漏光现象（一些本应处于阴影中的位置被意外地照亮了）</p>
 <p>此处可参考 <a href="[自适应Shadow Bias算法 - 知乎 (zhihu.com">自适应Shadow Bias算法</a>](<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/370951892">https://zhuanlan.zhihu.com/p/370951892</a>))</p>
 <p>可以在phongVertex.glsl里令 gl_Position = vPositionFromLight，就可以可视化出shadow map渲染的范围</p>
-<h4 id="4、软阴影-PCF"><a href="#4、软阴影-PCF" class="headerlink" title="4、软阴影 PCF"></a>4、软阴影 PCF</h4><p><img src="https://s2.loli.net/2022/09/09/z4E1usnrgSWjBha.png" alt="image-20220908151043069" style="zoom:80%;" /></p>
+<h4 id="4、软阴影-PCF"><a href="#4、软阴影-PCF" class="headerlink" title="4、软阴影 PCF"></a>4、软阴影 PCF</h4><p><img src="https://s2.loli.net/2022/09/09/z4E1usnrgSWjBha.png" alt="image-20220908151043069" style="zoom:80%;"></p>
 <p>PCF的实现需要完善代码框架中的 PCF 函数</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">![下载](C:/Users/EKKO/Desktop/%E4%B8%<span class="number">8</span>B%E8%BD%BD.png)<span class="type">float</span> PCF(<span class="type">sampler2D</span> shadowMap, <span class="type">vec4</span> coords) </span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1.0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">![下载](C:/Users/EKKO/Desktop/%E4%B8%<span class="number">8</span>B%E8%BD%BD.png)<span class="type">float</span> PCF(<span class="type">sampler2D</span> shadowMap, <span class="type">vec4</span> coords) </span><br><span class="line">{</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1.0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <p>对采样点周围的一片区域进行随机采样</p>
 <script type="math/tex; mode=display">
 被遮挡的程度 = \frac{被采样点遮挡的顶点数量}{采样点的总数量}</script><p>关于随机采样的方法，框架中提供了泊松圆盘采样和均匀圆盘采样两种采样函数，<a href="[Sampling function (codepen.io">参考链接</a>](<a target="_blank" rel="noopener" href="https://codepen.io/arkhamwjz/pen/MWbqJNG?editors=1010))中还给出了两种采样方式的可视化展示">https://codepen.io/arkhamwjz/pen/MWbqJNG?editors=1010))中还给出了两种采样方式的可视化展示</a></p>
 <p><strong>【泊松圆盘采样 poisson disk】</strong></p>
-<p><img src="https://s2.loli.net/2022/09/09/CD86ToPMSOiVvHa.png" style="zoom: 80%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/09/CD86ToPMSOiVvHa.png" style="zoom: 80%;"></p>
 <p><strong>【均匀圆盘采样 uniform disk】</strong></p>
-<p><img src="https://s2.loli.net/2022/09/09/uoSClpNhFJyXTAU.png" style="zoom:80%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/09/uoSClpNhFJyXTAU.png" style="zoom:80%;"></p>
 <p>两种采样方法都在一个单位圆内随机地生成二维坐标向量，并根据 NUM_SAMPLES 的值确定采样点的数量，最后将生成的采样坐标存储在 poissonDisk 数组中，用于后续在PCF中对着色点对应的<strong>SM坐标</strong>加上该数组中的值来得到采样点的<strong>SM坐标</strong>。</p>
 <p>上述两种采样方式对应的代码如下:</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">vec2</span> poissonDisk[NUM_SAMPLES];</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> poissonDiskSamples( <span class="keyword">const</span> <span class="keyword">in</span> <span class="type">vec2</span> randomSeed ) </span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">float</span> ANGLE_STEP = PI2 * <span class="type">float</span>( NUM_RINGS ) / <span class="type">float</span>( NUM_SAMPLES );</span><br><span class="line">  <span class="type">float</span> INV_NUM_SAMPLES = <span class="number">1.0</span> / <span class="type">float</span>( NUM_SAMPLES );</span><br><span class="line"></span><br><span class="line">  <span class="type">float</span> angle = rand_2to1( randomSeed ) * PI2;</span><br><span class="line">  <span class="type">float</span> radius = INV_NUM_SAMPLES;</span><br><span class="line">  <span class="type">float</span> radiusStep = radius;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>( <span class="type">int</span> i = <span class="number">0</span>; i &lt; NUM_SAMPLES; i ++ ) &#123;</span><br><span class="line">    poissonDisk[i] = <span class="type">vec2</span>( <span class="built_in">cos</span>( angle ), <span class="built_in">sin</span>( angle ) ) * <span class="built_in">pow</span>( radius, <span class="number">0.75</span> );</span><br><span class="line">    radius += radiusStep;</span><br><span class="line">    angle += ANGLE_STEP;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> uniformDiskSamples( <span class="keyword">const</span> <span class="keyword">in</span> <span class="type">vec2</span> randomSeed ) </span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">float</span> randNum = rand_2to1(randomSeed);</span><br><span class="line">  <span class="type">float</span> sampleX = rand_1to1( randNum ) ;</span><br><span class="line">  <span class="type">float</span> sampleY = rand_1to1( sampleX ) ;</span><br><span class="line"></span><br><span class="line">  <span class="type">float</span> angle = sampleX * PI2;</span><br><span class="line">  <span class="type">float</span> radius = <span class="built_in">sqrt</span>(sampleY);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>( <span class="type">int</span> i = <span class="number">0</span>; i &lt; NUM_SAMPLES; i ++ ) &#123;</span><br><span class="line">    poissonDisk[i] = <span class="type">vec2</span>( radius * <span class="built_in">cos</span>(angle) , radius * <span class="built_in">sin</span>(angle)  );</span><br><span class="line"></span><br><span class="line">    sampleX = rand_1to1( sampleY ) ;</span><br><span class="line">    sampleY = rand_1to1( sampleX ) ;</span><br><span class="line"></span><br><span class="line">    angle = sampleX * PI2;</span><br><span class="line">    radius = <span class="built_in">sqrt</span>(sampleY);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">vec2</span> poissonDisk[NUM_SAMPLES];</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> poissonDiskSamples( <span class="keyword">const</span> <span class="keyword">in</span> <span class="type">vec2</span> randomSeed ) </span><br><span class="line">{</span><br><span class="line">  <span class="type">float</span> ANGLE_STEP = PI2 * <span class="type">float</span>( NUM_RINGS ) / <span class="type">float</span>( NUM_SAMPLES );</span><br><span class="line">  <span class="type">float</span> INV_NUM_SAMPLES = <span class="number">1.0</span> / <span class="type">float</span>( NUM_SAMPLES );</span><br><span class="line"></span><br><span class="line">  <span class="type">float</span> angle = rand_2to1( randomSeed ) * PI2;</span><br><span class="line">  <span class="type">float</span> radius = INV_NUM_SAMPLES;</span><br><span class="line">  <span class="type">float</span> radiusStep = radius;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>( <span class="type">int</span> i = <span class="number">0</span>; i &lt; NUM_SAMPLES; i ++ ) {</span><br><span class="line">    poissonDisk[i] = <span class="type">vec2</span>( <span class="built_in">cos</span>( angle ), <span class="built_in">sin</span>( angle ) ) * <span class="built_in">pow</span>( radius, <span class="number">0.75</span> );</span><br><span class="line">    radius += radiusStep;</span><br><span class="line">    angle += ANGLE_STEP;</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> uniformDiskSamples( <span class="keyword">const</span> <span class="keyword">in</span> <span class="type">vec2</span> randomSeed ) </span><br><span class="line">{</span><br><span class="line">  <span class="type">float</span> randNum = rand_2to1(randomSeed);</span><br><span class="line">  <span class="type">float</span> sampleX = rand_1to1( randNum ) ;</span><br><span class="line">  <span class="type">float</span> sampleY = rand_1to1( sampleX ) ;</span><br><span class="line"></span><br><span class="line">  <span class="type">float</span> angle = sampleX * PI2;</span><br><span class="line">  <span class="type">float</span> radius = <span class="built_in">sqrt</span>(sampleY);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>( <span class="type">int</span> i = <span class="number">0</span>; i &lt; NUM_SAMPLES; i ++ ) {</span><br><span class="line">    poissonDisk[i] = <span class="type">vec2</span>( radius * <span class="built_in">cos</span>(angle) , radius * <span class="built_in">sin</span>(angle)  );</span><br><span class="line"></span><br><span class="line">    sampleX = rand_1to1( sampleY ) ;</span><br><span class="line">    sampleY = rand_1to1( sampleX ) ;</span><br><span class="line"></span><br><span class="line">    angle = sampleX * PI2;</span><br><span class="line">    radius = <span class="built_in">sqrt</span>(sampleY);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <p>根据随机采样的得到的uv偏移值，继续完善  PCF 函数，遍历 poissonDisk 数组，为每一个uv采样点的坐标加上偏移值，然后将采样得到的深度值与当前顶点在 light space 的深度值比较，若判断顶点存在于阴影中，则将 blocker 的值+1。</p>
 <p>最后可见程度 =  1 -  存在于阴影中的采样点 / 采样点总数</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> PCF(<span class="type">sampler2D</span> shadowMap, <span class="type">vec4</span> coords) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">float</span> blocker = <span class="number">0.0</span>;  <span class="comment">// 统计被遮挡的数量</span></span><br><span class="line">    <span class="type">float</span> stride = <span class="number">5.0</span>;</span><br><span class="line">    <span class="type">float</span> <span class="built_in">textureSize</span> = <span class="number">2048</span>;          <span class="comment">// 2048为生成的纹理的分辨率</span></span><br><span class="line">    poissonDiskSamples(coords.xy);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; NUM_SAMPLES; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">vec2</span> uvBias = poissonDisk[i] * stride / <span class="built_in">textureSize</span>;</span><br><span class="line">        <span class="type">float</span> shadowDepth = unpack(<span class="built_in">texture2D</span>(shadowMap, coords.xy + uvBias));</span><br><span class="line">        <span class="keyword">if</span>( coords.z &gt; shadowDepth + EPS)</span><br><span class="line">        &#123;</span><br><span class="line">            blocker++;</span><br><span class="line">        &#125;            </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">float</span> visibility = <span class="number">1.0</span> - blocker / <span class="type">float</span>(NUM_SAMPLES);</span><br><span class="line">    <span class="keyword">return</span> visibility;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> PCF(<span class="type">sampler2D</span> shadowMap, <span class="type">vec4</span> coords) </span><br><span class="line">{</span><br><span class="line">    <span class="type">float</span> blocker = <span class="number">0.0</span>;  <span class="comment">// 统计被遮挡的数量</span></span><br><span class="line">    <span class="type">float</span> stride = <span class="number">5.0</span>;</span><br><span class="line">    <span class="type">float</span> <span class="built_in">textureSize</span> = <span class="number">2048</span>;          <span class="comment">// 2048为生成的纹理的分辨率</span></span><br><span class="line">    poissonDiskSamples(coords.xy);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; NUM_SAMPLES; i++)</span><br><span class="line">    {</span><br><span class="line">        <span class="type">vec2</span> uvBias = poissonDisk[i] * stride / <span class="built_in">textureSize</span>;</span><br><span class="line">        <span class="type">float</span> shadowDepth = unpack(<span class="built_in">texture2D</span>(shadowMap, coords.xy + uvBias));</span><br><span class="line">        <span class="keyword">if</span>( coords.z &gt; shadowDepth + EPS)</span><br><span class="line">        {</span><br><span class="line">            blocker++;</span><br><span class="line">        }            </span><br><span class="line">    }</span><br><span class="line">    <span class="type">float</span> visibility = <span class="number">1.0</span> - blocker / <span class="type">float</span>(NUM_SAMPLES);</span><br><span class="line">    <span class="keyword">return</span> visibility;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <p>效果图如下:</p>
 <p><strong>【stride = 5  ， poissonDiskSamples】</strong></p>
-<p><img src="https://s2.loli.net/2022/09/09/x4orwOB5NUuF3WI.png" alt="image-20220908172843462" style="zoom:80%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/09/x4orwOB5NUuF3WI.png" alt="image-20220908172843462" style="zoom:80%;"></p>
 <p><strong>【stride = 5  ， uniformDiskSamples】</strong></p>
-<p><img src="https://s2.loli.net/2022/09/09/Hniud3a8PLIT9Nf.png" alt="image-20220908173106800" style="zoom:80%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/09/Hniud3a8PLIT9Nf.png" alt="image-20220908173106800" style="zoom:80%;"></p>
 <p><strong>【NUM_SAMPLES = 200， stride = 5 ，poissonDiskSamples】</strong></p>
-<p><img src="https://s2.loli.net/2022/09/09/LCSkYW5Fdvebpif.png" alt="image-20220908222730875" style="zoom:80%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/09/LCSkYW5Fdvebpif.png" alt="image-20220908222730875" style="zoom:80%;"></p>
 <h4 id="5、软阴影-PCSS"><a href="#5、软阴影-PCSS" class="headerlink" title="5、软阴影 PCSS"></a>5、软阴影 PCSS</h4><p>PCSS 依据现实当中观测到的物体产生的阴影离物体越近，就会感觉越阴影越”浓”，离物体越远，就会感觉阴影越”淡“，PCSS就是用来还原这一现象的，具体原理以及在上文提过，此处不再赘述。</p>
 <p><img src="https://s2.loli.net/2022/09/09/fwGibXOd8VQsSRl.png" alt="image-20220908173342602"></p>
 <p>有作业说明可知，PCSS要求完成 phongFragment.glsl 中的 findBlocker 和 PCSS 函数</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> findBlocker( <span class="type">sampler2D</span> shadowMap,  <span class="type">vec2</span> uv, <span class="type">float</span> zReceiver ) </span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1.0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> PCSS(<span class="type">sampler2D</span> shadowMap, <span class="type">vec4</span> coords)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// STEP 1: avgblocker depth，遮挡点以及其周围的遮挡点的平均深度</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// STEP 2: penumbra size，利用相似三角形的原理计算新的半影直径</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// STEP 3: filtering</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="number">1.0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> findBlocker( <span class="type">sampler2D</span> shadowMap,  <span class="type">vec2</span> uv, <span class="type">float</span> zReceiver ) </span><br><span class="line">{</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1.0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> PCSS(<span class="type">sampler2D</span> shadowMap, <span class="type">vec4</span> coords)</span><br><span class="line">{</span><br><span class="line">  <span class="comment">// STEP 1: avgblocker depth，遮挡点以及其周围的遮挡点的平均深度</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// STEP 2: penumbra size，利用相似三角形的原理计算新的半影直径</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// STEP 3: filtering</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="number">1.0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <p><strong>【findBlocker】</strong></p>
 <p>该函数需要完成对遮挡物平均深度的计算，同PCF一样，首先是用采样函数生成随机偏移数组，对于每一个偏移的 uv 坐标采样得到深度，将产生了遮挡的部分进行累加，然后计算得到被遮挡的平均深度。此处uv的偏移对结果影响较大，若选择的stride的值较小，则对于距离光源较远的部分而言，打到该部分上的光更容易被遮挡，从而影响平均遮挡深度的计算。若选择的stride的值较大，会造成顶点周围的平均遮挡深度相似，无法表现出距离越远阴影越模糊的效果。</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> findBlocker( <span class="type">sampler2D</span> shadowMap,  <span class="type">vec2</span> uv, <span class="type">float</span> zReceiver ) </span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 定义相关参数</span></span><br><span class="line">  <span class="type">float</span> blocker = <span class="number">0.0</span>;</span><br><span class="line">  <span class="type">float</span> blockDepth = <span class="number">0.0</span>;</span><br><span class="line">  <span class="type">float</span> <span class="built_in">textureSize</span> = <span class="number">2048.0</span>;</span><br><span class="line">  <span class="type">float</span> stride = <span class="number">5.0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 泊松采样</span></span><br><span class="line">  poissonDiskSamples(uv);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 对被遮挡的部分进行累加</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ;i &lt; NUM_SAMPLES; i++)</span><br><span class="line">  &#123;</span><br><span class="line">     <span class="type">vec2</span> uvBias = poissonDisk[i] * stride / <span class="built_in">textureSize</span>;</span><br><span class="line">     <span class="type">float</span> shadowDepth = unpack( <span class="built_in">texture2D</span>(shadowMap, uv + uvBias));</span><br><span class="line">     <span class="keyword">if</span>( shadowDepth + <span class="number">0.01</span> &lt;= zReceiver)</span><br><span class="line">     &#123;</span><br><span class="line">        <span class="comment">// 在阴影中</span></span><br><span class="line">        blocker++;</span><br><span class="line">        blockDepth += shadowDepth;</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>( blocker &lt; <span class="number">0.1</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1.0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="type">float</span> avgblocker = blockDepth / blocker;</span><br><span class="line">  <span class="keyword">return</span> avgblocker;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> findBlocker( <span class="type">sampler2D</span> shadowMap,  <span class="type">vec2</span> uv, <span class="type">float</span> zReceiver ) </span><br><span class="line">{</span><br><span class="line">  <span class="comment">// 定义相关参数</span></span><br><span class="line">  <span class="type">float</span> blocker = <span class="number">0.0</span>;</span><br><span class="line">  <span class="type">float</span> blockDepth = <span class="number">0.0</span>;</span><br><span class="line">  <span class="type">float</span> <span class="built_in">textureSize</span> = <span class="number">2048.0</span>;</span><br><span class="line">  <span class="type">float</span> stride = <span class="number">5.0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 泊松采样</span></span><br><span class="line">  poissonDiskSamples(uv);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 对被遮挡的部分进行累加</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ;i &lt; NUM_SAMPLES; i++)</span><br><span class="line">  {</span><br><span class="line">     <span class="type">vec2</span> uvBias = poissonDisk[i] * stride / <span class="built_in">textureSize</span>;</span><br><span class="line">     <span class="type">float</span> shadowDepth = unpack( <span class="built_in">texture2D</span>(shadowMap, uv + uvBias));</span><br><span class="line">     <span class="keyword">if</span>( shadowDepth + <span class="number">0.01</span> &lt;= zReceiver)</span><br><span class="line">     {</span><br><span class="line">        <span class="comment">// 在阴影中</span></span><br><span class="line">        blocker++;</span><br><span class="line">        blockDepth += shadowDepth;</span><br><span class="line">     }</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>( blocker &lt; <span class="number">0.1</span> )</span><br><span class="line">  {</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1.0</span>;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="type">float</span> avgblocker = blockDepth / blocker;</span><br><span class="line">  <span class="keyword">return</span> avgblocker;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <p><strong>【PCSS】</strong></p>
 <p>由相似三角形计算半影范围的公式:</p>
 <script type="math/tex; mode=display">
 W_{Penumbra} = W_{light} * \frac{(d_{Receiver} - d_{Blocker})}{d_{Blocker}}</script><p>具体代码如下:</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> PCSS(<span class="type">sampler2D</span> shadowMap, <span class="type">vec4</span> coords)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  <span class="type">float</span> w_Light = <span class="number">1.0</span>;</span><br><span class="line">  <span class="type">float</span> d_Receiver = coords.z;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// STEP 1: avgblocker depth</span></span><br><span class="line">  <span class="type">float</span> d_Blocker = findBlocker(shadowMap, coords.xy, coords.z);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// STEP 2: penumbra size 可根据公式计算得到</span></span><br><span class="line">  <span class="type">float</span> w_penumbra = w_Light * ( d_Receiver - d_Blocker ) / d_Blocker;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// STEP 3: filtering </span></span><br><span class="line">  <span class="comment">// 对上面的 PCF 进行一些变化: PCF 的uvBias不再固定，而是根据上面计算出来的半影直径动态地调整</span></span><br><span class="line">  <span class="comment">// 采样点距离遮挡点越远，其偏移半径越大</span></span><br><span class="line">  <span class="type">float</span> visibility = <span class="number">0.0</span>;</span><br><span class="line">  <span class="keyword">for</span>( <span class="type">int</span> i = <span class="number">0</span>; i &lt; NUM_SAMPLES ; i++)</span><br><span class="line">  &#123;</span><br><span class="line">      <span class="type">vec2</span> uvBias = poissonDisk[i] * <span class="number">10.0</span> / <span class="number">2048.0</span> * w_penumbra;</span><br><span class="line">      <span class="type">float</span> shadowDepth = unpack( <span class="built_in">texture2D</span>(shadowMap, coords.xy + uvBias ));</span><br><span class="line">      <span class="keyword">if</span>( coords.z &lt; (shadowDepth + <span class="number">0.01</span>) )</span><br><span class="line">      &#123;</span><br><span class="line">         visibility += <span class="number">1.0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> visibility / <span class="type">float</span>(NUM_SAMPLES);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> PCSS(<span class="type">sampler2D</span> shadowMap, <span class="type">vec4</span> coords)</span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">  <span class="type">float</span> w_Light = <span class="number">1.0</span>;</span><br><span class="line">  <span class="type">float</span> d_Receiver = coords.z;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// STEP 1: avgblocker depth</span></span><br><span class="line">  <span class="type">float</span> d_Blocker = findBlocker(shadowMap, coords.xy, coords.z);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// STEP 2: penumbra size 可根据公式计算得到</span></span><br><span class="line">  <span class="type">float</span> w_penumbra = w_Light * ( d_Receiver - d_Blocker ) / d_Blocker;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// STEP 3: filtering </span></span><br><span class="line">  <span class="comment">// 对上面的 PCF 进行一些变化: PCF 的uvBias不再固定，而是根据上面计算出来的半影直径动态地调整</span></span><br><span class="line">  <span class="comment">// 采样点距离遮挡点越远，其偏移半径越大</span></span><br><span class="line">  <span class="type">float</span> visibility = <span class="number">0.0</span>;</span><br><span class="line">  <span class="keyword">for</span>( <span class="type">int</span> i = <span class="number">0</span>; i &lt; NUM_SAMPLES ; i++)</span><br><span class="line">  {</span><br><span class="line">      <span class="type">vec2</span> uvBias = poissonDisk[i] * <span class="number">10.0</span> / <span class="number">2048.0</span> * w_penumbra;</span><br><span class="line">      <span class="type">float</span> shadowDepth = unpack( <span class="built_in">texture2D</span>(shadowMap, coords.xy + uvBias ));</span><br><span class="line">      <span class="keyword">if</span>( coords.z &lt; (shadowDepth + <span class="number">0.01</span>) )</span><br><span class="line">      {</span><br><span class="line">         visibility += <span class="number">1.0</span>;</span><br><span class="line">      }</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span> visibility / <span class="type">float</span>(NUM_SAMPLES);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <p><strong>效果图如下：</strong></p>
 <p>采样数为20，stride为10，可以看到噪声明显</p>
-<p><img src="https://s2.loli.net/2022/09/09/ytBURxIcKkAbweS.png" alt="image-20220909000312797" style="zoom: 67%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/09/ytBURxIcKkAbweS.png" alt="image-20220909000312797" style="zoom: 67%;"></p>
 <p>采样数为20，stride为10，可以看到噪声情况有明显改善</p>
-<p><img src="https://s2.loli.net/2022/09/09/MFJlwxGNScqaTCP.png" alt="image-20220909100245809" style="zoom:80%;" /></p>
-<p><img src="https://s2.loli.net/2022/09/09/OFA348qL1J6aByT.png" alt="image-20220909100316452" style="zoom: 67%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/09/MFJlwxGNScqaTCP.png" alt="image-20220909100245809" style="zoom:80%;"></p>
+<p><img src="https://s2.loli.net/2022/09/09/OFA348qL1J6aByT.png" alt="image-20220909100316452" style="zoom: 67%;"></p>
 <p>经过一番调参，在采样数为200的情况下，stride为25时效果较好</p>
-<p><img src="https://s2.loli.net/2022/09/09/UTZbXVF2CGSPNcq.png" alt="image-20220909100542134" style="zoom:67%;" /></p>
+<p><img src="https://s2.loli.net/2022/09/09/UTZbXVF2CGSPNcq.png" alt="image-20220909100542134" style="zoom:67%;"></p>
 
     </div>
 
@@ -420,6 +542,9 @@ W_{Penumbra} = W_{light} * \frac{(d_{Receiver} - d_{Blocker})}{d_{Blocker}}</scr
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CG/" rel="tag"># CG</a>
+          </div>
 
         
 
@@ -427,8 +552,8 @@ W_{Penumbra} = W_{light} * \frac{(d_{Receiver} - d_{Blocker})}{d_{Blocker}}</scr
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/09/10/%E3%80%90%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E3%80%91Ray%20Tracing%20in%20One%20Weekend/" rel="prev" title="">
-      <i class="fa fa-chevron-left"></i> 
+    <a href="/2022/09/10/%E3%80%90%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E3%80%91Ray%20Tracing%20in%20One%20Weekend/" rel="prev" title="【学习记录】Ray Tracing in One Weekend">
+      <i class="fa fa-chevron-left"></i> 【学习记录】Ray Tracing in One Weekend
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -625,6 +750,59 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
